@@ -1,0 +1,27 @@
+{
+  "name": "ev-charging-mock-reporting-data",
+  "version": "1.0.0",
+  "description": "Generator for mock data of Electric Vehicle charging",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "watch": "npx tsc -w"
+  },
+  "keywords": [],
+  "author": "David Herron <david@davidherron.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "commander": "^12.0.0",
+    "dayjs": "^1.11.10",
+    "duration-fns": "^3.0.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.17",
+    "@types/uuid": "^9.0.8",
+    "typescript": "^5.3.3"
+  }
+}
