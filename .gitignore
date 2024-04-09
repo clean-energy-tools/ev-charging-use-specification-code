@@ -1,4 +1,7 @@
 
+node/src/schemas/*.json
+node/src/types-evchargingspec/*.ts
+
 package-lock.json
 
 # Logs
