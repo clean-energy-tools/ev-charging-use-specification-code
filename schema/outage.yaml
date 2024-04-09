@@ -49,7 +49,10 @@ properties:
     outage_duration:
         description: |
             Duration of outage in minutes (including partial minutes)
-        type: number  # float(2)	default=no	part 680=yes
+        type: string  # float(2)	default=no	part 680=yes
+        format: regex
+        pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
+
 
     outage_cause:
         description: |

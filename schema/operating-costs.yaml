@@ -13,7 +13,8 @@ required:
     - repair_cost
     - electricity_cost
     - network_costs
-properties: # Test change
+additionalProperties: true
+properties:
 
     station_id:
         description: |

@@ -75,6 +75,7 @@ properties:
             always be equal to the difference between charge_start_datetime
             and charge_end_datetime due to charge interruptions or managed charging
         type: string # duration; // duration default=no	part 680=no
+        format: regex
         pattern: '^(-?)P(?=\d|T\d)(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)([DW]))?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$'
 
     energy_kwh:

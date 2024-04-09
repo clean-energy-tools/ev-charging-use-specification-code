@@ -13,12 +13,12 @@ const ajv = new Ajv.default({
 // addFormats.default(ajv);
 // addKeywords.default(ajv);
 
-import { OperatingCosts } from '../types-evchargingspec/operating-costs.js';
+import { Station } from '../types-evchargingspec/station.js';
 
-const _json = await fsp.readFile('../schemas/operating-costs.json', 'utf-8');
+const _json = await fsp.readFile('../schemas/station.json', 'utf-8');
 const _schema = JSON.parse(_json);
 
-const schema: JSONSchemaType<OperatingCosts> = _schema.definitions.OperatingCosts;
+const schema: JSONSchemaType<Station> = _schema.definitions.Station;
 
 const validate = ajv.compile(schema);
 
@@ -27,7 +27,7 @@ type errorResult = {
     errors?: any[];
 }
 
-export function serializeOperatingCosts(data: OperatingCosts): errorResult {
+export function serializeStation(data: Station): errorResult {
     if (validate(data)) {
         return { result: JSON.stringify(data) };
     } else {
@@ -39,7 +39,7 @@ export function serializeOperatingCosts(data: OperatingCosts): errorResult {
     }
 }
 
-export function validateOperatingCosts(data: OperatingCosts): boolean {
+export function validateStation(data: Station): boolean {
     if (validate(data)) {
         return true;
     } else {
@@ -47,9 +47,9 @@ export function validateOperatingCosts(data: OperatingCosts): boolean {
     }
 }
 
-export function parseJSONOperatingCosts(data: string): OperatingCosts | undefined {
+export function parseJSONStation(data: string): Station | undefined {
     if (data && typeof data === 'string') {
-        const ret: OperatingCosts = JSON.parse(data);
+        const ret: Station = JSON.parse(data);
         if (validate(ret)) {
             return ret;
         } else {
