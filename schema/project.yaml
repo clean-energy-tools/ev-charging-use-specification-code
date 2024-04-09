@@ -1,0 +1,198 @@
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://example.com/project.schema.json"
+title: "Project"
+description: "A product in the catalog"
+type: "object"
+required:
+    - project_id
+    - station_id
+    - org_name
+    - org_address
+    - org_city
+    - org_state
+    - org_zip
+    - poc_email
+    - poc_first_name
+    - poc_last_name
+    - project_award_date
+    - primary_funding_source
+    - primary_funding
+    - utility_makeready
+    - utility_funding_other
+    - other_makeready
+    - other_funding_other
+    - cost_share
+    - equipment_cost
+    - install_cost
+    - property_cost
+    - der_equipment_cost
+    - der_install_cost
+    - distribution_costs
+    - service_costs
+    - dac_type
+    - in_dac
+    - dac_proximate
+    - total_power
+properties:
+    project_id: 
+        description: "Unique identification code specific to individual funding application or contract. Project ID is supplied by [Department] upon approval of funding."
+        type: "string"
+        # default=yes part 680=yes
+
+    station_id: 
+        description: "Unique identity specific to the physical location of the station (site) funded by the project. Station ID must be same as the permanent station identifier provided to third parties pursuant to CFR 23 § 680.116(c)(1)."
+        type: "string"
+        # default=yes part 680=yes
+
+    org_name:
+        description: "Organization name of the obligated party."
+        type: string
+        # default=yes	part 680=no
+
+    org_address:
+        description: Street address of obligated party.
+        type: string
+        # default=yes	part 680=no
+
+    org_city:
+        description: City of obligated party.
+        type: string
+        # default=yes	part 680=no
+
+    org_state:
+        description: Valid state code of obligated party.
+        type: string
+        # default=yes	part 680=no
+
+    org_zip:
+        description: |
+            Valid ZIP Code of entity responsible for operation 
+            and maintenance of the of the funded charging station.
+        type: string
+        # default=yes	part 680=no
+
+    poc_email:
+        description: Obligated party point of contact valid email address
+        type: string
+        # default=yes	part 680=no
+
+    poc_first_name:
+        description: Obligated party point of contact first name
+        type: string
+        # default=yes	part 680=no
+
+    poc_last_name:
+        description: Obligated party point of contact last name
+        type: string
+        # default=yes	part 680=no
+
+    project_award_date:
+        description: Date when project funding was awarded
+        type: string
+        format: date-time
+        # default=yes	part 680=no
+
+    primary_funding_source:
+        description: Primary public funding source for the project/application
+        type: string
+        # default=yes	part 680=no
+
+    primary_funding:
+        description: |
+            Total funding (in USD) station received from the primary funding source dedicated
+            to station deployment. (should not include any funding for station operation costs)
+        type: number   # cost; /*	float(2) */ // default=yes	part 680=no
+
+    utility_makeready:
+        description: |
+            Total funding (in USD) the project received from electric utilities
+            dedicated to infrastructure make-ready
+        type: number    # cost; /*	float(2) */ // default=yes	part 680=no
+
+    utility_funding_other:
+        description: |
+            Total funding (in USD) the project received from utility for equipment
+            or other non-make-ready costs (should not include any funding for operational costs)
+        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+
+    other_makeready:
+        description: |
+            Total funding (in USD) other public funding received dedicated to infrastructure make-ready
+        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+
+    other_funding_other:
+        description: |
+            Amount of other public funding project received for equipment
+            or other non-make-ready costs (should not include any funding for operational costs)
+        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+
+    cost_share:
+        description: |
+            Funding amount project has received from other (private,
+            non-utility) sources when combined with primary_funding
+            and utility_funding and other_public_funding equals
+            the total cost of the charging installation
+        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+
+    equipment_cost:
+        description: Cost (in USD) to acquire funded charging equipment.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    install_cost:
+        description: |
+            Cost (in USD) for all labor and materials costs (including electrical equipment)
+            necessary to necessary to install charging equipment.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    property_cost:
+        description: |
+            Cost (in USD) to acquire real property on which to install funded chargers.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    der_equipment_cost:
+        description: |
+            Cost (in USD) to acquire distributed energy resource equipment.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    der_install_cost:
+        description: |
+            Cost (in USD) for all labor and materials costs (including electrical equipment)
+            necessary to install distributed energy resources equipment.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    distribution_costs:
+        description: |
+            Cost (in USD) of contributions in aid of construction for line extensions
+            and upgrades necessary to install chargers.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    service_costs:
+        description: |
+            Cost (in USD) of contributions in aid of construction for service upgrade
+            costs for customer transformers, poles, meters, and other utility service
+            equipment necessary to install chargers.
+        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+
+    dac_type:
+        description: |
+            Method, model or program definition of disadvantaged community.
+            For example CEJST 1.0.
+        type: string # default=no	part 680=no
+
+    in_dac:
+        description: Project is located inside of disadvantaged community as specified by dac_type.
+        type: boolean # default=no	part 680=no
+
+    dac_proximate:
+        description: |
+            Project is located within a program specified distance from disadvantaged community
+            as as specified by dac_type.
+        type: boolean # default=no	part 680=no
+
+    total_power:
+        description: |
+            The total charger power capacity (in kW) deployed by the project 
+            - if charging equipment share power supplies, only the maximum
+            simulataneous power output should be reported.
+        type: number # float	default=no	part 680=no

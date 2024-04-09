@@ -1,0 +1,31 @@
+{
+  "name": "schema",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npx npm-run-all gen schema",
+    "gen": "npx npm-run-all gen:costs gen:data gen:outage gen:project gen:station gen:uptime",
+    "gen:costs": "npx quicktype -s schema ./operating-costs.yaml --out ../node/src/types-evchargingspec/operating-costs.ts --just-types",
+    "gen:data": "npx quicktype -s schema ./operating-data.yaml --out ../node/src/types-evchargingspec/operating-data.ts --just-types",
+    "gen:outage": "npx quicktype -s schema ./outage.yaml --out ../node/src/types-evchargingspec/outage.ts --just-types",
+    "gen:project": "npx quicktype -s schema ./project.yaml --out ../node/src/types-evchargingspec/project.ts --just-types",
+    "gen:station": "npx quicktype -s schema ./station.yaml --out ../node/src/types-evchargingspec/station.ts --just-types",
+    "gen:uptime": "npx quicktype -s schema ./uptime.yaml --out ../node/src/types-evchargingspec/uptime.ts --just-types",
+    "schema": "npx npm-run-all schema:costs schema:data schema:outage schema:project schema:station schema:uptime",
+    "schema:costs": "npx quicktype --src-lang schema operating-costs.yaml --lang schema --out ../node/src/schemas/operating-costs.json",
+    "schema:data": "npx quicktype --src-lang schema operating-data.yaml --lang schema --out ../node/src/schemas/operating-data.json",
+    "schema:outage": "npx quicktype --src-lang schema outage.yaml --lang schema --out ../node/src/schemas/outage.json",
+    "schema:project": "npx quicktype --src-lang schema project.yaml --lang schema --out ../node/src/schemas/project.json",
+    "schema:station": "npx quicktype --src-lang schema station.yaml --lang schema --out ../node/src/schemas/station.json",
+    "schema:uptime": "npx quicktype --src-lang schema uptime.yaml --lang schema --out ../node/src/schemas/uptime.json",
+    "watch": "npx nodemon --watch ./operating-costs.yaml --watch ./operating-data.yaml --watch ./outage.yaml --watch ./project.yaml --watch ./station.yaml --watch ./uptime.yaml --exec 'npm run build'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.0",
+    "npm-run-all": "^4.1.5",
+    "quicktype": "^23.0.115"
+  }
+}
