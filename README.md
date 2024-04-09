@@ -9,5 +9,5 @@ A common reporting standard means each reporting agency can require reports in t
 
 # Project Contents
 
-[`schema/`](./schema/README.md) - JSON Schema definition
-[`node/`](./node/README.md) -- Module for Node.js implementing the schemas
+* [`schema/`](./schema/README.md) - JSON Schema definition
+* [`node/`](./node/README.md) -- Module for Node.js implementing the schemas
