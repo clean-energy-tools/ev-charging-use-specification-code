@@ -13,14 +13,45 @@ const ajv = new Ajv.default({
 // addKeywords.default(ajv);
 
 import { OperatingCosts } from '../types-evchargingspec/operating-costs.js';
-import { serializerJSON, validator, parserJSON, readJSONSchema } from './common.js';
+import {
+        serializor, serializorOptions,
+        validator,
+        parserJSON,
+        readJSONSchema
+} from './common.js';
 
 const _schema = await readJSONSchema('../schemas/operating-costs.json');
 const schema: JSONSchemaType<OperatingCosts> = _schema.definitions.OperatingCosts;
-const validate = ajv.compile(schema);
+const validate = ajv.compile<OperatingCosts>(schema);
 
-export const serializeJSONOperatingCosts = (data: OperatingCosts) => {
-    return serializerJSON<OperatingCosts>(data, validate);
+export const serializeOperatingCosts = (
+        data: OperatingCosts, options?: serializorOptions
+) => {
+    const _options: serializorOptions =
+        (typeof options !== 'undefined')
+        ? options
+        : {} as any;
+
+    if (typeof _options.format === 'undefined') _options.format = 'JSON';
+
+    if (_options.format === 'CSV') {
+        if (!('columns' in _options
+            && Array.isArray(_options.columns))
+        ) {
+            _options.columns = [
+                { key: 'station_id' },
+                { key: 'oc_period_start' },
+                { key: 'oc_period_end' },
+                { key: 'oc_year' },
+                { key: 'station_mr' },
+                { key: 'maintenance_cost' },
+                { key: 'repair_cost' },
+                { key: 'electricity_cost' },
+                { key: 'network_costs' },
+            ];
+        }
+    }
+    return serializor<OperatingCosts>(data, validate, _options);
 };
 
 export const validateOperatingCosts  = (data: OperatingCosts) => {

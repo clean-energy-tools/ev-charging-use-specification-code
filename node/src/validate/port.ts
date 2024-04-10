@@ -13,15 +13,64 @@ const ajv = new Ajv.default({
 // addKeywords.default(ajv);
 
 import { Port } from '../types-evchargingspec/port.js';
-
-import { serializerJSON, validator, parserJSON, readJSONSchema } from './common.js';
+import {
+    serializor, serializorOptions,
+    validator,
+    parserJSON,
+    readJSONSchema
+} from './common.js';
 
 const _schema = await readJSONSchema('../schemas/port.json');
 const schema: JSONSchemaType<Port> = _schema.definitions.Port;
-const validate = ajv.compile(schema);
+const validate = ajv.compile<Port>(schema);
 
-export const serializeJSONPort = (data: Port) => {
-    return serializerJSON<Port>(data, validate);
+export const serializePort = (
+    data: Port, options?: serializorOptions
+) => {
+    const _options: serializorOptions =
+        (typeof options !== 'undefined')
+        ? options
+        : {} as any;
+
+    if (typeof _options.format === 'undefined') _options.format = 'JSON';
+
+    if (_options.format === 'CSV') {
+        if (!('columns' in _options
+            && Array.isArray(_options.columns))
+        ) {
+            _options.columns = [
+                { key: 'port_id' },
+                { key: 'project_id' },
+                { key: 'station_id' },
+                { key: 'data_provider_org' },
+                { key: 'data_provider_poc_email' },
+                { key: 'is_active' },
+                { key: 'power_level_kw' },
+                { key: 'port_latitude' },
+                { key: 'port_longitude' },
+                { key: 'station_activation_date' },
+                { key: 'charger_type' },
+                { key: 'connector_type' },
+                { key: 'energy_fee' },
+                { key: 'session_fee' },
+                { key: 'time_fee' },
+                { key: 'parking_fee' },
+                { key: 'idle_fee' },
+                { key: 'operating_hours' },
+                { key: 'equipment_manufacturer' },
+                { key: 'model_number' },
+                { key: 'equipment_serial' },
+                { key: 'data_provider_poc_last' },
+                { key: 'data_provider_poc_first' },
+                { key: 'network' },
+                { key: 'network_contact' },
+                { key: 'evse_manufacturer' },
+                { key: 'trailer_accessible' },
+                { key: 'payments_accepted' },
+            ];
+        }
+    }
+    return serializor<Port>(data, validate, _options);
 };
 
 export const validatePort  = (data: Port) => {
