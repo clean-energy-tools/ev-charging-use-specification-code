@@ -1,5 +1,4 @@
 
-import { promises as fsp } from 'node:fs';
 import Ajv, { JSONSchemaType, DefinedError } from "ajv";
 import addFormats from "ajv-formats";
 import addKeywords from 'ajv-keywords';
@@ -14,49 +13,19 @@ const ajv = new Ajv.default({
 // addKeywords.default(ajv);
 
 import { Station } from '../types-evchargingspec/station.js';
-
-const _json = await fsp.readFile('../schemas/station.json', 'utf-8');
-const _schema = JSON.parse(_json);
-
+import { serializerJSON, validator, parserJSON, readJSONSchema } from './common.js';
+const _schema = await readJSONSchema('../schemas/station.json');
 const schema: JSONSchemaType<Station> = _schema.definitions.Station;
-
 const validate = ajv.compile(schema);
 
-type errorResult = {
-    result?: string;
-    errors?: any[];
-}
+export const serializeJSONStation = (data: Station) => {
+    return serializerJSON<Station>(data, validate);
+};
 
-export function serializeStation(data: Station): errorResult {
-    if (validate(data)) {
-        return { result: JSON.stringify(data) };
-    } else {
-        if (validate.errors) {
-            return { errors: validate.errors };
-        } else {
-            return { errors: [ 'UNKNOWN ERROR' ]};
-        }
-    }
-}
+export const validateStation  = (data: Station) => {
+    return validator<Station>(data, validate);
+};
 
-export function validateStation(data: Station): boolean {
-    if (validate(data)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-export function parseJSONStation(data: string): Station | undefined {
-    if (data && typeof data === 'string') {
-        const ret: Station = JSON.parse(data);
-        if (validate(ret)) {
-            return ret;
-        } else {
-            // TODO how to indicate the errors
-            return undefined;
-        }
-    } else {
-        return undefined;
-    }
-}
+export const parseJSONStation = (data: string) => {
+    return parserJSON<Station>(data, validate);
+};

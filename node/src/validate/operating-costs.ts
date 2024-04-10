@@ -1,5 +1,4 @@
 
-import { promises as fsp } from 'node:fs';
 import Ajv, { JSONSchemaType, DefinedError } from "ajv";
 import addFormats from "ajv-formats";
 import addKeywords from 'ajv-keywords';
@@ -14,49 +13,20 @@ const ajv = new Ajv.default({
 // addKeywords.default(ajv);
 
 import { OperatingCosts } from '../types-evchargingspec/operating-costs.js';
+import { serializerJSON, validator, parserJSON, readJSONSchema } from './common.js';
 
-const _json = await fsp.readFile('../schemas/operating-costs.json', 'utf-8');
-const _schema = JSON.parse(_json);
-
+const _schema = await readJSONSchema('../schemas/operating-costs.json');
 const schema: JSONSchemaType<OperatingCosts> = _schema.definitions.OperatingCosts;
-
 const validate = ajv.compile(schema);
 
-type errorResult = {
-    result?: string;
-    errors?: any[];
-}
+export const serializeJSONOperatingCosts = (data: OperatingCosts) => {
+    return serializerJSON<OperatingCosts>(data, validate);
+};
 
-export function serializeOperatingCosts(data: OperatingCosts): errorResult {
-    if (validate(data)) {
-        return { result: JSON.stringify(data) };
-    } else {
-        if (validate.errors) {
-            return { errors: validate.errors };
-        } else {
-            return { errors: [ 'UNKNOWN ERROR' ]};
-        }
-    }
-}
+export const validateOperatingCosts  = (data: OperatingCosts) => {
+    return validator<OperatingCosts>(data, validate);
+};
 
-export function validateOperatingCosts(data: OperatingCosts): boolean {
-    if (validate(data)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-export function parseJSONOperatingCosts(data: string): OperatingCosts | undefined {
-    if (data && typeof data === 'string') {
-        const ret: OperatingCosts = JSON.parse(data);
-        if (validate(ret)) {
-            return ret;
-        } else {
-            // TODO how to indicate the errors
-            return undefined;
-        }
-    } else {
-        return undefined;
-    }
-}
+export const parseJSONOperatingCosts = (data: string) => {
+    return parserJSON<OperatingCosts>(data, validate);
+};
