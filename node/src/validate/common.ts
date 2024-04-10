@@ -44,8 +44,22 @@ export type serializorOptions = {
  * @param options Serialization options
  * @returns
  */
-export function serializor<T>(data: T, validator: Ajv.ValidateFunction<T>, options: serializorOptions): errorResult {
-    if (validator(data)) {
+export function serializor<T>(data: T | Array<T>, validator: Ajv.ValidateFunction<T>, options: serializorOptions): errorResult {
+    let validated = false;
+    if (Array.isArray(data)) {
+        for (const datum of data) {
+            if (!validator(datum)) {
+                validated = false;
+                break;
+            }
+        }
+        validated = true;
+    } else {
+        if (validator(data)) {
+            validated = true;
+        }
+    }
+    if (validated) {
         if (options.format === 'CSV') {
             const _options: any = {};
             if ('headers' in options && options.headers === true) {

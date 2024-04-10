@@ -25,7 +25,7 @@ const schema: JSONSchemaType<Port> = _schema.definitions.Port;
 const validate = ajv.compile<Port>(schema);
 
 export const serializePort = (
-    data: Port, options?: serializorOptions
+    data: Port | Array<Port>, options?: serializorOptions
 ) => {
     const _options: serializorOptions =
         (typeof options !== 'undefined')

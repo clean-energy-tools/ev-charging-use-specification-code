@@ -25,7 +25,7 @@ const schema: JSONSchemaType<Session> = _schema.definitions.Session;
 const validate = ajv.compile<Session>(schema);
 
 export const serializeSession = (
-    data: Session, options?: serializorOptions
+    data: Session | Array<Session>, options?: serializorOptions
 ) => {
     const _options: serializorOptions =
         (typeof options !== 'undefined')

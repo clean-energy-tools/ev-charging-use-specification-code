@@ -25,7 +25,7 @@ const schema: JSONSchemaType<Outage> = _schema.definitions.Outage;
 const validate = ajv.compile<Outage>(schema);
 
 export const serializeOutage = (
-    data: Outage, options?: serializorOptions
+    data: Outage | Array<Outage>, options?: serializorOptions
 ) => {
 
     const _options: serializorOptions =

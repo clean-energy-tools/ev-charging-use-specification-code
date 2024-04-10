@@ -25,7 +25,8 @@ const schema: JSONSchemaType<OperatingCosts> = _schema.definitions.OperatingCost
 const validate = ajv.compile<OperatingCosts>(schema);
 
 export const serializeOperatingCosts = (
-        data: OperatingCosts, options?: serializorOptions
+        data: OperatingCosts | Array<OperatingCosts>,
+        options?: serializorOptions
 ) => {
     const _options: serializorOptions =
         (typeof options !== 'undefined')

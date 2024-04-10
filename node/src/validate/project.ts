@@ -25,7 +25,7 @@ const schema: JSONSchemaType<Project> = _schema.definitions.Project;
 const validate = ajv.compile<Project>(schema);
 
 export const serializeProject = (
-    data: Project, options?: serializorOptions
+    data: Project | Array<Project>, options?: serializorOptions
 ) => {
     const _options: serializorOptions =
         (typeof options !== 'undefined')

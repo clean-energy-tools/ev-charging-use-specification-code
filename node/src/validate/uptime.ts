@@ -25,7 +25,7 @@ const schema: JSONSchemaType<Uptime> = _schema.definitions.Uptime;
 const validate = ajv.compile<Uptime>(schema);
 
 export const serializeUptime = (
-    data: Uptime, options?: serializorOptions
+    data: Uptime | Array<Uptime>, options?: serializorOptions
 ) => {
     const _options: serializorOptions =
         (typeof options !== 'undefined')
