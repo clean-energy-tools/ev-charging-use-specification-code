@@ -1,5 +1,5 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://example.com/operating-data.schema.json"
+$id: "https://example.com/session.schema.json"
 title: "Operating Data"
 description: "A product in the catalog"
 type: "object"
@@ -13,7 +13,7 @@ required:
     - session_duration
     - charging_duration
     - energy_kwh
-    - peak_kwh
+    - peak_kw
     - total_fee_charged
     - energy_fee
     - session_fee
