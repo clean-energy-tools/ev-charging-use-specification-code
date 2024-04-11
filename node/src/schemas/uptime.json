@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Uptime",
+    "definitions": {
+        "Uptime": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+                "outage_excluded": {
+                    "type": "number",
+                    "description": "Total number of excluded outage minutes (including partial minutes)\nfor Port ID in uptime period or Report Year and Month.\n(For NEVI or other Part 680 project, calculated\nin accordance with CFR 23 § 680.116(b))."
+                },
+                "outage_total": {
+                    "type": "number",
+                    "description": "Total number of outage minutes (including partial minutes)\nfor Port ID in in uptime period or Report Year and Month.\nFor NEVI or other Part 680 project, calculated\nin accordance with CFR 23 § 680.116(b))."
+                },
+                "port_id": {
+                    "type": "string",
+                    "description": "Unique identifier for specified port. (For NEVI or other Part 680 project,\nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)"
+                },
+                "report_yr_mon": {
+                    "type": "string",
+                    "pattern": "^[0-9][0-9][0-9][0-9][0-9][0-9]$",
+                    "description": "Year and month of uptime summary in YYYYMM format\nif reported monthly (as required by part 680)"
+                },
+                "station_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the station where specific port is located.\n(For NEVI or other Part 680 project, station_id must be same as\nthe permanent station identifier provided to third parties pursuant\nto CFR 23 § 680.116(c)(1))."
+                },
+                "uptime_pct": {
+                    "type": "number",
+                    "description": "Uptime percentage (between 0-100) for Port ID in uptime period\nor Report Year and Month. (For NEVI or other Part 680 project,\ncalculated in accordance with CFR 23 § 680.116(b))."
+                },
+                "uptime_period_end": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "End date of uptime reporting period."
+                },
+                "uptime_period_start": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Start date of uptime reporting period."
+                }
+            },
+            "required": [
+                "outage_excluded",
+                "outage_total",
+                "port_id",
+                "report_yr_mon",
+                "station_id",
+                "uptime_pct",
+                "uptime_period_end",
+                "uptime_period_start"
+            ],
+            "title": "Uptime",
+            "description": "A product in the catalog"
+        }
+    }
+}

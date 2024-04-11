@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/OperatingCosts",
+    "definitions": {
+        "OperatingCosts": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+                "electricity_cost": {
+                    "type": "number",
+                    "description": "Total amount paid (in USD) for station electricity use during reporting period\n(estimated if station is not individually metered)"
+                },
+                "maintenance_cost": {
+                    "type": "number",
+                    "description": "Total amount paid (in USD) for maintenance costs during reporting period or year"
+                },
+                "network_costs": {
+                    "type": "number",
+                    "description": "Total amount paid (in USD) associated with network access,\nincluding network service fees, communications costs,\ntransaction fees, etc."
+                },
+                "oc_period_end": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "End date of operations costs reporting period"
+                },
+                "oc_period_start": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Start date of operations costs reporting period"
+                },
+                "oc_year": {
+                    "type": "string",
+                    "pattern": "^[0-9][0-9][0-9][0-9]$",
+                    "description": "Year of operating cost (if reported annually)"
+                },
+                "repair_cost": {
+                    "type": "number",
+                    "description": "Total amount paid (in USD) for repair costs during reporting period of year"
+                },
+                "station_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the station where specific port is located.\n(For NEVI or other Part 680 project, station_id must be same as\nthe permanent station identifier provided to third parties pursuant\nto CFR 23 § 680.116(c)(1))."
+                },
+                "station_mr": {
+                    "type": "number",
+                    "description": "Total maintanence and repair cost incurred (in USD) in reporting period or year"
+                }
+            },
+            "required": [
+                "electricity_cost",
+                "maintenance_cost",
+                "network_costs",
+                "oc_period_end",
+                "oc_period_start",
+                "oc_year",
+                "repair_cost",
+                "station_id",
+                "station_mr"
+            ],
+            "title": "OperatingCosts",
+            "description": "A product in the catalog"
+        }
+    }
+}

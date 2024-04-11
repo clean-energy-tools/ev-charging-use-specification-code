@@ -1,0 +1,143 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Session",
+    "definitions": {
+        "Session": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+                "charge_end_datetime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Charging end date time"
+                },
+                "charge_start_datetime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time when charging began"
+                },
+                "charging_duration": {
+                    "type": "string",
+                    "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
+                    "description": "Total duration of time when electricity was actively dispensed - may not\nalways be equal to the difference between charge_start_datetime\nand charge_end_datetime due to charge interruptions or managed charging"
+                },
+                "end_soc": {
+                    "type": "number",
+                    "description": "Battery state of charge at session end represented as a decimal between 0 and 1"
+                },
+                "ended_by": {
+                    "type": "string",
+                    "description": "Cause of the session to end (e.g., unplugged while charging)."
+                },
+                "energy_fee": {
+                    "type": "number",
+                    "description": "Fee (in USD) charged to user per kilowatt-hour"
+                },
+                "energy_kwh": {
+                    "type": "number",
+                    "description": "Electricity dispensed (in kilowatt-hours) during charging session"
+                },
+                "error_code": {
+                    "type": "string",
+                    "description": "Session error code(s) if any. Separated by comma if multiple."
+                },
+                "payment_type": {
+                    "$ref": "#/definitions/PaymentType",
+                    "description": "Valid Payment Type"
+                },
+                "peak_kw": {
+                    "type": "number",
+                    "description": "Session maximum power delivery (in kilowatts)"
+                },
+                "plug_end_datetime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of session termination (plug out)"
+                },
+                "plug_start_datetime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time of session initialization (plug in)"
+                },
+                "port_id": {
+                    "type": "string",
+                    "description": "Unique identifier for specified port. (For NEVI or other Part 680 project,\nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)"
+                },
+                "session_duration": {
+                    "type": "string",
+                    "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
+                    "description": "Total duration of session (plug in to plug out)"
+                },
+                "session_fee": {
+                    "type": "number",
+                    "description": "Fee (in USD) charged to user per session"
+                },
+                "session_id": {
+                    "type": "string",
+                    "description": "Unique identifier for session record"
+                },
+                "start_soc": {
+                    "type": "number",
+                    "description": "Battery state of charge at session start represented as a decimal between 0 and 1"
+                },
+                "successful_completion": {
+                    "type": "boolean",
+                    "description": "Whether or not the session ended as expected"
+                },
+                "time_fee": {
+                    "type": "number",
+                    "description": "Fee (in USD) charged to users per minute"
+                },
+                "total_fee_charged": {
+                    "type": "number",
+                    "description": "The amount charged to the EV driver (in USD) where applicable - zero\nif driver was not charged for an otherwise paid charger, NULL if charger is not paid"
+                },
+                "user_id": {
+                    "type": "string",
+                    "description": "Anonymized network-specific unique user ID"
+                },
+                "peak_kwh": {}
+            },
+            "required": [
+                "charge_end_datetime",
+                "charge_start_datetime",
+                "charging_duration",
+                "end_soc",
+                "ended_by",
+                "energy_fee",
+                "energy_kwh",
+                "error_code",
+                "payment_type",
+                "peak_kwh",
+                "plug_end_datetime",
+                "plug_start_datetime",
+                "port_id",
+                "session_duration",
+                "session_fee",
+                "session_id",
+                "start_soc",
+                "successful_completion",
+                "time_fee",
+                "total_fee_charged",
+                "user_id"
+            ],
+            "title": "Session",
+            "description": "A product in the catalog"
+        },
+        "PaymentType": {
+            "type": "string",
+            "enum": [
+                "cash",
+                "credit_card_terminal",
+                "membership",
+                "application",
+                "phone",
+                "plug-charge",
+                "roaming",
+                "other"
+            ],
+            "title": "PaymentType",
+            "description": "Valid Payment Type\n"
+        }
+    }
+}

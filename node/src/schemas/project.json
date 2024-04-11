@@ -1,0 +1,162 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Project",
+    "definitions": {
+        "Project": {
+            "type": "object",
+            "additionalProperties": {},
+            "properties": {
+                "cost_share": {
+                    "type": "number",
+                    "description": "Funding amount project has received from other (private,\nnon-utility) sources when combined with primary_funding\nand utility_funding and other_public_funding equals\nthe total cost of the charging installation"
+                },
+                "dac_proximate": {
+                    "type": "boolean",
+                    "description": "Project is located within a program specified distance from disadvantaged community\nas as specified by dac_type."
+                },
+                "dac_type": {
+                    "type": "string",
+                    "description": "Method, model or program definition of disadvantaged community.\nFor example CEJST 1.0."
+                },
+                "der_equipment_cost": {
+                    "type": "number",
+                    "description": "Cost (in USD) to acquire distributed energy resource equipment."
+                },
+                "der_install_cost": {
+                    "type": "number",
+                    "description": "Cost (in USD) for all labor and materials costs (including electrical equipment)\nnecessary to install distributed energy resources equipment."
+                },
+                "distribution_costs": {
+                    "type": "number",
+                    "description": "Cost (in USD) of contributions in aid of construction for line extensions\nand upgrades necessary to install chargers."
+                },
+                "equipment_cost": {
+                    "type": "number",
+                    "description": "Cost (in USD) to acquire funded charging equipment."
+                },
+                "in_dac": {
+                    "type": "boolean",
+                    "description": "Project is located inside of disadvantaged community as specified by dac_type."
+                },
+                "install_cost": {
+                    "type": "number",
+                    "description": "Cost (in USD) for all labor and materials costs (including electrical equipment)\nnecessary to necessary to install charging equipment."
+                },
+                "org_address": {
+                    "type": "string",
+                    "description": "Street address of obligated party."
+                },
+                "org_city": {
+                    "type": "string",
+                    "description": "City of obligated party."
+                },
+                "org_name": {
+                    "type": "string",
+                    "description": "Organization name of the obligated party."
+                },
+                "org_state": {
+                    "type": "string",
+                    "description": "Valid state code of obligated party."
+                },
+                "org_zip": {
+                    "type": "string",
+                    "description": "Valid ZIP Code of entity responsible for operation\nand maintenance of the of the funded charging station."
+                },
+                "other_funding_other": {
+                    "type": "number",
+                    "description": "Amount of other public funding project received for equipment\nor other non-make-ready costs (should not include any funding for operational costs)"
+                },
+                "other_makeready": {
+                    "type": "number",
+                    "description": "Total funding (in USD) other public funding received dedicated to infrastructure\nmake-ready"
+                },
+                "poc_email": {
+                    "type": "string",
+                    "description": "Obligated party point of contact valid email address"
+                },
+                "poc_first_name": {
+                    "type": "string",
+                    "description": "Obligated party point of contact first name"
+                },
+                "poc_last_name": {
+                    "type": "string",
+                    "description": "Obligated party point of contact last name"
+                },
+                "primary_funding": {
+                    "type": "number",
+                    "description": "Total funding (in USD) station received from the primary funding source dedicated\nto station deployment. (should not include any funding for station operation costs)"
+                },
+                "primary_funding_source": {
+                    "type": "string",
+                    "description": "Primary public funding source for the project/application"
+                },
+                "project_award_date": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date when project funding was awarded"
+                },
+                "project_id": {
+                    "type": "string",
+                    "description": "Unique identification code specific to individual funding application or contract.\nProject ID is supplied by [Department] upon approval of funding."
+                },
+                "property_cost": {
+                    "type": "number",
+                    "description": "Cost (in USD) to acquire real property on which to install funded chargers."
+                },
+                "service_costs": {
+                    "type": "number",
+                    "description": "Cost (in USD) of contributions in aid of construction for service upgrade\ncosts for customer transformers, poles, meters, and other utility service\nequipment necessary to install chargers."
+                },
+                "station_id": {
+                    "type": "string",
+                    "description": "Unique identity specific to the physical location of the station (site) funded by the\nproject. Station ID must be same as the permanent station identifier provided to third\nparties pursuant to CFR 23 § 680.116(c)(1)."
+                },
+                "total_power": {
+                    "type": "number",
+                    "description": "The total charger power capacity (in kW) deployed by the project\n- if charging equipment share power supplies, only the maximum\nsimulataneous power output should be reported."
+                },
+                "utility_funding_other": {
+                    "type": "number",
+                    "description": "Total funding (in USD) the project received from utility for equipment\nor other non-make-ready costs (should not include any funding for operational costs)"
+                },
+                "utility_makeready": {
+                    "type": "number",
+                    "description": "Total funding (in USD) the project received from electric utilities\ndedicated to infrastructure make-ready"
+                }
+            },
+            "required": [
+                "cost_share",
+                "dac_proximate",
+                "dac_type",
+                "der_equipment_cost",
+                "der_install_cost",
+                "distribution_costs",
+                "equipment_cost",
+                "in_dac",
+                "install_cost",
+                "org_address",
+                "org_city",
+                "org_name",
+                "org_state",
+                "org_zip",
+                "other_funding_other",
+                "other_makeready",
+                "poc_email",
+                "poc_first_name",
+                "poc_last_name",
+                "primary_funding",
+                "primary_funding_source",
+                "project_award_date",
+                "project_id",
+                "property_cost",
+                "service_costs",
+                "station_id",
+                "total_power",
+                "utility_funding_other",
+                "utility_makeready"
+            ],
+            "title": "Project",
+            "description": "A product in the catalog"
+        }
+    }
+}
