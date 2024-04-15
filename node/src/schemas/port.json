@@ -1,193 +1,158 @@
 {
-    "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Port",
-    "definitions": {
-        "Port": {
-            "type": "object",
-            "additionalProperties": {},
-            "properties": {
-                "charger_type": {
-                    "$ref": "#/definitions/ChargerType",
-                    "description": "Charging station type (level)"
-                },
-                "connector_type": {
-                    "$ref": "#/definitions/ConnectorType",
-                    "description": "Valid Connector Type. Multiple connector types should be separated by commas."
-                },
-                "data_provider_org": {
-                    "type": "string",
-                    "description": "Data provider organization name."
-                },
-                "data_provider_poc_email": {
-                    "type": "string",
-                    "description": "Email address for data provider point of contact."
-                },
-                "data_provider_poc_first": {
-                    "type": "string",
-                    "description": "First name of the data provider point of contact."
-                },
-                "data_provider_poc_last": {
-                    "type": "string",
-                    "description": "Last name of the data provider point of contact."
-                },
-                "energy_fee": {
-                    "type": "number",
-                    "description": "Fee charged to user per kWh (in USD)."
-                },
-                "equipment_manufacturer": {
-                    "type": "string",
-                    "description": "Charging equipment or system manufacturer name."
-                },
-                "equipment_serial": {
-                    "type": "string",
-                    "description": "serial number of charging equipment or system."
-                },
-                "evse_manufacturer": {
-                    "type": "string",
-                    "description": "Charging equipment manufacturer name."
-                },
-                "idle_fee": {
-                    "type": "number",
-                    "description": "Fee charged for minutes not charging if separate from time fee (in USD)."
-                },
-                "is_active": {
-                    "type": "boolean",
-                    "description": "Port operational status."
-                },
-                "model_number": {
-                    "type": "string",
-                    "description": "Charging equipment or system model number."
-                },
-                "network": {
-                    "type": "string",
-                    "description": "Name of network service provider."
-                },
-                "network_contact": {
-                    "type": "string",
-                    "description": "Email address for network service provider."
-                },
-                "operating_hours": {
-                    "type": "number",
-                    "description": "Number of hours station is open per day—e.g., a station that is always open\nhas a value of 24 whereas a station that is open from 6 am to 6 pm has a value of 12."
-                },
-                "parking_fee": {
-                    "type": "number",
-                    "description": "Fee charged for parking if separate from time_fee (in USD)."
-                },
-                "payments_accepted": {
-                    "$ref": "#/definitions/ValidPaymentType",
-                    "description": "Valid Payment Type."
-                },
-                "port_id": {
-                    "type": "string",
-                    "description": "Unique identifier for specified port. (For NEVI or other Part 680 project,\nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)"
-                },
-                "port_latitude": {
-                    "type": "number",
-                    "description": "Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180\n\nMatches the latitude of a latitude/longitude"
-                },
-                "port_longitude": {
-                    "type": "number",
-                    "description": "Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90.\n\nMatches the longitude of a latitude/longitude"
-                },
-                "power_level_kw": {
-                    "type": "number",
-                    "description": "Maximum charging power level of the port (in kW)"
-                },
-                "project_id": {
-                    "type": "string",
-                    "description": "Unique identification code specific to individual funding application or contract.\nProject ID is supplied by administrator upon approval of funding."
-                },
-                "session_fee": {
-                    "type": "number",
-                    "description": "Fee charged to user per session (in USD)."
-                },
-                "station_activation_date": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The first (full or partial) day where the station is fully operable\nand accessible for its intended purpose"
-                },
-                "station_id": {
-                    "type": "string",
-                    "description": "Unique identifier for the station where specific port is located.\n(For NEVI or other Part 680 project, station_id must be same as\nthe permanent station identifier provided to third parties pursuant\nto CFR 23 § 680.116(c)(1))."
-                },
-                "time_fee": {
-                    "type": "number",
-                    "description": "Fee charged to users per minute (in USD)."
-                },
-                "trailer_accessible": {
-                    "type": "boolean",
-                    "description": "Port located on pull through stall that can accommodate a vehicle and trailer"
-                }
-            },
-            "required": [
-                "charger_type",
-                "connector_type",
-                "data_provider_org",
-                "data_provider_poc_email",
-                "data_provider_poc_first",
-                "data_provider_poc_last",
-                "energy_fee",
-                "equipment_manufacturer",
-                "equipment_serial",
-                "evse_manufacturer",
-                "idle_fee",
-                "is_active",
-                "model_number",
-                "network",
-                "network_contact",
-                "operating_hours",
-                "parking_fee",
-                "payments_accepted",
-                "port_id",
-                "port_latitude",
-                "port_longitude",
-                "power_level_kw",
-                "project_id",
-                "session_fee",
-                "station_activation_date",
-                "station_id",
-                "time_fee",
-                "trailer_accessible"
-            ],
-            "title": "Port",
-            "description": "A product in the catalog"
-        },
-        "ChargerType": {
-            "type": "string",
-            "enum": [
-                "level_1",
-                "level_2",
-                "DCFC"
-            ],
-            "title": "ChargerType",
-            "description": "Charging station type (level)\n\nCharging station type (level)"
-        },
-        "ConnectorType": {
-            "type": "string",
-            "enum": [
-                "CCS",
-                "CHAdeMO",
-                "J1772",
-                "NACS"
-            ],
-            "title": "ConnectorType",
-            "description": "Valid Connector Type. Multiple connector types should be separated by commas.\n\nValid Connector Type. Multiple connector types should be separated by commas."
-        },
-        "ValidPaymentType": {
-            "type": "string",
-            "enum": [
-                "cash",
-                "credit_card_terminal",
-                "membership",
-                "application",
-                "phone",
-                "plug-charge",
-                "roaming",
-                "other"
-            ],
-            "title": "ValidPaymentType",
-            "description": "Valid Payment Type.\n\nValid Payment Type."
-        }
+  "$id": "./port.schema.json",
+  "title": "Port",
+  "description": "A product in the catalog",
+  "type": "object",
+  "required": [
+    "port_id",
+    "project_id",
+    "station_id",
+    "data_provider_org",
+    "data_provider_poc_email",
+    "is_active",
+    "power_level_kw",
+    "port_latitude",
+    "port_longitude",
+    "station_activation_date",
+    "charger_type",
+    "connector_type",
+    "energy_fee",
+    "session_fee",
+    "time_fee",
+    "parking_fee",
+    "idle_fee",
+    "operating_hours",
+    "equipment_manufacturer",
+    "model_number",
+    "equipment_serial",
+    "data_provider_poc_last",
+    "data_provider_poc_first",
+    "network",
+    "network_contact",
+    "evse_manufacturer",
+    "trailer_accessible",
+    "payments_accepted"
+  ],
+  "properties": {
+    "port_id": {
+      "description": "Unique identifier for specified port. (For NEVI or other Part 680 project, \nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)\n",
+      "type": "string"
+    },
+    "project_id": {
+      "description": "Unique identification code specific to individual funding application or contract.\nProject ID is supplied by administrator upon approval of funding.\n",
+      "type": "string"
+    },
+    "station_id": {
+      "description": "Unique identifier for the station where specific port is located.\n(For NEVI or other Part 680 project, station_id must be same as\nthe permanent station identifier provided to third parties pursuant\nto CFR 23 § 680.116(c)(1)).\n",
+      "type": "string"
+    },
+    "data_provider_org": {
+      "description": "Data provider organization name.\n",
+      "type": "string"
+    },
+    "data_provider_poc_email": {
+      "description": "Email address for data provider point of contact.\n",
+      "type": "string"
+    },
+    "is_active": {
+      "description": "Port operational status.\n",
+      "type": "boolean"
+    },
+    "power_level_kw": {
+      "description": "Maximum charging power level of the port (in kW)\n",
+      "type": "number"
+    },
+    "port_latitude": {
+      "description": "Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180\n",
+      "$ref": "./common.json#/definitions/latitude"
+    },
+    "port_longitude": {
+      "description": "Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90.\n",
+      "$ref": "./common.json#/definitions/longitude"
+    },
+    "station_activation_date": {
+      "description": "The first (full or partial) day where the station is fully operable\nand accessible for its intended purpose\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "charger_type": {
+      "description": "Charging station type (level)\n",
+      "$ref": "./common.json#/definitions/chargerType"
+    },
+    "connector_type": {
+      "description": "Valid Connector Type. Multiple connector types should be separated by commas.\n",
+      "$ref": "./common.json#/definitions/connectorType"
+    },
+    "energy_fee": {
+      "description": "Fee charged to user per kWh (in USD).\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "session_fee": {
+      "description": "Fee charged to user per session (in USD).\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "time_fee": {
+      "description": "Fee charged to users per minute (in USD).\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "parking_fee": {
+      "description": "Fee charged for parking if separate from time_fee (in USD).\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "idle_fee": {
+      "description": "Fee charged for minutes not charging if separate from time fee (in USD).\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "operating_hours": {
+      "description": "Number of hours station is open per day—e.g., a station that is always open\nhas a value of 24 whereas a station that is open from 6 am to 6 pm has a value of 12.\n",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 24
+    },
+    "equipment_manufacturer": {
+      "description": "Charging equipment or system manufacturer name.\n",
+      "type": "string"
+    },
+    "model_number": {
+      "description": "Charging equipment or system model number.\n",
+      "type": "string"
+    },
+    "equipment_serial": {
+      "description": "serial number of charging equipment or system.\n",
+      "type": "string"
+    },
+    "data_provider_poc_last": {
+      "description": "Last name of the data provider point of contact.\n",
+      "type": "string"
+    },
+    "data_provider_poc_first": {
+      "description": "First name of the data provider point of contact.\n",
+      "type": "string"
+    },
+    "network": {
+      "description": "Name of network service provider.\n",
+      "type": "string"
+    },
+    "network_contact": {
+      "description": "Email address for network service provider.\n",
+      "type": "string"
+    },
+    "evse_manufacturer": {
+      "description": "Charging equipment manufacturer name.\n",
+      "type": "string"
+    },
+    "trailer_accessible": {
+      "description": "Port located on pull through stall that can accommodate a vehicle and trailer\n",
+      "type": "boolean"
+    },
+    "payments_accepted": {
+      "description": "Valid Payment Type.\n",
+      "$ref": "./common.json#/definitions/validPaymentType"
     }
+  }
 }
