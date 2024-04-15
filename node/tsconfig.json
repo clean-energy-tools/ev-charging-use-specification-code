@@ -1,7 +1,8 @@
 {
     "include": [ 
         "src/**/*.ts", "src/**/*.js", "src/**/*.mjs",
-        "src/**/*.yml", "src/**/*.json"
+        "src/**/*.yml", "src/**/*.yaml",
+        "src/**/*.json"
     ],
     "compilerOptions": {
         "lib": [ "es6", "es2022", "esnext", "DOM" ],
