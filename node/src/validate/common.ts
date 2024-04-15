@@ -1,8 +1,29 @@
 
 import { promises as fsp } from 'node:fs';
-import Ajv from "ajv";
+import path from 'node:path';
+import Ajv, { JSONSchemaType, DefinedError } from "ajv";
 import YAML from 'js-yaml';
 import { generate, parse, transform, stringify } from "csv/sync";
+
+import addFormats from "ajv-formats";
+export const ajv = new Ajv.default({
+    // strict: true,
+    // allowUnionTypes: true,
+    validateFormats: true
+});
+addFormats.default(ajv);
+
+const __filename = import.meta.filename;
+const __dirname = import.meta.dirname;
+
+const _schemaCommon = await readYAMLSchema(
+    path.join(__dirname, '..', 'schemas', 'common.yaml')
+);
+
+// ajv.addSchema(_schemaCommon);
+for (const schemaKey in _schemaCommon.definitions) {
+    ajv.addSchema(_schemaCommon.definitions[schemaKey]);
+}
 
 type errorResult = {
     result?: string;
@@ -74,13 +95,21 @@ export function serializor<T>(data: T | Array<T>, validator: Ajv.ValidateFunctio
             if ('record_delimiter' in options && typeof options.record_delimiter === 'string') {
                 _options.record_delimiter = options.record_delimiter;
             }
-            return { result: stringify(data as any, _options) };
+            return {
+                result: stringify(data as any, _options)
+            };
         } else if (options.format === 'JSON') {
-            return { result: JSON.stringify(data) };
+            return {
+                result: JSON.stringify(data)
+            };
         } else if (options.format === 'YAML') {
-            return { result: YAML.dump(data, { indent: 4 }) };
+            return {
+                result: YAML.dump(data, { indent: 4 })
+            };
         } else {
-            return { errors: [ `UNKNOWN FORMAT ${options.format}` ]};
+            return {
+                errors: [ `UNKNOWN FORMAT ${options.format}` ]
+            };
         }
     } else {
         if (validator.errors) {
@@ -95,6 +124,7 @@ export function validator<T>(data: T, validator: Ajv.ValidateFunction<T>): boole
     if (validator(data)) {
         return true;
     } else {
+        // console.log(validator.errors);
         return false;
     }
 }
@@ -130,4 +160,16 @@ export async function readJSONSchema(fn: string): Promise<any | undefined> {
         return undefined;
     }
 
+}
+
+export async function readYAMLSchema(fn: string): Promise<any | undefined> {
+
+    const _yaml = await fsp.readFile(fn, 'utf-8');
+    try {
+        const _schema = YAML.load(_yaml);
+
+        return _schema;
+    } catch (err) {
+        return undefined;
+    }
 }
