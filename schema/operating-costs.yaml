@@ -1,5 +1,5 @@
-$schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://example.com/operating-costs.schema.json"
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./operating-costs.schema.json"
 title: "Operating Costs"
 description: "A product in the catalog"
 type: "object"
@@ -17,56 +17,68 @@ additionalProperties: true
 properties:
 
     station_id:
+        # default=yes	part 680=yes
         description: |
             Unique identifier for the station where specific port is located.
             (For NEVI or other Part 680 project, station_id must be same as
             the permanent station identifier provided to third parties pursuant
             to CFR 23 § 680.116(c)(1)).
-        type: string  # default=yes	part 680=yes
+        type: string
     
     oc_period_start:
+        # date default=yes	part 680=no
         description: |
             Start date of operations costs reporting period
         type: string
-        format: date-time  # date default=yes	part 680=no
+        format: date-time
 
     oc_period_end:
+        # date default=yes	part 680=no
         description: |
             End date of operations costs reporting period
         type: string
-        format: date-time  # date default=yes	part 680=no
+        format: date-time
 
     oc_year:
         description: |
             Year of operating cost (if reported annually)
-        type: string
-        format: regex
-        pattern: '^[0-9][0-9][0-9][0-9]$'  # string(4) date default=yes	part 680=no
+        $ref: "./common.json#/definitions/year"
+        # string(4) date default=yes	part 680=no
 
     station_mr:
+        # cost float(2) date default=yes	part 680=yes
         description: |
             Total maintanence and repair cost incurred (in USD) in reporting period or year
-        type: number # cost float(2) date default=yes	part 680=yes
+        type: number
+        minimum: 0
 
     maintenance_cost:
+        # cost float(2) date default=no	part 680=no
         description: |
             Total amount paid (in USD) for maintenance costs during reporting period or year
-        type: number # cost float(2) date default=no	part 680=no
+        type: number
+        minimum: 0
 
     repair_cost:
+        # cost float(2) date default=no	part 680=no
         description: |
             Total amount paid (in USD) for repair costs during reporting period of year
-        type: number # cost float(2) date default=no	part 680=no
+        type: number
+        minimum: 0
 
     electricity_cost:
+        # cost float(2) date default=yes	part 680=no
         description: |
             Total amount paid (in USD) for station electricity use during reporting period
             (estimated if station is not individually metered)
-        type: number # cost float(2) date default=yes	part 680=no
+        type: number
+        minimum: 0
 
     network_costs:
+        # cost float(2) date default=yes	part 680=no
         description: |
             Total amount paid (in USD) associated with network access,
             including network service fees, communications costs,
             transaction fees, etc.
-        type: number # cost float(2) date default=yes	part 680=no
+        type: number
+        minimum: 0

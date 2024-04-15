@@ -1,6 +1,6 @@
 
-$schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://example.com/project.schema.json"
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./project.schema.json"
 title: "Project"
 description: "A product in the catalog"
 type: "object"
@@ -70,6 +70,7 @@ properties:
             Valid ZIP Code of entity responsible for operation 
             and maintenance of the of the funded charging station.
         type: string
+        $ref: './common.json#/definitions/zipCode'
         # default=yes	part 680=no
 
     poc_email:
@@ -99,100 +100,131 @@ properties:
         # default=yes	part 680=no
 
     primary_funding:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Total funding (in USD) station received from the primary funding source dedicated
             to station deployment. (should not include any funding for station operation costs)
-        type: number   # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     utility_makeready:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Total funding (in USD) the project received from electric utilities
             dedicated to infrastructure make-ready
-        type: number    # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     utility_funding_other:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Total funding (in USD) the project received from utility for equipment
             or other non-make-ready costs (should not include any funding for operational costs)
-        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     other_makeready:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Total funding (in USD) other public funding received dedicated to infrastructure make-ready
-        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     other_funding_other:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Amount of other public funding project received for equipment
             or other non-make-ready costs (should not include any funding for operational costs)
-        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     cost_share:
+        # cost; /*	float(2) */ // default=yes	part 680=no
         description: |
             Funding amount project has received from other (private,
             non-utility) sources when combined with primary_funding
             and utility_funding and other_public_funding equals
             the total cost of the charging installation
-        type: number # cost; /*	float(2) */ // default=yes	part 680=no
+        type: number
+        minimum: 0
 
     equipment_cost:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: Cost (in USD) to acquire funded charging equipment.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     install_cost:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) for all labor and materials costs (including electrical equipment)
             necessary to necessary to install charging equipment.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     property_cost:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) to acquire real property on which to install funded chargers.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     der_equipment_cost:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) to acquire distributed energy resource equipment.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     der_install_cost:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) for all labor and materials costs (including electrical equipment)
             necessary to install distributed energy resources equipment.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     distribution_costs:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) of contributions in aid of construction for line extensions
             and upgrades necessary to install chargers.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     service_costs:
+        # cost; /*	float(2) */ // default=no	part 680=yes
         description: |
             Cost (in USD) of contributions in aid of construction for service upgrade
             costs for customer transformers, poles, meters, and other utility service
             equipment necessary to install chargers.
-        type: number # cost; /*	float(2) */ // default=no	part 680=yes
+        type: number
+        minimum: 0
 
     dac_type:
+        # default=no	part 680=no
         description: |
             Method, model or program definition of disadvantaged community.
             For example CEJST 1.0.
-        type: string # default=no	part 680=no
+        type: string
 
     in_dac:
+        # default=no	part 680=no
         description: Project is located inside of disadvantaged community as specified by dac_type.
-        type: boolean # default=no	part 680=no
+        type: boolean
 
     dac_proximate:
+        # default=no	part 680=no
         description: |
             Project is located within a program specified distance from disadvantaged community
             as as specified by dac_type.
-        type: boolean # default=no	part 680=no
+        type: boolean
 
     total_power:
+        # float	default=no	part 680=no
         description: |
             The total charger power capacity (in kW) deployed by the project 
             - if charging equipment share power supplies, only the maximum
             simulataneous power output should be reported.
-        type: number # float	default=no	part 680=no
+        type: number
+        minimum: 0

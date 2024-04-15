@@ -1,5 +1,5 @@
-$schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://example.com/uptime.schema.json"
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./uptime.schema.json"
 title: "Uptime"
 description: "A product in the catalog"
 type: "object"
@@ -15,59 +15,69 @@ required:
 properties:
 
     port_id:
+        # default=yes	part 680=yes
         description: |
             Unique identifier for specified port. (For NEVI or other Part 680 project, 
             port_id must be same as the permanent station identifier provided
             to third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)
-        type: string   # default=yes	part 680=yes
+        type: string
 
     station_id:
+        # default=no	part 680=yes
         description: |
             Unique identifier for the station where specific port is located.
             (For NEVI or other Part 680 project, station_id must be same as
             the permanent station identifier provided to third parties pursuant
             to CFR 23 § 680.116(c)(1)).
-        type: string  # default=no	part 680=yes
+        type: string
 
     uptime_period_start:
+        # date default=no	part 680=no
         description: |
             Start date of uptime reporting period.
         type: string
-        format: date-time  # date default=no	part 680=no
+        format: date-time
 
     uptime_period_end:
+        # date default=no	part 680=no
         description: |
             End date of uptime reporting period.
         type: string
-        format: date-time  # date default=no	part 680=no
+        format: date-time
 
     report_yr_mon:
+        # string(6) default=no	part 680=yes
         description: |
             Year and month of uptime summary in YYYYMM format
             if reported monthly (as required by part 680)
-        type: string  # string(6) default=no	part 680=yes
-        format: regex
-        pattern: '^[0-9][0-9][0-9][0-9][0-9][0-9]$'
+        $ref: './common.json#/definitions/yearmn'
 
     uptime_pct:
+        # float(2)	default=no	part 680=yes
         description: |
             Uptime percentage (between 0-100) for Port ID in uptime period
             or Report Year and Month. (For NEVI or other Part 680 project,
             calculated in accordance with CFR 23 § 680.116(b)).
-        type: number  # float(2)	default=no	part 680=yes
+        type: number
+        minimum: 0
+        maximum: 100
 
     outage_total:
+        # float(2)	default=no	part 680=yes
         description: |
             Total number of outage minutes (including partial minutes)
             for Port ID in in uptime period or Report Year and Month.
             For NEVI or other Part 680 project, calculated
             in accordance with CFR 23 § 680.116(b)).
-        type: number # float(2)	default=no	part 680=yes
+        type: number
+        minimum: 0
 
     outage_excluded:
+        # float(2)	default=no	part 680=yes
         description: |
             Total number of excluded outage minutes (including partial minutes)
             for Port ID in uptime period or Report Year and Month.
             (For NEVI or other Part 680 project, calculated
             in accordance with CFR 23 § 680.116(b)).
-        type: number # float(2)	default=no	part 680=yes
+        type: number
+        minimum: 0

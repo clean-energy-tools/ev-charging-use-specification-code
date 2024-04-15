@@ -1,5 +1,5 @@
-$schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://example.com/station.schema.json"
+# schema: "http://json-schema.org/draft-06/schema#"
+$id: "./station.schema.json"
 title: "Station"
 description: "A product in the catalog"
 type: "object"
@@ -31,153 +31,160 @@ required:
 properties:
 
     station_id:
+        # default=yes	part 680=yes
         description: |
             Unique identity specific to the physical location of the station (site) funded by the project.
             (For NEVI/Part 680 programs, Station ID must be same as the permanent station identifier
             provided to third parties pursuant to CFR 23 § 680.116(c)(1).
-        type: string  # default=yes	part 680=yes
+        type: string
 
     station_name:
+        # default=yes	part 680=no
         description: |
             Descriptive name of charging site (e.g., Mercy Hospital)
-        type: string # default=yes	part 680=no
+        type: string
 
     station_address:
+        # default=yes	part 680=yes
         description: |
             Street address of charging station.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     station_city:
+        # default=yes	part 680=yes
         description: |
             City where charging station is located.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     station_state:
+        # default=yes	part 680=yes
         description: |
             Valid state code of state where station or territory where the station is located.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     station_zip:
+        # string(5) default=yes	part 680=yes
         description: |
             Valid ZIP code of where station is located.
-        type: string  # string(5) default=yes	part 680=yes
-        maxLength: 5
-        minLength: 5
+        $ref: './common.json#/definitions/zipCode'
 
     station_county:
+        # default=no	part 680=yes
         description: |
             Station county (or county analogue)
-        type: string  # default=no	part 680=yes
+        type: string
 
     station_lon:
+        # float(>3) default=no	part 680=yes
         description: |
             Station center WSG84-encoded longitude in decimal degrees to at least 4 decimal places.
             Valid longitudes are between -180 and 180
-        type: number  # float(>3) default=no	part 680=yes
-        minimum: -180
-        maximum: 180
+        $ref: './common.json#/definitions/longitude'
 
     station_lat:
+        # float(>3) default=no	part 680=yes
         description: |
             Station center WSG84 encoded latitude in decimal degrees to at least 4 decimal places.
             Valid latitudes are between -90 and 90.
-        type: number  # float(>3) default=no	part 680=yes
-        minimum: -90
-        maximum: 90
+        $ref: './common.json#/definitions/latitude'
 
     operator_name:
+        # default=yes	part 680=yes
         description: |
             Name of entity responsible for operation and maintenance of the funded charging station.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     operator_address:
+        # default=yes	part 680=yes
         description: |
             Street address of entity responsible for operation and maintenance of the funded charging station.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     operator_city:
+        # default=yes	part 680=yes
         description: |
             City of entity responsible for operation and maintenance of the funded charging station.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     operator_state:
+        # default=yes	part 680=yes
         description: |
             Valid state code of entity responsible for operation and maintenance of the funded charging station.
-        type: string  # default=yes	part 680=yes
+        type: string
 
     operator_zip:
+        # string(5) default=yes	part 680=yes
         description: |
             Valid ZIP Code of entity responsible for operation and maintenance
             of the of the funded charging station.
-        type: string  # string(5) default=yes	part 680=yes
-        maxLength: 5
-        minLength: 5
+        $ref: './common.json#/definitions/zipCode'
 
     operating_status:
+        #  default=yes	part 680=no
         description: |
             Valid Operating Status.
-        enum: #  default=yes	part 680=no
-            - 'operational'
-            - 'under_construction'
-            - 'planned'
-            - 'decommissioned'
+        $ref: './common.json#/definitions/operatingStatus'
 
     access_type:
+        # default=yes	part 680=no
         description: |
             Valid Access Type.
-        enum:  # default=yes	part 680=no
-            - 'public'
-            - 'private'
-            - 'semi_public'
-            - 'commercial_only'
+        $ref: './common.json#/definitions/accessType'
 
     site_host_type:
+        # default=yes	part 680=no
         description: |
             Type of site host for the charging station. (e.g. public, workplace, MUD)
-        type: string  # default=yes	part 680=no
+        type: string
 
     site_host_type_detail:
+        # default=no	part 680=no
         description: |
             Additional detail on site host land use. (e.g. hospital, hotel, parking garage, etc.)
-        type: string  # default=no	part 680=no
+        type: string
 
     host_first_name:
+        # default=yes	part 680=no
         description: |
             Station host point of contact first name
-        type: string  # default=yes	part 680=no
+        type: string
 
     host_last_name:
+        # default=yes	part 680=no
         description: |
             Station host point of contact last name
-        type: string  # default=yes	part 680=no
+        type: string
 
     host_email:
+        # default=yes	part 680=no
         description: |
             Station host point of contact email address
-        type: string  # default=yes	part 680=no
+        type: string
+        format: email
 
     onsite_der:
+        # default=yes	part 680=yes
         description: |
             Station has distributed energy resource.
-        type: boolean  # default=yes	part 680=yes
+        type: boolean
 
     onsite_der_type:
+        # default=?? not given ?? 	part 680=no
         description: |
             Valid Distributed Energy Resource Type
-        enum:  # default=?? not given ?? 	part 680=no
-            - 'solar'
-            - 'stationary_battery'
-            - 'wind'
-            - 'fuel_cell'
-            - 'other'
+        $ref: './common.json#/definitions/onsiteDERType'
 
     der_power:
+        # float(2) default=no	part 680=yes
         description: |
             Nameplate capacity of onsite energy generation in kW
-        type: number  # float(2) default=no	part 680=yes
+        type: number
+        minimum: 0
 
     der_energy:
+        # float(2) default=no	part 680=yes
         description: |
             Combined nameplate capacity of onsite energy generation and/or
             maximum battery discharge capacity in kilowatts (kW).
-        type: number  # float(2) default=no	part 680=yes
+        type: number
+        minimum: 0

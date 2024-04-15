@@ -1,0 +1,93 @@
+$id: "./common.json"
+description: "A product in the catalog"
+definitions:
+    year:
+        $id: 'common.json#/definitions/year'
+        description: |
+            Matches a string representing a "year" containing four digits.  There is a Y10K problem in that in the year 10,000 the regular expression will break."
+        type: string
+        format: regex
+        pattern: "^[0-9][0-9][0-9][0-9]$"
+        
+    yearmn:
+        $id: 'common.json#/definitions/yearmn'
+        "description": |
+            Matches a string representing a \"year and month\" containing six digits.  There is a Y10K problem in that in the year 10,000 the regular expression will break.
+        type: string
+        format: regex
+        pattern: "^[0-9][0-9][0-9][0-9][0-9][0-9]$"
+
+
+    duration:
+        $id: 'common.json#/definitions/duration'
+        # $id: '#defs/duration'
+        "description": "Matches an ISO8166 duration string."
+        "type": "string"
+        "format": "regex"
+        "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$"
+
+    latitude:
+        $id: 'common.json#/definitions/latitude'
+        "description": "Matches the latitude of a latitude/longitude"
+        "type": "number"
+        "minimum": -180
+        "maximum": 180
+
+    longitude:
+        $id: 'common.json#/definitions/longitude'
+        "description": "Matches the longitude of a latitude/longitude"
+        "type": "number"
+        "minimum": -90
+        "maximum": 90
+
+    zipCode:
+        $id: 'common.json#/definitions/zipCode'
+        "type": "string"
+        "maxLength": 5
+        "minLength": 5
+        pattern: '^[0-9][0-9][0-9][0-9][0-9]$'
+
+    chargerType:
+        $id: 'common.json#/definitions/chargerType'
+        "description": "Charging station type (level)"
+        "enum": [ "level_1", "level_2", "DCFC" ]
+
+    connectorType:
+        $id: 'common.json#/definitions/connectorType'
+        "description": "Valid Connector Type. Multiple connector types should be separated by commas."
+        "enum": [ "CCS", "CHAdeMO", "J1772", "NACS" ]
+
+    validPaymentType:
+        $id: 'common.json#/definitions/validPaymentType'
+        "description": "Valid Payment Type."
+        "enum": [
+            "cash", "credit_card_terminal",
+            "membership", "application",
+            "phone", "plug-charge",
+            "roaming", "other"
+        ]
+
+    onsiteDERType:
+        $id: 'common.json#/definitions/onsiteDERType'
+        "description": "Valid Distributed Energy Resource Type"
+        "enum": [
+            "solar", "stationary_battery",
+            "wind", "fuel_cell", "other"
+        ]
+
+    accessType:
+        $id: 'common.json#/definitions/accessType'
+        "description": "Valid Access Type."
+        "enum": [
+            "public", "private", "semi_public", "commercial_only"
+        ]
+
+    operatingStatus:
+        $id: 'common.json#/definitions/operatingStatus'
+        "description": "Valid Operating Status."
+        "enum": [
+            "operational",
+            "under_construction",
+            "planned",
+            "decommissioned"
+        ]
