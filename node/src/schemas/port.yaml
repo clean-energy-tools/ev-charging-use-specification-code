@@ -1,0 +1,223 @@
+
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./port.schema.json"
+title: "Port"
+description: "A product in the catalog"
+type: "object"
+required:
+    - port_id
+    - project_id
+    - station_id
+    - data_provider_org
+    - data_provider_poc_email
+    - is_active
+    - power_level_kw
+    - port_latitude
+    - port_longitude
+    - station_activation_date
+    - charger_type
+    - connector_type
+    - energy_fee
+    - session_fee
+    - time_fee
+    - parking_fee
+    - idle_fee
+    - operating_hours
+    - equipment_manufacturer
+    - model_number
+    - equipment_serial
+    - data_provider_poc_last
+    - data_provider_poc_first
+    - network
+    - network_contact
+    - evse_manufacturer
+    - trailer_accessible
+    - payments_accepted
+properties:
+
+    port_id:
+        # default=yes  part 680=yes
+        description: |
+            Unique identifier for specified port. (For NEVI or other Part 680 project, 
+            port_id must be same as the permanent station identifier provided
+            to third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)
+        type: string
+
+    project_id:
+        # default=yes       part 680=yes
+        description: |
+            Unique identification code specific to individual funding application or contract.
+            Project ID is supplied by administrator upon approval of funding.
+        type: string
+
+    station_id:
+        # default=yes       part 680=yes
+        description: |
+            Unique identifier for the station where specific port is located.
+            (For NEVI or other Part 680 project, station_id must be same as
+            the permanent station identifier provided to third parties pursuant
+            to CFR 23 § 680.116(c)(1)).
+        type: string
+
+    data_provider_org:
+        # default=yes        part 680=no
+        description: |
+            Data provider organization name.
+        type: string
+
+    data_provider_poc_email:
+        # default=yes  part 680=no
+        description: |
+            Email address for data provider point of contact.
+        type: string
+
+    is_active:
+        # default=yes       part 680=no
+        description: |
+            Port operational status.
+        type: boolean
+
+    power_level_kw:
+        # float  default=yes    part 680=no
+        description: |
+            Maximum charging power level of the port (in kW)
+        type: number
+
+    port_latitude:
+        # float(>3)  default=yes part 680=no
+        description: |
+            Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.
+            Valid longitudes are between -180 and 180
+        $ref: './common.json#/definitions/latitude'
+
+    port_longitude:
+        # float(>3)  default=yes        part 680=no
+        description: |
+            Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.
+            Valid latitudes are between -90 and 90.
+        $ref: './common.json#/definitions/longitude'
+
+    station_activation_date:
+        # date  default=yes   part 680=no
+        description: |
+            The first (full or partial) day where the station is fully operable
+            and accessible for its intended purpose
+        type: string
+        format: date-time
+
+    charger_type:
+        #  default=yes        part 680=yes
+        description: |
+            Charging station type (level)
+        $ref: "./common.json#/definitions/chargerType"
+
+    connector_type:
+        # default=yes    part 680=yes
+        description: |
+            Valid Connector Type. Multiple connector types should be separated by commas.
+        $ref: "./common.json#/definitions/connectorType"
+
+    energy_fee:
+        # cost;   // float(2)      default=no    part 680=no
+        description: |
+            Fee charged to user per kWh (in USD).
+        type: number
+        minimum: 0
+
+    session_fee:
+        # cost;   // float(2)     default=no    part 680=no
+        description: |
+            Fee charged to user per session (in USD).
+        type: number
+        minimum: 0
+
+    time_fee:
+        # cost;   // float(2)        default=no    part 680=no
+        description: |
+            Fee charged to users per minute (in USD).
+        type: number
+        minimum: 0
+
+    parking_fee:
+        # cost;   // float(2)     default=no    part 680=no
+        description: |
+            Fee charged for parking if separate from time_fee (in USD).
+        type: number
+        minimum: 0
+
+    idle_fee:
+        # cost;   // float(2)        default=no    part 680=no
+        description: |
+            Fee charged for minutes not charging if separate from time fee (in USD).
+        type:  number
+        minimum: 0
+
+    operating_hours:
+        # float          default=no    part 680=no
+        description: |
+            Number of hours station is open per day—e.g., a station that is always open
+            has a value of 24 whereas a station that is open from 6 am to 6 pm has a value of 12.
+        type: number
+        minimum: 0
+        maximum: 24
+
+    equipment_manufacturer:
+        # default=no    part 680=no
+        description: |
+            Charging equipment or system manufacturer name.
+        type: string
+
+    model_number:
+        #  default=no      part 680=no
+        description: |
+            Charging equipment or system model number.
+        type: string
+
+    equipment_serial:
+        # default=no  part 680=no
+        description: |
+            serial number of charging equipment or system.
+        type: string
+
+    data_provider_poc_last:
+        # default=no    part 680=no
+        description: |
+            Last name of the data provider point of contact.
+        type: string
+
+    data_provider_poc_first:
+        # default=no   part 680=no
+        description: |
+            First name of the data provider point of contact.
+        type: string
+
+    network:
+        # default=no   part 680=no
+        description: |
+            Name of network service provider.
+        type: string   
+
+    network_contact:
+        # default=no   part 680=no
+        description: |
+            Email address for network service provider.
+        type: string
+
+    evse_manufacturer:
+        # default=no part 680=no
+        description: |
+            Charging equipment manufacturer name.
+        type: string
+
+    trailer_accessible:
+        # default=no      part 680=yes
+        description: |
+            Port located on pull through stall that can accommodate a vehicle and trailer
+        type: boolean   
+
+    payments_accepted:
+        # default=no part 680=yes
+        description: |
+            Valid Payment Type.
+        $ref: './common.json#/definitions/validPaymentType'
+

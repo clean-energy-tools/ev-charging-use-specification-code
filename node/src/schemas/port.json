@@ -75,7 +75,7 @@
                     "description": "Fee charged for parking if separate from time_fee (in USD)."
                 },
                 "payments_accepted": {
-                    "$ref": "#/definitions/PaymentsAccepted",
+                    "$ref": "#/definitions/ValidPaymentType",
                     "description": "Valid Payment Type."
                 },
                 "port_id": {
@@ -84,11 +84,11 @@
                 },
                 "port_latitude": {
                     "type": "number",
-                    "description": "Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180"
+                    "description": "Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180\n\nMatches the latitude of a latitude/longitude"
                 },
                 "port_longitude": {
                     "type": "number",
-                    "description": "Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90."
+                    "description": "Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90.\n\nMatches the longitude of a latitude/longitude"
                 },
                 "power_level_kw": {
                     "type": "number",
@@ -161,7 +161,7 @@
                 "DCFC"
             ],
             "title": "ChargerType",
-            "description": "Charging station type (level)\n"
+            "description": "Charging station type (level)\n\nCharging station type (level)"
         },
         "ConnectorType": {
             "type": "string",
@@ -172,9 +172,9 @@
                 "NACS"
             ],
             "title": "ConnectorType",
-            "description": "Valid Connector Type. Multiple connector types should be separated by commas.\n"
+            "description": "Valid Connector Type. Multiple connector types should be separated by commas.\n\nValid Connector Type. Multiple connector types should be separated by commas."
         },
-        "PaymentsAccepted": {
+        "ValidPaymentType": {
             "type": "string",
             "enum": [
                 "cash",
@@ -186,8 +186,8 @@
                 "roaming",
                 "other"
             ],
-            "title": "PaymentsAccepted",
-            "description": "Valid Payment Type.\n"
+            "title": "ValidPaymentType",
+            "description": "Valid Payment Type.\n\nValid Payment Type."
         }
     }
 }

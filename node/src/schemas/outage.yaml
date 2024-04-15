@@ -1,0 +1,66 @@
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./outage.schema.json"
+description: "A product in the catalog"
+type: "object"
+required:
+    - outage_id
+    - port_id
+    - station_id
+    - outage_start
+    - outage_end
+    - outage_duration
+    - outage_cause
+    - exempted_outage
+properties:
+
+    outage_id:
+        # default=no	part 680=yes
+        description: |
+            Unique identifier for an individual outage on an individual port.
+        type: string
+
+    port_id:
+        # default=no	part 680=yes
+        description: |
+            Unique identifier for specified port. (For NEVI or other Part 680 project, 
+            port_id must be same as the permanent station identifier provided
+            to third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)
+        type: string
+
+    station_id:
+        description: |
+            Unique identifier for the station where specific port is located.
+            (For NEVI or other Part 680 project, station_id must be same as
+            the permanent station identifier provided to third parties pursuant
+            to CFR 23 § 680.116(c)(1)).
+        type: string  # default=no	part 680=yes
+
+    outage_start:
+        description: |
+            Date and time when outage started or was first detected.
+        type: string
+        format: date-time  # datetime	default=no	part 680=no
+
+    outage_end:
+        description: |
+            Date and time when outage was resolved.
+        type: string
+        format: date-time  # datetime	default=no	part 680=no
+
+    outage_duration:
+        description: |
+            Duration of outage in minutes (including partial minutes)
+        $ref: 'common.json#/definitions/duration'
+        # float(2)	default=no	part 680=yes
+
+
+    outage_cause:
+        description: |
+            Cause of outage (e.g. equipment failure, power failure, vandalism).
+        type: string  # default=no	part 680=yes
+
+    exempted_outage:
+        description: |
+            Is outage exempted under program rules?
+        type: boolean  # default=no	part 680=yes
+

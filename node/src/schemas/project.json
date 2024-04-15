@@ -60,6 +60,7 @@
                 },
                 "org_zip": {
                     "type": "string",
+                    "pattern": "^[0-9][0-9][0-9][0-9][0-9]$",
                     "description": "Valid ZIP Code of entity responsible for operation\nand maintenance of the of the funded charging station."
                 },
                 "other_funding_other": {

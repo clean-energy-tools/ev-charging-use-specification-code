@@ -35,7 +35,7 @@
                     "description": "Station has distributed energy resource."
                 },
                 "onsite_der_type": {
-                    "$ref": "#/definitions/OnsiteDerType",
+                    "$ref": "#/definitions/OnsiteDERType",
                     "description": "Valid Distributed Energy Resource Type"
                 },
                 "operating_status": {
@@ -60,7 +60,8 @@
                 },
                 "operator_zip": {
                     "type": "string",
-                    "description": "Valid ZIP Code of entity responsible for operation and maintenance\nof the of the funded charging station."
+                    "pattern": "^[0-9][0-9][0-9][0-9][0-9]$",
+                    "description": "Valid ZIP Code of entity responsible for operation and maintenance\nof the of the funded charging station.\n\nValid ZIP code of where station is located.\n"
                 },
                 "site_host_type": {
                     "type": "string",
@@ -88,11 +89,11 @@
                 },
                 "station_lat": {
                     "type": "number",
-                    "description": "Station center WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90."
+                    "description": "Station center WSG84 encoded latitude in decimal degrees to at least 4 decimal places.\nValid latitudes are between -90 and 90.\n\nMatches the latitude of a latitude/longitude"
                 },
                 "station_lon": {
                     "type": "number",
-                    "description": "Station center WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180"
+                    "description": "Station center WSG84-encoded longitude in decimal degrees to at least 4 decimal places.\nValid longitudes are between -180 and 180\n\nMatches the longitude of a latitude/longitude"
                 },
                 "station_name": {
                     "type": "string",
@@ -104,7 +105,8 @@
                 },
                 "station_zip": {
                     "type": "string",
-                    "description": "Valid ZIP code of where station is located."
+                    "pattern": "^[0-9][0-9][0-9][0-9][0-9]$",
+                    "description": "Valid ZIP Code of entity responsible for operation and maintenance\nof the of the funded charging station.\n\nValid ZIP code of where station is located.\n"
                 }
             },
             "required": [
@@ -145,9 +147,9 @@
                 "commercial_only"
             ],
             "title": "AccessType",
-            "description": "Valid Access Type.\n"
+            "description": "Valid Access Type.\n\nValid Access Type."
         },
-        "OnsiteDerType": {
+        "OnsiteDERType": {
             "type": "string",
             "enum": [
                 "solar",
@@ -156,8 +158,8 @@
                 "fuel_cell",
                 "other"
             ],
-            "title": "OnsiteDerType",
-            "description": "Valid Distributed Energy Resource Type\n"
+            "title": "OnsiteDERType",
+            "description": "Valid Distributed Energy Resource Type\n\nValid Distributed Energy Resource Type"
         },
         "OperatingStatus": {
             "type": "string",
@@ -168,7 +170,7 @@
                 "decommissioned"
             ],
             "title": "OperatingStatus",
-            "description": "Valid Operating Status.\n"
+            "description": "Valid Operating Status.\n\nValid Operating Status."
         }
     }
 }

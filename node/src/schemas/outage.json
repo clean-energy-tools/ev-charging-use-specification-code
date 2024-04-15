@@ -17,7 +17,7 @@
                 "outage_duration": {
                     "type": "string",
                     "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
-                    "description": "Duration of outage in minutes (including partial minutes)"
+                    "description": "Duration of outage in minutes (including partial minutes)\n\nMatches an ISO8166 duration string."
                 },
                 "outage_end": {
                     "type": "string",

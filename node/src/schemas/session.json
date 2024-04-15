@@ -19,7 +19,7 @@
                 "charging_duration": {
                     "type": "string",
                     "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
-                    "description": "Total duration of time when electricity was actively dispensed - may not\nalways be equal to the difference between charge_start_datetime\nand charge_end_datetime due to charge interruptions or managed charging"
+                    "description": "Total duration of time when electricity was actively dispensed - may not\nalways be equal to the difference between charge_start_datetime\nand charge_end_datetime due to charge interruptions or managed charging\n\nMatches an ISO8166 duration string.\nTotal duration of session (plug in to plug out)\n"
                 },
                 "end_soc": {
                     "type": "number",
@@ -42,7 +42,7 @@
                     "description": "Session error code(s) if any. Separated by comma if multiple."
                 },
                 "payment_type": {
-                    "$ref": "#/definitions/PaymentType",
+                    "$ref": "#/definitions/ValidPaymentType",
                     "description": "Valid Payment Type"
                 },
                 "peak_kw": {
@@ -66,7 +66,7 @@
                 "session_duration": {
                     "type": "string",
                     "pattern": "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
-                    "description": "Total duration of session (plug in to plug out)"
+                    "description": "Total duration of time when electricity was actively dispensed - may not\nalways be equal to the difference between charge_start_datetime\nand charge_end_datetime due to charge interruptions or managed charging\n\nMatches an ISO8166 duration string.\nTotal duration of session (plug in to plug out)\n"
                 },
                 "session_fee": {
                     "type": "number",
@@ -95,8 +95,7 @@
                 "user_id": {
                     "type": "string",
                     "description": "Anonymized network-specific unique user ID"
-                },
-                "peak_kwh": {}
+                }
             },
             "required": [
                 "charge_end_datetime",
@@ -108,7 +107,7 @@
                 "energy_kwh",
                 "error_code",
                 "payment_type",
-                "peak_kwh",
+                "peak_kw",
                 "plug_end_datetime",
                 "plug_start_datetime",
                 "port_id",
@@ -124,7 +123,7 @@
             "title": "Session",
             "description": "A product in the catalog"
         },
-        "PaymentType": {
+        "ValidPaymentType": {
             "type": "string",
             "enum": [
                 "cash",
@@ -136,8 +135,8 @@
                 "roaming",
                 "other"
             ],
-            "title": "PaymentType",
-            "description": "Valid Payment Type\n"
+            "title": "ValidPaymentType",
+            "description": "Valid Payment Type\n\nValid Payment Type."
         }
     }
 }
