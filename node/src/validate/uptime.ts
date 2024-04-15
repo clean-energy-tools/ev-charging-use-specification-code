@@ -1,28 +1,27 @@
 
-import Ajv, { JSONSchemaType, DefinedError } from "ajv";
-import addFormats from "ajv-formats";
-import addKeywords from 'ajv-keywords';
-
-// These two lines throw compiler errors if `.default` is not used
-const ajv = new Ajv.default({
-    // strict: true,
-    // allowUnionTypes: true,
-    validateFormats: true
-});
-// addFormats.default(ajv);
-// addKeywords.default(ajv);
+import { JSONSchemaType, DefinedError } from "ajv";
+import { ajv } from './common.js';
 
 import { Uptime } from '../types-evchargingspec/uptime.js';
 import {
     serializor, serializorOptions,
     validator,
     parserJSON,
-    readJSONSchema
+    readJSONSchema,
+    readYAMLSchema
 } from './common.js';
+import YAML from 'js-yaml';
 
-const _schema = await readJSONSchema('../schemas/uptime.json');
-const schema: JSONSchemaType<Uptime> = _schema.definitions.Uptime;
-const validate = ajv.compile<Uptime>(schema);
+import * as path from 'path';
+
+const __filename = import.meta.filename;
+const __dirname = import.meta.dirname;
+
+const _schema = await readYAMLSchema(
+    path.join(__dirname, '..', 'schemas', 'uptime.yaml'));
+const schema: JSONSchemaType<Uptime> = _schema;
+export const validatorUptime = ajv.compile<Uptime>(schema);
+
 
 export const serializeUptime = (
     data: Uptime | Array<Uptime>, options?: serializorOptions
@@ -50,13 +49,17 @@ export const serializeUptime = (
             ];
         }
     }
-    return serializor<Uptime>(data, validate, _options);
+    return serializor<Uptime>(data, validatorUptime, _options);
 };
 
 export const validateUptime  = (data: Uptime) => {
-    return validator<Uptime>(data, validate);
+    // console.log(`validateUptime ${YAML.dump({
+    //     data: data
+    // }, { indent: 4 })}`);
+    const ret = validator<Uptime>(data, validatorUptime);
+    return ret;
 };
 
 export const parseJSONUptime = (data: string) => {
-    return parserJSON<Uptime>(data, validate);
+    return parserJSON<Uptime>(data, validatorUptime);
 };

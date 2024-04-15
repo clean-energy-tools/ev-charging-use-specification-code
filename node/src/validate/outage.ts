@@ -1,27 +1,24 @@
 
-import Ajv, { JSONSchemaType, DefinedError } from "ajv";
-import addFormats from "ajv-formats";
-import addKeywords from 'ajv-keywords';
-
-// These two lines throw compiler errors if `.default` is not used
-const ajv = new Ajv.default({
-    // strict: true,
-    // allowUnionTypes: true,
-    validateFormats: true
-});
-// addFormats.default(ajv);
-// addKeywords.default(ajv);
+import { JSONSchemaType, DefinedError } from "ajv";
+import { ajv } from './common.js';
 
 import { Outage } from '../types-evchargingspec/outage.js';
 import {
         serializor, serializorOptions,
         validator,
         parserJSON,
-        readJSONSchema
+        readJSONSchema,
+        readYAMLSchema
 } from './common.js';
 
-const _schema = await readJSONSchema('../schemas/outage.json');
-const schema: JSONSchemaType<Outage> = _schema.definitions.Outage;
+import * as path from 'path';
+
+const __filename = import.meta.filename;
+const __dirname = import.meta.dirname;
+
+const _schema = await readYAMLSchema(
+    path.join(__dirname, '..', 'schemas', 'outage.yaml'));
+const schema: JSONSchemaType<Outage> = _schema;
 const validate = ajv.compile<Outage>(schema);
 
 export const serializeOutage = (

@@ -1,27 +1,26 @@
 
-import Ajv, { JSONSchemaType, DefinedError } from "ajv";
-import addFormats from "ajv-formats";
-import addKeywords from 'ajv-keywords';
-
-// These two lines throw compiler errors if `.default` is not used
-const ajv = new Ajv.default({
-    // strict: true,
-    // allowUnionTypes: true,
-    validateFormats: true
-});
-// addFormats.default(ajv);
-// addKeywords.default(ajv);
+import { JSONSchemaType, DefinedError } from "ajv";
+import { ajv } from './common.js';
 
 import { Station } from '../types-evchargingspec/station.js';
 import {
         serializor, serializorOptions,
         validator,
         parserJSON,
-        readJSONSchema
+        readJSONSchema,
+        readYAMLSchema
 } from './common.js';
 
-const _schema = await readJSONSchema('../schemas/station.json');
-const schema: JSONSchemaType<Station> = _schema.definitions.Station;
+import * as path from 'path';
+
+const __filename = import.meta.filename;
+const __dirname = import.meta.dirname;
+
+const _schema = await readYAMLSchema(
+    path.join(
+        __dirname, '..', 'schemas', 'station.yaml'
+    ));
+const schema: JSONSchemaType<Station> = _schema;
 const validate = ajv.compile<Station>(schema);
 
 export const serializeStation = (
