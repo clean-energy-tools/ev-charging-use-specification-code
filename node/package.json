@@ -1,14 +1,17 @@
 {
-  "name": "ev-charging-mock-reporting-data",
+  "name": "ev-charging-use-specification-code",
   "version": "1.0.0",
-  "description": "Generator for mock data of Electric Vehicle charging",
+  "description": "Data types and validation for the EV Charging Use Specification",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "npx tsc",
     "watch": "npx tsc -w"
   },
-  "keywords": [],
+  "keywords": [
+    "EV charging"
+  ],
   "author": "David Herron <david@davidherron.com>",
   "license": "ISC",
   "dependencies": {
@@ -24,6 +27,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "ajv-cli": "^5.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.11.17",
     "@types/uuid": "^9.0.8",
