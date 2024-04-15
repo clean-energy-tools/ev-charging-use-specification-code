@@ -1,1 +1,11 @@
 generated
+
+# These are generated from the YAML file
+common.json
+project.json
+station.json
+port.json
+operating-costs.json
+session.json
+outage.json
+
