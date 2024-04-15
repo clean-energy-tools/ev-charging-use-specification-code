@@ -1,0 +1,10 @@
+
+port_id: 8080
+station_id: statia-clabucet
+uptime_period_start: '2024-01-02T03:04:05Z'
+uptime_period_end: '2024-01-02T05:06:07Z'
+report_yr_mon: '202401'
+uptime_pct: 0.99
+outage_total: 1
+outage_excluded: 1
+
