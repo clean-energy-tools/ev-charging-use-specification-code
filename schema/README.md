@@ -178,7 +178,7 @@ In each of module implementing one of the EV Charging Use Specification data typ
 
 The YAML version of the schema is loaded, and a _validator_ function is generated using `ajv.compile`.
 
-A set of functions, `serializeObjectName`, `validateObjectName`, and `parseJSONObjectName`, deal with those operatons on these data types.
+A set of functions, `serializeObjectName`, `validateObjectName`, and `parseJSONObjectName`, deal with those operations on these data types.
 
 
 
