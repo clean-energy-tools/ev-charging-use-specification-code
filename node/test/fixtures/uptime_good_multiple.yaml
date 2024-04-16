@@ -1,0 +1,81 @@
+
+- port_id: '1080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.19
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '2080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.29
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '3080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.39
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '4080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.49
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '5080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.59
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '6080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.69
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '7080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.79
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '8080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.89
+  outage_total: 1
+  outage_excluded: 1
+
+- port_id: '9080'
+  station_id: statia-clabucet
+  uptime_period_start: '2024-01-02T03:04:05Z'
+  uptime_period_end: '2024-01-02T05:06:07Z'
+  report_yr_mon: '202401'
+  uptime_pct: 0.99
+  outage_total: 1
+  outage_excluded: 1
