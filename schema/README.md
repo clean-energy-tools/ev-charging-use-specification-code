@@ -18,6 +18,7 @@ As of this writing the sole target is TypeScript on Node.js.  This section discu
 The plan is:
 
 * Autogenerate TypeScript type definitions into the package.
+    * Because Quicktype makes some errors, these files are generated into `generated/types-evchargingspec` and the corresponding files in the Node.js package are copied from those files.
 * Autogenerate JSON-formatted schema definitions from the YAML-formatted schema.
     * Because quicktype loses the formats/keywords when converting YAML-formatted schema to JSON, this conversion uses `yq`
 * Creating small modules using AJV for validating and serializing, using the schema definitions
@@ -56,6 +57,10 @@ The `--prefer-unions` option says to, rather than use an `enum` for a field with
 export type AccessType = "public" | "private"
       | "semi_public" | "commercial_only";
 ```
+
+Unfortunately, Quicktype makes at least one error in generating the types.  Namely, some schema fields with format `date-time`, and in the generated TypeScript type are declared as `Date`.  The schema clearly says the field is a `string` whose format is an ISO8160 date/time string.  When AJV uses the schema to validate objects it looks for a string rather than a Date, and therefore fails because a Date is not a string.
+
+To resolve this, the `gen` commands generate TypeScript code into `schema/generated/types-evchargingspec` rather than `node/src/types-evchargingspec`.  The files in the latter directory are created by copying, and modifying, the files from the former directory.
 
 Bottom line is that anyone targeting a different language can easily generate type definitions for that language by using the `--lang` argument.
 
