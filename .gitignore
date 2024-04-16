@@ -2,7 +2,7 @@
 .vscode
 
 # node/src/schemas/*.json
-node/src/types-evchargingspec/*.ts
+# node/src/types-evchargingspec/*.ts
 
 package-lock.json
 
