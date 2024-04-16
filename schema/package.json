@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "config": {
-    "genNodeTypes": "../node/src/types-evchargingspec",
+    "genNodeTypes": "./generated/types-evchargingspec",
     "genNodeZod": "./generated/ts-zod",
     "jsonSchema": "./generated/schemas",
     "schemaDest":  "../node/src/schemas",
