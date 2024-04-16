@@ -10,6 +10,7 @@
         "moduleResolution": "nodenext",
         "strict": true,
         "strictNullChecks": true,
+        "noImplicitAny": true,
         "outDir": "./dist",
         "skipLibCheck": true,
         "allowJs": true,
