@@ -171,7 +171,7 @@ export function parserJSON<T>(
                     // console.log(`validator item ${YAML.dump({
                     //     item
                     // }, { indent: 4 })} fail`, validator.errors)
-                    return false;
+                    return undefined;
                 }
             }
             return ret;
@@ -190,7 +190,7 @@ export function parserYAML<T>(
     data: string, validator: Ajv.ValidateFunction<T>
 ): any {
     if (data && typeof data === 'string') {
-        const ret: T = YAML.load(data);
+        const ret: any = YAML.load(data) as any;
         // console.log(YAML.dump({
         //     title: 'parserYAML',
         //     data,
@@ -202,7 +202,7 @@ export function parserYAML<T>(
                     console.log(`validator item ${YAML.dump({
                         item
                     }, { indent: 4 })} fail`, validator.errors)
-                    return false;
+                    return undefined;
                 }
             }
             return ret;

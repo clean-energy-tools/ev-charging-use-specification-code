@@ -93,17 +93,17 @@ export const parseCSVUptime = async (
             if (record.length < 8) {
                 throw new Error(`record must have 8 entries`);
             }
+            if (typeof record[2] !== 'string') {
+                throw new Error(`uptime_period_start must be a string`);
+            }
+            if (typeof record[3] !== 'string') {
+                throw new Error(`uptime_period_end must be a string`);
+            }
             const ret: Uptime = {
                 port_id: record[0],
                 station_id: record[1],
-                uptime_period_start: 
-                    record[2] instanceof Date
-                    ? record[2].toISOString()
-                    : record[2],
-                uptime_period_end:
-                    record[3] instanceof Date
-                    ? record[3].toISOString()
-                    : record[3],
+                uptime_period_start: record[2],
+                uptime_period_end: record[3],
                 report_yr_mon: record[4],
                 uptime_pct: Number.parseFloat(record[5]),
                 outage_total: Number.parseFloat(record[6]),
