@@ -1,17 +1,25 @@
 
 import { JSONSchemaType, DefinedError } from "ajv";
-import { ajv } from './common.js';
+import { ajv, parseCSV } from './common.js';
 
-import { Station } from '../types-evchargingspec/station.js';
 import {
-        serializor, serializorOptions,
-        validator,
-        parserJSON,
-        readJSONSchema,
-        readYAMLSchema
+    AccessType,
+    OnsiteDERType,
+    OperatingStatus,
+    Station
+} from '../types-evchargingspec/station.js';
+import {
+    serializor, serializorOptions,
+    validator,
+    parserJSON,
+    parserYAML,
+    readJSONSchema,
+    readYAMLSchema,
+    getBoolean
 } from './common.js';
 
 import * as path from 'path';
+import { Readable } from "stream";
 
 const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
@@ -21,7 +29,34 @@ const _schema = await readYAMLSchema(
         __dirname, '..', 'schemas', 'station.yaml'
     ));
 const schema: JSONSchemaType<Station> = _schema;
-const validate = ajv.compile<Station>(schema);
+const validatorStation = ajv.compile<Station>(schema);
+
+const station_columns = [
+    { key: 'station_id' },
+    { key: 'station_name' },
+    { key: 'station_address' },
+    { key: 'station_city' },
+    { key: 'station_state' },
+    { key: 'station_zip' },
+    { key: 'station_county' },
+    { key: 'station_lon' },
+    { key: 'station_lat' },
+    { key: 'operator_name' },
+    { key: 'operator_address' },
+    { key: 'operator_city' },
+    { key: 'operator_state' },
+    { key: 'operating_status' },
+    { key: 'access_type' },
+    { key: 'site_host_type' },
+    { key: 'site_host_type_detail' },
+    { key: 'host_first_name' },
+    { key: 'host_last_name' },
+    { key: 'host_email' },
+    { key: 'onsite_der' },
+    { key: 'onsite_der_type' },
+    { key: 'der_power' },
+    { key: 'der_energy' }
+];
 
 export const serializeStation = (
     data: Station | Array<Station>, options?: serializorOptions
@@ -37,41 +72,88 @@ export const serializeStation = (
         if (!('columns' in _options
             && Array.isArray(_options.columns))
         ) {
-            _options.columns = [
-                { key: 'station_id' },
-                { key: 'station_name' },
-                { key: 'station_address' },
-                { key: 'station_city' },
-                { key: 'station_state' },
-                { key: 'station_zip' },
-                { key: 'station_county' },
-                { key: 'station_lon' },
-                { key: 'station_lat' },
-                { key: 'operator_name' },
-                { key: 'operator_address' },
-                { key: 'operator_city' },
-                { key: 'operator_state' },
-                { key: 'operating_status' },
-                { key: 'access_type' },
-                { key: 'site_host_type' },
-                { key: 'site_host_type_detail' },
-                { key: 'host_first_name' },
-                { key: 'host_last_name' },
-                { key: 'host_email' },
-                { key: 'onsite_der' },
-                { key: 'onsite_der_type' },
-                { key: 'der_power' },
-                { key: 'der_energy' },
-            ];
+            _options.columns = station_columns;
         }
     }
-    return serializor<Station>(data, validate, _options);
+    return serializor<Station>(data, validatorStation, _options);
 };
 
-export const validateStation  = (data: Station) => {
-    return validator<Station>(data, validate);
+export const validateStation  = (
+    data: Station | Array<Station>
+) => {
+    return validator<Station>(data, validatorStation);
+};
+
+export const parseCSVStation = async (
+    data: string | Readable, options?: any
+): Promise<Array<Station> | undefined> => {
+
+    const _options = options ? options : {} as any;
+
+    // if (!('columns' in _options)) {
+    //     _options.columns = uptime_columns;
+    // }
+    const records = await parseCSV(data,
+        // The record will be like this:[
+        //       '8080',
+        //       'statia-clabucet',
+        //       '2024-01-02T03:04:05Z',
+        //       '2024-01-02T05:06:07Z',
+        //       '202401',
+        //       '0.99',
+        //       '1',
+        //       '1'
+        //     ]
+        (record?: Array<string>) => {
+            // console.log(`parseCSVStation ${record}`);
+            if (!Array.isArray(record)) {
+                throw new Error(`record must be an array`);
+            }
+            if (record.length < 24) {
+                throw new Error(`record must have 24 entries`);
+            }
+            const ret: Station = {
+                station_id: record[0],
+                station_name: record[1],
+                station_address: record[2],
+                station_city: record[3],
+                station_state: record[4],
+                station_zip: record[5],
+                station_county: record[6],
+                station_lon: Number.parseFloat(record[7]),
+                station_lat: Number.parseFloat(record[8]),
+                operator_name: record[9],
+                operator_address: record[10],
+                operator_city: record[11],
+                operator_state: record[12],
+                operating_status: record[13] as OperatingStatus,
+                access_type: record[14] as AccessType,
+                site_host_type: record[15],
+                site_host_type_detail: record[16],
+                host_first_name: record[17],
+                host_last_name: record[18],
+                host_email: record[19],
+                onsite_der: getBoolean(record[20]),
+                onsite_der_type: record[21] as OnsiteDERType,
+                der_power: Number.parseFloat(record[22]),
+                der_energy: Number.parseFloat(record[23]),
+            };
+            if (validatorStation(ret)) {
+                return ret;
+            } else {
+                throw new Error(`invalid CSV data for Uptime`);
+            }
+        },
+        _options);
+
+    return records;
+
 };
 
 export const parseJSONStation = (data: string) => {
-    return parserJSON<Station>(data, validate);
+    return parserJSON<Station>(data, validatorStation);
+};
+
+export const parseYAMLStation = (data: string) => {
+    return parserYAML<Station>(data, validatorStation);
 };

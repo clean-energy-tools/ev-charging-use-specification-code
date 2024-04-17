@@ -1,6 +1,6 @@
 
 import { JSONSchemaType, DefinedError } from "ajv";
-import { ajv, parseCSV } from './common.js';
+import { ajv } from './common.js';
 
 import { Uptime } from '../types-evchargingspec/uptime.js';
 import {
@@ -8,8 +8,10 @@ import {
     validator,
     parserJSON,
     parserYAML,
+    parseCSV,
     readJSONSchema,
-    readYAMLSchema
+    readYAMLSchema,
+    getBoolean
 } from './common.js';
 import YAML from 'js-yaml';
 
@@ -20,7 +22,8 @@ const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
 
 const _schema = await readYAMLSchema(
-    path.join(__dirname, '..', 'schemas', 'uptime.yaml'));
+    path.join(
+        __dirname, '..', 'schemas', 'uptime.yaml'));
 const schema: JSONSchemaType<Uptime> = _schema;
 export const validatorUptime = ajv.compile<Uptime>(schema);
 

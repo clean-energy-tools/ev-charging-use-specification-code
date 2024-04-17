@@ -8,6 +8,7 @@ import { generate, transform, stringify } from "csv/sync";
 import { parse } from 'csv-parse';
 
 import addFormats from "ajv-formats";
+import { OperatingStatus } from '../types-evchargingspec/station.js';
 export const ajv = new Ajv.default({
     // strict: true,
     // allowUnionTypes: true,
@@ -300,4 +301,34 @@ export async function readYAMLSchema(fn: string): Promise<any | undefined> {
     } catch (err) {
         return undefined;
     }
+}
+
+// Unneeded?
+
+// export function getOperatingStatus(s: string)
+//     : OperatingStatus | undefined
+// {
+//     if (s.toLowerCase() === "operational"
+//      || s.toLowerCase() === "under_construction"
+//      || s.toLowerCase() === "planned"
+//      || s.toLowerCase() === "decommissioned") {
+//         return s as OperatingStatus;
+//     } else {
+//         return undefined;
+//     }
+// }
+
+export function getBoolean(b: string | boolean): boolean {
+    if (typeof b === 'string') {
+        if (b.toLowerCase() === 'false') {
+            return false;
+        } else if (b.toLowerCase() === 'true') {
+            return true;
+        }
+        // What other checks could be made?
+    } else if (typeof b === 'boolean') {
+        return b;
+    }
+    // This is a default 
+    return false;
 }
