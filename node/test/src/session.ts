@@ -379,7 +379,7 @@ it('should parse multiple items from CSV to Session', async (t) => {
         delimiter: '|'
     });
     // console.log(YAML.dump({
-    //     title: 'parse multiple items from CSV to Station',
+    //     title: 'parse multiple items from CSV to Session',
     //     result
     // }, { indent: 4 }));
     assert.deepEqual(result, fixtureSessionMany);
