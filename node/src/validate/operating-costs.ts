@@ -23,7 +23,7 @@ const __dirname = import.meta.dirname;
 const _schema = await readYAMLSchema(
     path.join(__dirname, '..', 'schemas', 'operating-costs.yaml'));
 const schema: JSONSchemaType<OperatingCosts> = _schema;
-const validatorCosts = ajv.compile<OperatingCosts>(schema);
+export const validatorCosts = ajv.compile<OperatingCosts>(schema);
 
 const costs_columns = [
     { key: 'station_id' },

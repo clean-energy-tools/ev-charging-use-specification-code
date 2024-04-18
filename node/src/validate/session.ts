@@ -24,7 +24,7 @@ const __dirname = import.meta.dirname;
 const _schema = await readYAMLSchema(
     path.join(__dirname, '..', 'schemas', 'session.yaml'));
 const schema: JSONSchemaType<Session> = _schema;
-const validatorSession = ajv.compile<Session>(schema);
+export const validatorSession = ajv.compile<Session>(schema);
 
 const session_columns = [
     { key: 'session_id' },

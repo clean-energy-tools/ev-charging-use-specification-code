@@ -23,7 +23,7 @@ const __dirname = import.meta.dirname;
 const _schema = await readYAMLSchema(
         path.join(__dirname, '..', 'schemas', 'project.yaml'));
 const schema: JSONSchemaType<Project> = _schema;
-const validatorProject = ajv.compile<Project>(schema);
+export const validatorProject = ajv.compile<Project>(schema);
 
 const project_columns = [
     { key: 'project_id' },

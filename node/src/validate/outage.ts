@@ -23,7 +23,7 @@ const __dirname = import.meta.dirname;
 const _schema = await readYAMLSchema(
     path.join(__dirname, '..', 'schemas', 'outage.yaml'));
 const schema: JSONSchemaType<Outage> = _schema;
-const validatorOutage = ajv.compile<Outage>(schema);
+export const validatorOutage = ajv.compile<Outage>(schema);
 
 const outage_columns = [
     { key: 'outage_id' },

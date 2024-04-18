@@ -23,7 +23,7 @@ const __dirname = import.meta.dirname;
 const _schema = await readYAMLSchema(
     path.join(__dirname, '..', 'schemas', 'port.yaml'));
 const schema: JSONSchemaType<Port> = _schema;
-const validatorPort = ajv.compile<Port>(schema);
+export const validatorPort = ajv.compile<Port>(schema);
 
 const port_columns = [
     { key: 'port_id' },
