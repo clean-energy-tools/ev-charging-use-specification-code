@@ -58,6 +58,11 @@ export type serializorOptions = {
      * On CSV output, the delimiter to use between records
      */
     record_delimiter?: string;
+
+    /**
+     * The cast object for stringify
+     */
+    cast?: any;
 }
 
 /**
@@ -102,6 +107,10 @@ export function serializor<T>(
             if ('record_delimiter' in options && typeof options.record_delimiter === 'string') {
                 _options.record_delimiter = options.record_delimiter;
             }
+            if ('cast' in options) {
+                _options.cast = options.cast;
+            }
+            // console.log('serializor', _options);
             return {
                 result: stringify(
                     Array.isArray(data)
@@ -222,7 +231,7 @@ export function parserYAML<T>(
 
 export async function parseCSV<T>(
     data: string | Readable,
-    processRecord: (record?: any[]) => T,
+    processRecord: (record?: any[]) => T | undefined,
     options?: any
 )
     : Promise<Array<T> | undefined>
@@ -320,9 +329,12 @@ export async function readYAMLSchema(fn: string): Promise<any | undefined> {
 
 export function getBoolean(b: string | boolean): boolean {
     if (typeof b === 'string') {
-        if (b.toLowerCase() === 'false') {
+        if (b.toLowerCase() === 'false'
+         || b === ''
+         || b === '0') {
             return false;
-        } else if (b.toLowerCase() === 'true') {
+        } else if (b.toLowerCase() === 'true'
+         || b === '1') {
             return true;
         }
         // What other checks could be made?
