@@ -53,6 +53,7 @@ properties:
         $ref: 'common.json#/definitions/duration'
         # float(2)	default=no	part 680=yes
 
+
     outage_cause:
         description: |
             Cause of outage (e.g. equipment failure, power failure, vandalism).

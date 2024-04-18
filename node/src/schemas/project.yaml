@@ -76,6 +76,7 @@ properties:
     poc_email:
         description: Obligated party point of contact valid email address
         type: string
+        format: email
         # default=yes	part 680=no
 
     poc_first_name:
