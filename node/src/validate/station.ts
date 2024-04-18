@@ -1,6 +1,7 @@
 
 import { JSONSchemaType, DefinedError } from "ajv";
-import { ajv, parseCSV } from './common.js';
+import { ajv } from './common.js';
+import YAML from 'js-yaml';
 
 import {
     AccessType,
@@ -13,6 +14,7 @@ import {
     validator,
     parserJSON,
     parserYAML,
+    parseCSV,
     readJSONSchema,
     readYAMLSchema,
     getBoolean
@@ -29,7 +31,7 @@ const _schema = await readYAMLSchema(
         __dirname, '..', 'schemas', 'station.yaml'
     ));
 const schema: JSONSchemaType<Station> = _schema;
-const validatorStation = ajv.compile<Station>(schema);
+export const validatorStation = ajv.compile<Station>(schema);
 
 const station_columns = [
     { key: 'station_id' },
@@ -45,6 +47,7 @@ const station_columns = [
     { key: 'operator_address' },
     { key: 'operator_city' },
     { key: 'operator_state' },
+    { key: 'operator_zip' },
     { key: 'operating_status' },
     { key: 'access_type' },
     { key: 'site_host_type' },
@@ -74,6 +77,20 @@ export const serializeStation = (
         ) {
             _options.columns = station_columns;
         }
+
+        // _options.cast = {
+        //     onsite_der: function(value: any) {
+        //         if (typeof value !== 'undefined') {
+        //             if (value === false) {
+        //                 return 'false';
+        //             } else {
+        //                 return 'true';
+        //             }
+        //         } else {
+        //             return 'undefined';
+        //         }
+        //     }
+        // }
     }
     return serializor<Station>(data, validatorStation, _options);
 };
@@ -84,6 +101,55 @@ export const validateStation  = (
     return validator<Station>(data, validatorStation);
 };
 
+const csvProcessor = (record?: any[] | undefined) =>  {
+    // console.log(`parseCSVStation ${record}`);
+    if (!Array.isArray(record)) {
+        throw new Error(`record must be an array`);
+    }
+    if (record.length < 25) {
+        throw new Error(`record must have 24 entries`);
+    }
+    const ret: Station = {
+        station_id: record[0],
+        station_name: record[1],
+        station_address: record[2],
+        station_city: record[3],
+        station_state: record[4],
+        station_zip: record[5],
+        station_county: record[6],
+        station_lon: Number.parseFloat(record[7]),
+        station_lat: Number.parseFloat(record[8]),
+        operator_name: record[9],
+        operator_address: record[10],
+        operator_city: record[11],
+        operator_state: record[12],
+        operator_zip: record[13],
+        operating_status: record[14] as OperatingStatus,
+        access_type: record[15] as AccessType,
+        site_host_type: record[16],
+        site_host_type_detail: record[17],
+        host_first_name: record[18],
+        host_last_name: record[19],
+        host_email: record[20],
+        onsite_der: getBoolean(record[21]),
+        onsite_der_type: record[22] as OnsiteDERType,
+        der_power: Number.parseFloat(record[23]),
+        der_energy: Number.parseFloat(record[24]),
+    };
+    // console.log(YAML.dump({
+    //     title: 'parseCSVStation',
+    //     record,
+    //     ret
+    // }, { indent: 4 }));
+    if (validatorStation(ret)) {
+        return ret;
+    } else {
+        // console.log(validatorStation.errors)
+        // throw new Error(`invalid CSV data for Station`);
+        return undefined;
+    }
+}
+
 export const parseCSVStation = async (
     data: string | Readable, options?: any
 ): Promise<Array<Station> | undefined> => {
@@ -93,7 +159,7 @@ export const parseCSVStation = async (
     // if (!('columns' in _options)) {
     //     _options.columns = uptime_columns;
     // }
-    const records = await parseCSV(data,
+    const records = await parseCSV<Station>(data,
         // The record will be like this:[
         //       '8080',
         //       'statia-clabucet',
@@ -104,46 +170,7 @@ export const parseCSVStation = async (
         //       '1',
         //       '1'
         //     ]
-        (record?: Array<string>) => {
-            // console.log(`parseCSVStation ${record}`);
-            if (!Array.isArray(record)) {
-                throw new Error(`record must be an array`);
-            }
-            if (record.length < 24) {
-                throw new Error(`record must have 24 entries`);
-            }
-            const ret: Station = {
-                station_id: record[0],
-                station_name: record[1],
-                station_address: record[2],
-                station_city: record[3],
-                station_state: record[4],
-                station_zip: record[5],
-                station_county: record[6],
-                station_lon: Number.parseFloat(record[7]),
-                station_lat: Number.parseFloat(record[8]),
-                operator_name: record[9],
-                operator_address: record[10],
-                operator_city: record[11],
-                operator_state: record[12],
-                operating_status: record[13] as OperatingStatus,
-                access_type: record[14] as AccessType,
-                site_host_type: record[15],
-                site_host_type_detail: record[16],
-                host_first_name: record[17],
-                host_last_name: record[18],
-                host_email: record[19],
-                onsite_der: getBoolean(record[20]),
-                onsite_der_type: record[21] as OnsiteDERType,
-                der_power: Number.parseFloat(record[22]),
-                der_energy: Number.parseFloat(record[23]),
-            };
-            if (validatorStation(ret)) {
-                return ret;
-            } else {
-                throw new Error(`invalid CSV data for Uptime`);
-            }
-        },
+        csvProcessor,
         _options);
 
     return records;
