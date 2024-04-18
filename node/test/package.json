@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npx npm-run-all test:uptime",
+    "test": "npx npm-run-all test:uptime test:station",
     "test:uptime": "node ./dist/uptime.js",
+    "test:station": "node ./dist/station.js",
     "monitor": "node --test",
     "build": "npx tsc",
     "watch": "npx tsc -w"
