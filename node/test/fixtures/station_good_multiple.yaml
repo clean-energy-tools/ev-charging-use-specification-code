@@ -1,0 +1,104 @@
+- station_id: 'statie-clabucet-1'
+  station_name: 'Statia Clabucet #1'
+  station_address: 129 Strada Clabucet
+  station_city: New York
+  station_state: NY
+  station_zip: '01234'
+  station_county: 'Manhattan'
+  station_lon: -40
+  station_lat: 70
+  operator_name: 'Happy EV Charging'
+  operator_address: 129 Main St
+  operator_city: New York
+  operator_state: NY
+  operator_zip: '01234'
+  operating_status: operational
+  access_type: public
+  site_host_type: public
+  site_host_type_detail: street
+  host_first_name: John
+  host_last_name: John
+  host_email: john@happyevcharging.com
+  onsite_der: false
+  onsite_der_type: other
+  der_power: 0
+  der_energy: 0
+
+- station_id: 'statie-clabucet-2'
+  station_name: 'Statia Clabucet #2'
+  station_address: 129 Strada Clabucet
+  station_city: New York
+  station_state: NY
+  station_zip: '01234'
+  station_county: 'Manhattan'
+  station_lon: -40
+  station_lat: 70
+  operator_name: 'Happy EV Charging'
+  operator_address: 129 Main St
+  operator_city: New York
+  operator_state: NY
+  operator_zip: '01234'
+  operating_status: operational
+  access_type: public
+  site_host_type: public
+  site_host_type_detail: street
+  host_first_name: John
+  host_last_name: John
+  host_email: john@happyevcharging.com
+  onsite_der: false
+  onsite_der_type: other
+  der_power: 0
+  der_energy: 0
+
+
+- station_id: 'statie-clabucet-3'
+  station_name: 'Statia Clabucet #3'
+  station_address: 129 Strada Clabucet
+  station_city: New York
+  station_state: NY
+  station_zip: '01234'
+  station_county: 'Manhattan'
+  station_lon: -40
+  station_lat: 70
+  operator_name: 'Happy EV Charging'
+  operator_address: 129 Main St
+  operator_city: New York
+  operator_state: NY
+  operator_zip: '01234'
+  operating_status: operational
+  access_type: public
+  site_host_type: public
+  site_host_type_detail: street
+  host_first_name: John
+  host_last_name: John
+  host_email: john@happyevcharging.com
+  onsite_der: false
+  onsite_der_type: other
+  der_power: 0
+  der_energy: 0
+
+- station_id: 'statie-clabucet-4'
+  station_name: 'Statia Clabucet #4'
+  station_address: 129 Strada Clabucet
+  station_city: New York
+  station_state: NY
+  station_zip: '01234'
+  station_county: 'Manhattan'
+  station_lon: -40
+  station_lat: 70
+  operator_name: 'Happy EV Charging'
+  operator_address: 129 Main St
+  operator_city: New York
+  operator_state: NY
+  operator_zip: '01234'
+  operating_status: operational
+  access_type: public
+  site_host_type: public
+  site_host_type_detail: street
+  host_first_name: John
+  host_last_name: John
+  host_email: john@happyevcharging.com
+  onsite_der: false
+  onsite_der_type: other
+  der_power: 0
+  der_energy: 0
