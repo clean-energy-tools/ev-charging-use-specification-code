@@ -1,0 +1,121 @@
+
+- project_id: rendezvous-clean-earth1
+  station_id: 'statie-clabucet-1:34435546'
+  org_name: 'Happy EV Charging'
+  org_address: 129 Main St
+  org_city: New York
+  org_state: NY
+  org_zip: '01234'
+  poc_email: john@happyevcharging.com
+  poc_first_name: John
+  poc_last_name: John
+  project_award_date: '2022-01-01T01:01:01Z'
+  primary_funding_source: Bake sale
+  primary_funding: 1000000000
+  utility_makeready: 100000
+  utility_funding_other: 1000000
+  other_makeready: 5000000
+  other_funding_other: 400300400
+  cost_share: 50000
+  equipment_cost: 10000000
+  install_cost: 1000000
+  property_cost: 100000
+  der_equipment_cost: 100020034
+  der_install_cost: 12003004
+  distribution_costs: 3002001
+  service_costs: 50200300
+  dac_type: "solar"
+  in_dac: true
+  dac_proximate: true
+  total_power: 1000000000000
+
+- project_id: rendezvous-clean-earth2
+  station_id: 'statie-clabucet-1:34435546'
+  org_name: 'Happy EV Charging'
+  org_address: 129 Main St
+  org_city: New York
+  org_state: NY
+  org_zip: '01234'
+  poc_email: john@happyevcharging.com
+  poc_first_name: John
+  poc_last_name: John
+  project_award_date: '2022-01-01T01:01:01Z'
+  primary_funding_source: Bake sale
+  primary_funding: 1000000000
+  utility_makeready: 100000
+  utility_funding_other: 1000000
+  other_makeready: 5000000
+  other_funding_other: 400300400
+  cost_share: 50000
+  equipment_cost: 10000000
+  install_cost: 1000000
+  property_cost: 100000
+  der_equipment_cost: 100020034
+  der_install_cost: 12003004
+  distribution_costs: 3002001
+  service_costs: 50200300
+  dac_type: "solar"
+  in_dac: true
+  dac_proximate: true
+  total_power: 1000000000000
+
+- project_id: rendezvous-clean-earth3
+  station_id: 'statie-clabucet-1:34435546'
+  org_name: 'Happy EV Charging'
+  org_address: 129 Main St
+  org_city: New York
+  org_state: NY
+  org_zip: '01234'
+  poc_email: john@happyevcharging.com
+  poc_first_name: John
+  poc_last_name: John
+  project_award_date: '2022-01-01T01:01:01Z'
+  primary_funding_source: Bake sale
+  primary_funding: 1000000000
+  utility_makeready: 100000
+  utility_funding_other: 1000000
+  other_makeready: 5000000
+  other_funding_other: 400300400
+  cost_share: 50000
+  equipment_cost: 10000000
+  install_cost: 1000000
+  property_cost: 100000
+  der_equipment_cost: 100020034
+  der_install_cost: 12003004
+  distribution_costs: 3002001
+  service_costs: 50200300
+  dac_type: "solar"
+  in_dac: true
+  dac_proximate: true
+  total_power: 1000000000000
+
+- project_id: rendezvous-clean-earth4
+  station_id: 'statie-clabucet-1:34435546'
+  org_name: 'Happy EV Charging'
+  org_address: 129 Main St
+  org_city: New York
+  org_state: NY
+  org_zip: '01234'
+  poc_email: john@happyevcharging.com
+  poc_first_name: John
+  poc_last_name: John
+  project_award_date: '2022-01-01T01:01:01Z'
+  primary_funding_source: Bake sale
+  primary_funding: 1000000000
+  utility_makeready: 100000
+  utility_funding_other: 1000000
+  other_makeready: 5000000
+  other_funding_other: 400300400
+  cost_share: 50000
+  equipment_cost: 10000000
+  install_cost: 1000000
+  property_cost: 100000
+  der_equipment_cost: 100020034
+  der_install_cost: 12003004
+  distribution_costs: 3002001
+  service_costs: 50200300
+  dac_type: "solar"
+  in_dac: true
+  dac_proximate: true
+  total_power: 1000000000000
+
