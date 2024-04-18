@@ -14,6 +14,7 @@ import {
         getBoolean
 } from './common.js';
 
+import YAML from 'js-yaml';
 import * as path from 'path';
 import { Readable } from "stream";
 import { ValidPaymentType } from "../types-evchargingspec/port.js";
@@ -36,7 +37,7 @@ const session_columns = [
     { key: 'session_duration' },
     { key: 'charging_duration' },
     { key: 'energy_kwh' },
-    { key: 'peak_kwh' },
+    { key: 'peak_kw' },
     { key: 'total_fee_charged' },
     { key: 'energy_fee' },
     { key: 'session_fee' },
@@ -82,9 +83,6 @@ export const parseCSVSession = async (
 
     const _options = options ? options : {} as any;
 
-    // if (!('columns' in _options)) {
-    //     _options.columns = uptime_columns;
-    // }
     const records = await parseCSV(data,
         // The record will be like this:[
         //       '8080',
@@ -97,7 +95,7 @@ export const parseCSVSession = async (
         //       '1'
         //     ]
         (record?: Array<string>) => {
-            // console.log(`parseCSVUptime ${record}`);
+            // console.log(`parseCSVSession ${record}`);
             if (!Array.isArray(record)) {
                 throw new Error(`record must be an array`);
             }
@@ -130,7 +128,10 @@ export const parseCSVSession = async (
             if (validatorSession(ret)) {
                 return ret;
             } else {
-                throw new Error(`invalid CSV data for Session`);
+                throw new Error(`invalid CSV data for Session ${YAML.dump({
+                    ret,
+                    errors: validatorSession.errors
+                }, { indent: 4 })}`);
             }
         },
         _options);
