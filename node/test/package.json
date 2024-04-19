@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npx npm-run-all test:project test:session test:station test:uptime",
+    "test": "npx npm-run-all test:port test:project test:session test:station test:uptime",
+    "test:port": "node ./dist/port.js",
     "test:project": "node ./dist/project.js",
     "test:session": "node ./dist/session.js",
     "test:station": "node ./dist/station.js",
