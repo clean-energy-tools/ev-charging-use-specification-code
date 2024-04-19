@@ -1,0 +1,30 @@
+port_id: 'statie-clabucet:1:23'
+project_id: rendezvous-clean-earth
+station_id: 'statie-clabucet'
+data_provider_org: 'Happy EV Charging'
+data_provider_poc_email: john@happyevcharging.com
+is_active: true
+power_level_kw: 6.6
+port_latitude: -70
+port_longitude: 40
+station_activation_date: '2024-01-02T03:04:05Z'
+charger_type: "level_2"
+connector_type: "J1772"
+energy_fee: 0.29
+session_fee: 0.10
+time_fee: 0.05
+parking_fee: 0.10
+idle_fee: 0.50
+operating_hours: 24
+equipment_manufacturer: Siemens
+model_number: S1234
+equipment_serial: '453895726294739'
+data_provider_poc_first: John
+data_provider_poc_last: john
+network: 'Happy EV Charging'
+network_contact: John John
+evse_manufacturer: Siemens
+trailer_accessible: false
+payments_accepted: credit card terminal
+
+
