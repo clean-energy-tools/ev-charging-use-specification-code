@@ -278,7 +278,6 @@ it('should parse from CSV to Port', async (t) => {
     ]);
 });
 
-
 let csvSerializedMult: string;
 
 it('should serialize multiple items to CSV', async (t) => {
