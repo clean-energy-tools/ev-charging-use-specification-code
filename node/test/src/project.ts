@@ -86,7 +86,6 @@ test('should fail to validate Project with bad dates', async (t) => {
         );
 });
 
-
 test('should fail to validate Project with bad email', async (t) => {
     const _projectBD = await fsp.readFile(
         path.join(__dirname, '..', 'fixtures', 'project_bad_email.yaml'),

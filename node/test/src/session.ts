@@ -29,7 +29,8 @@ const __dirname = import.meta.dirname;
 
 test('should validate simple Session read from file', async (t) => {
     const _session1 = await fsp.readFile(
-        path.join(__dirname, '..', 'fixtures', 'session_good.yaml'),
+        path.join(
+            __dirname, '..', 'fixtures', 'session_good.yaml'),
         'utf-8');
     const session1 = YAML.load(_session1);
 
