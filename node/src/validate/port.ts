@@ -14,6 +14,7 @@ import {
     getBoolean
 } from './common.js';
 
+import YAML from 'js-yaml';
 import * as path from 'path';
 import { Readable } from "stream";
 
@@ -98,7 +99,7 @@ export const parseCSVPort = async (
             if (!Array.isArray(record)) {
                 throw new Error(`record must be an array`);
             }
-            if (record.length < 8) {
+            if (record.length < 28) {
                 throw new Error(`record must have 8 entries`);
             }
             const ret: Port = {
@@ -129,12 +130,16 @@ export const parseCSVPort = async (
                 network_contact: record[24],
                 evse_manufacturer: record[25],
                 trailer_accessible: getBoolean(record[26]),
-                payments_accepted: record[26] as ValidPaymentType,
+                payments_accepted: record[27] as ValidPaymentType,
             };
             if (validatorPort(ret)) {
                 return ret;
             } else {
-                throw new Error(`invalid CSV data for Port`);
+                throw new Error(`invalid CSV data for Port ${YAML.dump({
+                    // data,
+                    // ret,
+                    errors: validatorPort.errors
+                }, { indent: 4 })}`);
             }
         },
         _options);
