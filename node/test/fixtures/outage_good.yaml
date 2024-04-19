@@ -1,0 +1,8 @@
+outage_id: '2024-01-01-3435892'
+port_id: 'statie-clabucet:1:23'
+station_id: 'statie-clabucet'
+outage_start: '2024-01-22T01:02:03Z'
+outage_end: '2024-01-22T03:04:05Z'
+outage_duration: PT2H2M3S
+outage_cause: smoking
+exempted_outage: true
