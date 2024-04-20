@@ -42,7 +42,7 @@ const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
 
 
-test('should validate simple Project read from file', async (t) => {
+test('should validate simple Outage read from file', async (t) => {
     const _outage1 = await fsp.readFile(
         path.join(
             __dirname, '..', 'fixtures', 'outage_good.yaml'),
@@ -51,7 +51,7 @@ test('should validate simple Project read from file', async (t) => {
 
     // console.log(YAML.dump({
     //     title: 'Before validate',
-    //     _project1,
+    //     _outage1,
     //     outage1
     // }, { indent: 4 }));
 
@@ -188,7 +188,6 @@ it('should serialize multiple items to CSV', async (t) => {
 
     csvSerializedMult = csv.result;
 });
-
 
 const fixtureOutageMany: Array<Outage> = [
     {
