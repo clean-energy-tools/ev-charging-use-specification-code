@@ -1,0 +1,10 @@
+
+station_id: 'statie-clabucet'
+oc_period_start: 2024-01-01T00:00:00Z
+oc_period_end: 2024-02-01T00:00:00Z
+oc_year: '2024'
+station_mr: 22330
+maintenance_cost: 1120
+repair_cost: 2230
+electricity_cost: 3391
+network_costs: 2203
