@@ -83,8 +83,8 @@ export const parseCSVOperatingCosts = async (
             if (!Array.isArray(record)) {
                 throw new Error(`record must be an array`);
             }
-            if (record.length < 11) {
-                throw new Error(`record must have 8 entries`);
+            if (record.length < 9) {
+                throw new Error(`record must have 9 entries`);
             }
             const ret: OperatingCosts = {
                 station_id: record[0],
@@ -92,10 +92,10 @@ export const parseCSVOperatingCosts = async (
                 oc_period_end: record[2],
                 oc_year: record[3],
                 station_mr: Number.parseFloat(record[4]),
-                maintenance_cost: Number.parseFloat(record[6]),
-                repair_cost: Number.parseFloat(record[8]),
-                electricity_cost: Number.parseFloat(record[9]),
-                network_costs: Number.parseFloat(record[10]),
+                maintenance_cost: Number.parseFloat(record[5]),
+                repair_cost: Number.parseFloat(record[6]),
+                electricity_cost: Number.parseFloat(record[7]),
+                network_costs: Number.parseFloat(record[8]),
             };
             if (validatorCosts(ret)) {
                 return ret;
