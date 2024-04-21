@@ -70,6 +70,7 @@ properties:
         description: |
             Email address for data provider point of contact.
         type: string
+        format: email
 
     is_active:
         # default=yes       part 680=no
@@ -202,6 +203,7 @@ properties:
         description: |
             Email address for network service provider.
         type: string
+        format: email
 
     evse_manufacturer:
         # default=no part 680=no

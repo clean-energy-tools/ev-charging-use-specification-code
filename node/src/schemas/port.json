@@ -52,7 +52,8 @@
     },
     "data_provider_poc_email": {
       "description": "Email address for data provider point of contact.\n",
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "is_active": {
       "description": "Port operational status.\n",
@@ -140,7 +141,8 @@
     },
     "network_contact": {
       "description": "Email address for network service provider.\n",
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "evse_manufacturer": {
       "description": "Charging equipment manufacturer name.\n",
