@@ -225,7 +225,7 @@ it('should serialize to CSV', async (t) => {
 
     assert.equal(
         csv.result.trim(),
-        'statie-clabucet:1:23,rendezvous-clean-earth,statie-clabucet,Happy EV Charging,john@happyevcharging.com,1,6.6,-70,40,2024-01-02T03:04:05Z,level_2,J1772,0.29,0.1,0.05,0.1,0.5,24,Siemens,S1234,453895726294739,john,John,Happy EV Charging,John John,Siemens,,credit_card_terminal'
+        'statie-clabucet:1:23,rendezvous-clean-earth,statie-clabucet,Happy EV Charging,john@happyevcharging.com,1,6.6,-70,40,2024-01-02T03:04:05Z,level_2,J1772,0.29,0.1,0.05,0.1,0.5,24,Siemens,S1234,453895726294739,john,John,Happy EV Charging,john@happyevcharging.com,Siemens,,credit_card_terminal'
     );
 
     csvSerialized = csv.result;
@@ -256,7 +256,7 @@ const portGood = {
     data_provider_poc_first: 'John',
     data_provider_poc_last: 'john',
     network: 'Happy EV Charging',
-    network_contact: 'John John',
+    network_contact: 'john@happyevcharging.com',
     evse_manufacturer: 'Siemens',
     trailer_accessible: false,
     payments_accepted: 'credit_card_terminal',
@@ -302,13 +302,13 @@ it('should serialize multiple items to CSV', async (t) => {
 
     assert.deepEqual(csv.result.trim(),
     [
-        'statie-clabucet:1:23|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|John John|Siemens||credit_card_terminal',
+        'statie-clabucet:1:23|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|john@happyevcharging.com|Siemens||credit_card_terminal',
 
-        'statie-clabucet:1:24|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|John John|Siemens||credit_card_terminal',
+        'statie-clabucet:1:24|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|john@happyevcharging.com|Siemens||credit_card_terminal',
 
-        'statie-clabucet:1:25|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|John John|Siemens||credit_card_terminal',
+        'statie-clabucet:1:25|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|john@happyevcharging.com|Siemens||credit_card_terminal',
 
-        'statie-clabucet:1:26|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|John John|Siemens||credit_card_terminal'
+        'statie-clabucet:1:26|rendezvous-clean-earth|statie-clabucet|Happy EV Charging|john@happyevcharging.com|1|6.6|-70|40|2024-01-02T03:04:05Z|level_2|J1772|0.29|0.1|0.05|0.1|0.5|24|Siemens|S1234|453895726294739|john|John|Happy EV Charging|john@happyevcharging.com|Siemens||credit_card_terminal'
     ].join('\n').trim());
 
     csvSerializedMult = csv.result;
@@ -340,7 +340,7 @@ const fixturePortMany: Array<Port> = [
         data_provider_poc_last: 'john',
         data_provider_poc_first: 'John',
         network: 'Happy EV Charging',
-        network_contact: 'John John',
+        network_contact: 'john@happyevcharging.com',
         evse_manufacturer: 'Siemens',
         trailer_accessible: false,
         payments_accepted: 'credit_card_terminal'
@@ -370,7 +370,7 @@ const fixturePortMany: Array<Port> = [
         data_provider_poc_last: 'john',
         data_provider_poc_first: 'John',
         network: 'Happy EV Charging',
-        network_contact: 'John John',
+        network_contact: 'john@happyevcharging.com',
         evse_manufacturer: 'Siemens',
         trailer_accessible: false,
         payments_accepted: 'credit_card_terminal'
@@ -400,7 +400,7 @@ const fixturePortMany: Array<Port> = [
         data_provider_poc_last: 'john',
         data_provider_poc_first: 'John',
         network: 'Happy EV Charging',
-        network_contact: 'John John',
+        network_contact: 'john@happyevcharging.com',
         evse_manufacturer: 'Siemens',
         trailer_accessible: false,
         payments_accepted: 'credit_card_terminal'
@@ -430,7 +430,7 @@ const fixturePortMany: Array<Port> = [
         data_provider_poc_last: 'john',
         data_provider_poc_first: 'John',
         network: 'Happy EV Charging',
-        network_contact: 'John John',
+        network_contact: 'john@happyevcharging.com',
         evse_manufacturer: 'Siemens',
         trailer_accessible: false,
         payments_accepted: 'credit_card_terminal'
@@ -507,7 +507,7 @@ it('should serialize item to JSON', async (t) => {
     "data_provider_poc_first": "John",
     "data_provider_poc_last": "john",
     "network": "Happy EV Charging",
-    "network_contact": "John John",
+    "network_contact": "john@happyevcharging.com",
     "evse_manufacturer": "Siemens",
     "trailer_accessible": false,
     "payments_accepted": "credit_card_terminal"
@@ -594,7 +594,7 @@ it('should serialize multiple items to JSON', async (t) => {
         "data_provider_poc_first": "John",
         "data_provider_poc_last": "john",
         "network": "Happy EV Charging",
-        "network_contact": "John John",
+        "network_contact": "john@happyevcharging.com",
         "evse_manufacturer": "Siemens",
         "trailer_accessible": false,
         "payments_accepted": "credit_card_terminal"
@@ -624,7 +624,7 @@ it('should serialize multiple items to JSON', async (t) => {
         "data_provider_poc_first": "John",
         "data_provider_poc_last": "john",
         "network": "Happy EV Charging",
-        "network_contact": "John John",
+        "network_contact": "john@happyevcharging.com",
         "evse_manufacturer": "Siemens",
         "trailer_accessible": false,
         "payments_accepted": "credit_card_terminal"
@@ -654,7 +654,7 @@ it('should serialize multiple items to JSON', async (t) => {
         "data_provider_poc_first": "John",
         "data_provider_poc_last": "john",
         "network": "Happy EV Charging",
-        "network_contact": "John John",
+        "network_contact": "john@happyevcharging.com",
         "evse_manufacturer": "Siemens",
         "trailer_accessible": false,
         "payments_accepted": "credit_card_terminal"
@@ -684,7 +684,7 @@ it('should serialize multiple items to JSON', async (t) => {
         "data_provider_poc_first": "John",
         "data_provider_poc_last": "john",
         "network": "Happy EV Charging",
-        "network_contact": "John John",
+        "network_contact": "john@happyevcharging.com",
         "evse_manufacturer": "Siemens",
         "trailer_accessible": false,
         "payments_accepted": "credit_card_terminal"

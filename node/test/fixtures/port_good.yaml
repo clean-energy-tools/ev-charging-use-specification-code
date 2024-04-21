@@ -22,7 +22,7 @@ equipment_serial: '453895726294739'
 data_provider_poc_first: John
 data_provider_poc_last: john
 network: 'Happy EV Charging'
-network_contact: John John
+network_contact: john@happyevcharging.com
 evse_manufacturer: Siemens
 trailer_accessible: false
 payments_accepted: credit_card_terminal
