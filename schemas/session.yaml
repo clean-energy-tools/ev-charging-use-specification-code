@@ -1,0 +1,174 @@
+# $schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "./session.schema.json"
+title: "Operating Data"
+description: "A product in the catalog"
+type: "object"
+required:
+    - session_id
+    - port_id
+    - plug_start_datetime
+    - plug_end_datetime
+    - charge_start_datetime
+    - charge_end_datetime
+    - session_duration
+    - charging_duration
+    - energy_kwh
+    - peak_kw
+    - total_fee_charged
+    - energy_fee
+    - session_fee
+    - time_fee
+    - user_id
+    - successful_completion
+    - ended_by
+    - start_soc
+    - end_soc
+    - error_code
+    - payment_type
+properties:
+
+    session_id:
+        # default=yes	part 680=yes
+        description: |
+            Unique identifier for session record
+        type: string
+
+    port_id:
+        # default=yes	part 680=yes
+        description: |
+            Unique identifier for specified port. (For NEVI or other Part 680 project, 
+            port_id must be same as the permanent station identifier provided
+            to third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)
+        type: string
+
+    plug_start_datetime:
+        # date/time default=yes	part 680=yes
+        description: |
+            Date and time of session initialization (plug in)
+        type: string
+        format: date-time
+
+    plug_end_datetime:
+        #  date/time default=yes	part 680=no
+        description: |
+            Date and time of session termination (plug out)
+        type: string
+        format: date-time
+
+    charge_start_datetime:
+        #  date/time default=yes	part 680=no
+        description: |
+            Date and time when charging began
+        type: string
+        format: date-time
+
+    charge_end_datetime:
+        #  date/time default=no	part 680=no
+        description: |
+            Charging end date time
+        type: string
+        format: date-time
+
+    session_duration:
+        # duration duration default=no	part 680=no
+        description: |
+            Total duration of session (plug in to plug out)
+        $ref: "./common.json#/definitions/duration"
+
+    charging_duration:
+        # duration; // duration default=no	part 680=no
+        description: |
+            Total duration of time when electricity was actively dispensed - may not
+            always be equal to the difference between charge_start_datetime
+            and charge_end_datetime due to charge interruptions or managed charging
+        $ref: "./common.json#/definitions/duration"
+
+    energy_kwh:
+        # non-negative float default=yes	part 680=yes
+        description: |
+            Electricity dispensed (in kilowatt-hours) during charging session
+        type: number
+        minimum: 0
+
+    peak_kw:
+        # non-negative float default=yes	part 680=yes
+        description: |
+            Session maximum power delivery (in kilowatts)
+        type: number
+        minimum: 0
+
+    total_fee_charged:
+        #  cost float(2) default=yes	part 680=no
+        description: |
+            The amount charged to the EV driver (in USD) where applicable - zero
+            if driver was not charged for an otherwise paid charger, NULL if charger is not paid
+        type: number
+        minimum: 0
+
+    energy_fee:
+        # cost float(2) default=yes	part 680=no
+        description: |
+            Fee (in USD) charged to user per kilowatt-hour
+        type: number
+        minimum: 0
+
+    session_fee:
+        # cost float(2) default=no	part 680=no
+        description: |
+            Fee (in USD) charged to user per session
+        type: number
+        minimum: 0
+
+    time_fee:
+        # cost float(2) default=no	part 680=no
+        description: |
+            Fee (in USD) charged to users per minute
+        type: number
+        minimum: 0
+
+    user_id:
+        # default=no	part 680=no
+        description: |
+            Anonymized network-specific unique user ID
+        type: string
+
+    successful_completion:
+        # default=no	part 680=no
+        description: |
+            Whether or not the session ended as expected
+        type: boolean
+
+    ended_by:
+        # default=no	part 680=no
+        description: |
+            Cause of the session to end (e.g., unplugged while charging).
+        type: string
+
+    start_soc:
+        # float(2) default=no	part 680=no
+        description: |
+            Battery state of charge at session start represented as a decimal between 0 and 1
+        type: number
+        minimum: 0
+        maximum: 1
+
+    end_soc:
+        # float(2) default=no	part 680=no
+        description: |
+            Battery state of charge at session end represented as a decimal between 0 and 1
+        type: number
+        minimum: 0
+        maximum: 1
+
+    error_code:
+        # default=no	part 680=yes
+        description: |
+            Session error code(s) if any. Separated by comma if multiple.
+        type: string
+
+    payment_type:
+        # default=no	part 680=yes
+        description: |
+            Valid Payment Type
+        $ref: "./common.json#/definitions/validPaymentType"
+        

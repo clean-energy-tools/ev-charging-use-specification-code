@@ -1,0 +1,258 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Uptime Documentation</title>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Uptime Documentation">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)">
+
+<meta name="DC.title" content="Uptime Documentation">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Uptime Documentation">
+
+<meta name="og:url" content="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/uptime.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/uptime.html">
+
+<link rel="sitemap" type="application/xml" href="../sitemap.xml" title="Sitemap">
+
+
+<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../css/flatly.min.css"><link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<link rel="stylesheet" href="../vendor/swagger-ui/swagger-ui.css">
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html"><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Schema</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center;">
+<!--  No project local
+<a href="/index.html"><img src="/images/project-logo.jpg" width="150px" align="left"/></a>
+-->
+<h1 align="center">Uptime Documentation</h1>
+</span>
+<!-- No search box
+<span class="col-md-4">
+<form method="get" id="ddgSearch" action="https://duckduckgo.com/">
+<input type="hidden" name="sites" value="techsparx.com"/>
+<input type="hidden" name="k7" value="#ffffff"/>
+<input type="hidden" name="k8" value="#222222"/>
+<input type="hidden" name="k9" value="#00278e"/>
+<input type="hidden" name="kx" value="#20692b"/>
+<input type="hidden" name="kj" value="#fafafa"/>
+<input type="hidden" name="kt" value="p"/>
+<input type="text" name="q" placeholder="Search TechSparx" aria-label="Search techsparx.com on DuckDuckGo"/>
+<button type="submit">Search</button>
+</form>
+</span>
+-->
+</div>
+</header>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<nav aria-label="breadcrumb" id="breadcrumbTrail">
+<ol class="breadcrumb">
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="uptime.html">Uptime Documentation</a> </li>
+</ol>
+</nav>
+</section>
+<section id="category-tags" class="col-sm-12">
+
+    Date: Mon Apr 22 2024
+
+
+</section>
+</div>
+<div class="row">
+<article class="col-sm-12">
+<p><i id>path: #</i></p>
+<p>&#x24;schema: <a href="http://json-schema.org/draft-06/schema#">http://json-schema.org/draft-06/schema#</a></p>
+<p>&#x24;ref: <a href="#/definitions/Uptime">#/definitions/Uptime</a></p>
+<h1>definitions</h1>
+<p><strong><em>Uptime</em></strong></p>
+<ul>
+<li>
+<h2>Uptime</h2>
+</li>
+<li><em>A product in the catalog</em></li>
+<li>Type: <code>object</code></li>
+<li><i id="/definitions/Uptime">path: #/definitions/Uptime</i></li>
+<li>This schema accepts additional properties.</li>
+<li><strong><em>Properties</em></strong>
+<ul>
+<li><b id="#/definitions/Uptime/properties/outage_excluded">outage_excluded</b> <code>required</code>
+<ul>
+<li><em>Total number of excluded outage minutes (including partial minutes)<br>for Port ID in uptime period or Report Year and Month.
+(For NEVI or other Part 680 project, calculated
+in accordance with CFR 23 &#xa7; 680.116(b)).</em></li>
+<li>Type: <code>number</code></li>
+<li><i id="/definitions/Uptime/properties/outage_excluded">path: #/definitions/Uptime/properties/outage_excluded</i></li>
+</ul>
+</li>
+<li><b id="#/definitions/Uptime/properties/outage_total">outage_total</b> <code>required</code>
+<ul>
+<li><em>Total number of outage minutes (including partial minutes)<br>for Port ID in in uptime period or Report Year and Month.
+For NEVI or other Part 680 project, calculated
+in accordance with CFR 23 &#xa7; 680.116(b)).</em></li>
+<li>Type: <code>number</code></li>
+<li><i id="/definitions/Uptime/properties/outage_total">path: #/definitions/Uptime/properties/outage_total</i></li>
+</ul>
+</li>
+<li><b id="#/definitions/Uptime/properties/port_id">port_id</b> <code>required</code>
+<ul>
+<li><em>Unique identifier for specified port. (For NEVI or other Part 680 project,<br>port_id must be same as the permanent station identifier provided
+to third parties pursuant to CFR 23 &#xa7; 680.116(c)(8)(iii).)</em></li>
+<li>Type: <code>string</code></li>
+<li><i id="/definitions/Uptime/properties/port_id">path: #/definitions/Uptime/properties/port_id</i></li>
+</ul>
+</li>
+<li><b id="#/definitions/Uptime/properties/report_yr_mon">report_yr_mon</b> <code>required</code>
+<ul>
+<li>_Year and month of uptime summary in YYYYMM format<br>if reported monthly (as required by part 680)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Matches a string representing a &quot;year and month&quot; containing six digits.  There is a Y10K problem in that in the year 10,000 the regular expression will break.
+_
+- Type: <code>string</code>
+- <i id="/definitions/Uptime/properties/report_yr_mon">path: #/definitions/Uptime/properties/report_yr_mon</i>
+- The value must match this pattern: <code>^[0-9][0-9][0-9][0-9][0-9][0-9]&#x24;</code>
+- <b id="#/definitions/Uptime/properties/station_id">station_id</b> <code>required</code>
+- <em>Unique identifier for the station where specific port is located.<br>(For NEVI or other Part 680 project, station_id must be same as
+the permanent station identifier provided to third parties pursuant
+to CFR 23 &#xa7; 680.116(c)(1)).</em>
+- Type: <code>string</code>
+- <i id="/definitions/Uptime/properties/station_id">path: #/definitions/Uptime/properties/station_id</i>
+- <b id="#/definitions/Uptime/properties/uptime_pct">uptime_pct</b> <code>required</code>
+- <em>Uptime percentage (between 0-100) for Port ID in uptime period<br>or Report Year and Month. (For NEVI or other Part 680 project,
+calculated in accordance with CFR 23 &#xa7; 680.116(b)).</em>
+- Type: <code>number</code>
+- <i id="/definitions/Uptime/properties/uptime_pct">path: #/definitions/Uptime/properties/uptime_pct</i>
+- <b id="#/definitions/Uptime/properties/uptime_period_end">uptime_period_end</b> <code>required</code>
+- <em>End date of uptime reporting period.</em>
+- Type: <code>string</code>
+- <i id="/definitions/Uptime/properties/uptime_period_end">path: #/definitions/Uptime/properties/uptime_period_end</i>
+- String format must be a &quot;date-time&quot;
+- <b id="#/definitions/Uptime/properties/uptime_period_start">uptime_period_start</b> <code>required</code>
+- <em>Start date of uptime reporting period.</em>
+- Type: <code>string</code>
+- <i id="/definitions/Uptime/properties/uptime_period_start">path: #/definitions/Uptime/properties/uptime_period_start</i>
+- String format must be a &quot;date-time&quot;</p>
+<p><em>Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)</em></p>
+
+</article>
+</div>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px;">
+
+</footer>
+</div>
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

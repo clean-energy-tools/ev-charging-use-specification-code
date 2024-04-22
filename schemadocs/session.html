@@ -1,0 +1,355 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>Session Documentation</title>
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="pagename" content="Session Documentation">
+
+
+
+
+
+
+
+
+
+<meta name="date" content="Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)">
+
+<meta name="DC.title" content="Session Documentation">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- OpenGraph Meta Tags -->
+
+<meta name="og:title" content="Session Documentation">
+
+<meta name="og:url" content="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/session.html">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/session.html">
+
+<link rel="sitemap" type="application/xml" href="../sitemap.xml" title="Sitemap">
+
+
+<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../css/flatly.min.css"><link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<link rel="stylesheet" href="../vendor/swagger-ui/swagger-ui.css">
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html"><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Schema</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="container" role="main">
+<div class="row">
+<header class="col-md-12">
+<div class="row">
+<span class="col-md-8" style="text-align: center;">
+<!--  No project local
+<a href="/index.html"><img src="/images/project-logo.jpg" width="150px" align="left"/></a>
+-->
+<h1 align="center">Session Documentation</h1>
+</span>
+<!-- No search box
+<span class="col-md-4">
+<form method="get" id="ddgSearch" action="https://duckduckgo.com/">
+<input type="hidden" name="sites" value="techsparx.com"/>
+<input type="hidden" name="k7" value="#ffffff"/>
+<input type="hidden" name="k8" value="#222222"/>
+<input type="hidden" name="k9" value="#00278e"/>
+<input type="hidden" name="kx" value="#20692b"/>
+<input type="hidden" name="kj" value="#fafafa"/>
+<input type="hidden" name="kt" value="p"/>
+<input type="text" name="q" placeholder="Search TechSparx" aria-label="Search techsparx.com on DuckDuckGo"/>
+<button type="submit">Search</button>
+</form>
+</span>
+-->
+</div>
+</header>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="row">
+<section id="breadcrumb" class="col-sm-12">
+<nav aria-label="breadcrumb" id="breadcrumbTrail">
+<ol class="breadcrumb">
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="session.html">Session Documentation</a> </li>
+</ol>
+</nav>
+</section>
+<section id="category-tags" class="col-sm-12">
+
+    Date: Mon Apr 22 2024
+
+
+</section>
+</div>
+<div class="row">
+<article class="col-sm-12">
+<h1>Operating Data</h1>
+<p><em>A product in the catalog</em></p>
+<p>Type: <code>object</code></p>
+<p><i id="./session.schema.json">path: #./session.schema.json</i></p>
+<p><b id=".session.schema.json">&#x24;id: ./session.schema.json</b></p>
+<p><strong><em>Properties</em></strong></p>
+<ul>
+<li><b id="#./session.schema.json/properties/session_id">session_id</b> <code>required</code>
+<ul>
+<li><em>Unique identifier for session record<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/session_id">path: #./session.schema.json/properties/session_id</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/port_id">port_id</b> <code>required</code>
+<ul>
+<li>_Unique identifier for specified port. (For NEVI or other Part 680 project, <br>port_id must be same as the permanent station identifier provided
+to third parties pursuant to CFR 23 &#xa7; 680.116(c)(8)(iii).)
+_</li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/port_id">path: #./session.schema.json/properties/port_id</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/plug_start_datetime">plug_start_datetime</b> <code>required</code>
+<ul>
+<li><em>Date and time of session initialization (plug in)<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/plug_start_datetime">path: #./session.schema.json/properties/plug_start_datetime</i></li>
+<li>String format must be a &quot;date-time&quot;</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/plug_end_datetime">plug_end_datetime</b> <code>required</code>
+<ul>
+<li><em>Date and time of session termination (plug out)<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/plug_end_datetime">path: #./session.schema.json/properties/plug_end_datetime</i></li>
+<li>String format must be a &quot;date-time&quot;</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/charge_start_datetime">charge_start_datetime</b> <code>required</code>
+<ul>
+<li><em>Date and time when charging began<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/charge_start_datetime">path: #./session.schema.json/properties/charge_start_datetime</i></li>
+<li>String format must be a &quot;date-time&quot;</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/charge_end_datetime">charge_end_datetime</b> <code>required</code>
+<ul>
+<li><em>Charging end date time<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/charge_end_datetime">path: #./session.schema.json/properties/charge_end_datetime</i></li>
+<li>String format must be a &quot;date-time&quot;</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/session_duration">session_duration</b> <code>required</code>
+<ul>
+<li><em>Total duration of session (plug in to plug out)<br></em></li>
+<li><i id="./session.schema.json/properties/session_duration">path: #./session.schema.json/properties/session_duration</i></li>
+<li>&#x24;ref: <a href="#.common.jsondefinitionsduration">./common.json#/definitions/duration</a></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/charging_duration">charging_duration</b> <code>required</code>
+<ul>
+<li>_Total duration of time when electricity was actively dispensed - may not<br>always be equal to the difference between charge_start_datetime
+and charge_end_datetime due to charge interruptions or managed charging
+_</li>
+<li><i id="./session.schema.json/properties/charging_duration">path: #./session.schema.json/properties/charging_duration</i></li>
+<li>&#x24;ref: <a href="#.common.jsondefinitionsduration">./common.json#/definitions/duration</a></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/energy_kwh">energy_kwh</b> <code>required</code>
+<ul>
+<li><em>Electricity dispensed (in kilowatt-hours) during charging session<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/energy_kwh">path: #./session.schema.json/properties/energy_kwh</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/peak_kw">peak_kw</b> <code>required</code>
+<ul>
+<li><em>Session maximum power delivery (in kilowatts)<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/peak_kw">path: #./session.schema.json/properties/peak_kw</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/total_fee_charged">total_fee_charged</b> <code>required</code>
+<ul>
+<li>_The amount charged to the EV driver (in USD) where applicable - zero<br>if driver was not charged for an otherwise paid charger, NULL if charger is not paid
+_</li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/total_fee_charged">path: #./session.schema.json/properties/total_fee_charged</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/energy_fee">energy_fee</b> <code>required</code>
+<ul>
+<li><em>Fee (in USD) charged to user per kilowatt-hour<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/energy_fee">path: #./session.schema.json/properties/energy_fee</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/session_fee">session_fee</b> <code>required</code>
+<ul>
+<li><em>Fee (in USD) charged to user per session<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/session_fee">path: #./session.schema.json/properties/session_fee</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/time_fee">time_fee</b> <code>required</code>
+<ul>
+<li><em>Fee (in USD) charged to users per minute<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/time_fee">path: #./session.schema.json/properties/time_fee</i></li>
+<li>Range:  &#x2265; 0</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/user_id">user_id</b> <code>required</code>
+<ul>
+<li><em>Anonymized network-specific unique user ID<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/user_id">path: #./session.schema.json/properties/user_id</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/successful_completion">successful_completion</b> <code>required</code>
+<ul>
+<li><em>Whether or not the session ended as expected<br></em></li>
+<li>Type: <code>boolean</code></li>
+<li><i id="./session.schema.json/properties/successful_completion">path: #./session.schema.json/properties/successful_completion</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/ended_by">ended_by</b> <code>required</code>
+<ul>
+<li><em>Cause of the session to end (e.g., unplugged while charging).<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/ended_by">path: #./session.schema.json/properties/ended_by</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/start_soc">start_soc</b> <code>required</code>
+<ul>
+<li><em>Battery state of charge at session start represented as a decimal between 0 and 1<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/start_soc">path: #./session.schema.json/properties/start_soc</i></li>
+<li>Range: between 0 and 1</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/end_soc">end_soc</b> <code>required</code>
+<ul>
+<li><em>Battery state of charge at session end represented as a decimal between 0 and 1<br></em></li>
+<li>Type: <code>number</code></li>
+<li><i id="./session.schema.json/properties/end_soc">path: #./session.schema.json/properties/end_soc</i></li>
+<li>Range: between 0 and 1</li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/error_code">error_code</b> <code>required</code>
+<ul>
+<li><em>Session error code(s) if any. Separated by comma if multiple.<br></em></li>
+<li>Type: <code>string</code></li>
+<li><i id="./session.schema.json/properties/error_code">path: #./session.schema.json/properties/error_code</i></li>
+</ul>
+</li>
+<li><b id="#./session.schema.json/properties/payment_type">payment_type</b> <code>required</code>
+<ul>
+<li><em>Valid Payment Type<br></em></li>
+<li><i id="./session.schema.json/properties/payment_type">path: #./session.schema.json/properties/payment_type</i></li>
+<li>&#x24;ref: <a href="#.common.jsondefinitionsvalidpaymenttype">./common.json#/definitions/validPaymentType</a>
+<em>Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)</em></li>
+</ul>
+</li>
+</ul>
+
+</article>
+</div>
+</div>
+</div>
+<footer class="row" style="text-align: center; height: 100px;">
+
+</footer>
+</div>
+<script src="../vendor/jquery/jquery.min.js"></script><script src="../vendor/popper.js/umd/popper.min.js"></script><script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

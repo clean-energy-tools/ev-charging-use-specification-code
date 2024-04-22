@@ -1,0 +1,129 @@
+{
+  "$id": "./session.schema.json",
+  "title": "Operating Data",
+  "description": "A product in the catalog",
+  "type": "object",
+  "required": [
+    "session_id",
+    "port_id",
+    "plug_start_datetime",
+    "plug_end_datetime",
+    "charge_start_datetime",
+    "charge_end_datetime",
+    "session_duration",
+    "charging_duration",
+    "energy_kwh",
+    "peak_kw",
+    "total_fee_charged",
+    "energy_fee",
+    "session_fee",
+    "time_fee",
+    "user_id",
+    "successful_completion",
+    "ended_by",
+    "start_soc",
+    "end_soc",
+    "error_code",
+    "payment_type"
+  ],
+  "properties": {
+    "session_id": {
+      "description": "Unique identifier for session record\n",
+      "type": "string"
+    },
+    "port_id": {
+      "description": "Unique identifier for specified port. (For NEVI or other Part 680 project, \nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)\n",
+      "type": "string"
+    },
+    "plug_start_datetime": {
+      "description": "Date and time of session initialization (plug in)\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "plug_end_datetime": {
+      "description": "Date and time of session termination (plug out)\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "charge_start_datetime": {
+      "description": "Date and time when charging began\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "charge_end_datetime": {
+      "description": "Charging end date time\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "session_duration": {
+      "description": "Total duration of session (plug in to plug out)\n",
+      "$ref": "./common.json#/definitions/duration"
+    },
+    "charging_duration": {
+      "description": "Total duration of time when electricity was actively dispensed - may not\nalways be equal to the difference between charge_start_datetime\nand charge_end_datetime due to charge interruptions or managed charging\n",
+      "$ref": "./common.json#/definitions/duration"
+    },
+    "energy_kwh": {
+      "description": "Electricity dispensed (in kilowatt-hours) during charging session\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "peak_kw": {
+      "description": "Session maximum power delivery (in kilowatts)\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "total_fee_charged": {
+      "description": "The amount charged to the EV driver (in USD) where applicable - zero\nif driver was not charged for an otherwise paid charger, NULL if charger is not paid\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "energy_fee": {
+      "description": "Fee (in USD) charged to user per kilowatt-hour\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "session_fee": {
+      "description": "Fee (in USD) charged to user per session\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "time_fee": {
+      "description": "Fee (in USD) charged to users per minute\n",
+      "type": "number",
+      "minimum": 0
+    },
+    "user_id": {
+      "description": "Anonymized network-specific unique user ID\n",
+      "type": "string"
+    },
+    "successful_completion": {
+      "description": "Whether or not the session ended as expected\n",
+      "type": "boolean"
+    },
+    "ended_by": {
+      "description": "Cause of the session to end (e.g., unplugged while charging).\n",
+      "type": "string"
+    },
+    "start_soc": {
+      "description": "Battery state of charge at session start represented as a decimal between 0 and 1\n",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "end_soc": {
+      "description": "Battery state of charge at session end represented as a decimal between 0 and 1\n",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "error_code": {
+      "description": "Session error code(s) if any. Separated by comma if multiple.\n",
+      "type": "string"
+    },
+    "payment_type": {
+      "description": "Valid Payment Type\n",
+      "$ref": "./common.json#/definitions/validPaymentType"
+    }
+  }
+}

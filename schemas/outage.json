@@ -1,0 +1,51 @@
+{
+  "$id": "./outage.schema.json",
+  "description": "A product in the catalog",
+  "type": "object",
+  "required": [
+    "outage_id",
+    "port_id",
+    "station_id",
+    "outage_start",
+    "outage_end",
+    "outage_duration",
+    "outage_cause",
+    "exempted_outage"
+  ],
+  "properties": {
+    "outage_id": {
+      "description": "Unique identifier for an individual outage on an individual port.\n",
+      "type": "string"
+    },
+    "port_id": {
+      "description": "Unique identifier for specified port. (For NEVI or other Part 680 project, \nport_id must be same as the permanent station identifier provided\nto third parties pursuant to CFR 23 § 680.116(c)(8)(iii).)\n",
+      "type": "string"
+    },
+    "station_id": {
+      "description": "Unique identifier for the station where specific port is located.\n(For NEVI or other Part 680 project, station_id must be same as\nthe permanent station identifier provided to third parties pursuant\nto CFR 23 § 680.116(c)(1)).\n",
+      "type": "string"
+    },
+    "outage_start": {
+      "description": "Date and time when outage started or was first detected.\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "outage_end": {
+      "description": "Date and time when outage was resolved.\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "outage_duration": {
+      "description": "Duration of outage in minutes (including partial minutes)\n",
+      "$ref": "common.json#/definitions/duration"
+    },
+    "outage_cause": {
+      "description": "Cause of outage (e.g. equipment failure, power failure, vandalism).\n",
+      "type": "string"
+    },
+    "exempted_outage": {
+      "description": "Is outage exempted under program rules?\n",
+      "type": "boolean"
+    }
+  }
+}
