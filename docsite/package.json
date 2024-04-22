@@ -1,0 +1,45 @@
+{
+    "name": "ev-charging-use-data-schemas-types-documentation-site",
+    "version": "1.0.0",
+    "description": "Simple project website for the EV Charging Use Data Schema's and Types website",
+    "scripts": {
+        "build": "npm-run-all build:schema build:copy build:render",
+        "build:schema": "node genschema.mjs",
+        "build:copy": "npx akasharender copy-assets config.js",
+        "build:render": "npx akasharender render config.js",
+        "watch": "npm-run-all --parallel watcher preview",
+        "watcher": "npx akasharender watch config.js",
+        "preview": "npx live-server out",
+        "gh-pages": "npx akasharender gh-pages-publish config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/clean-energy-tools/ev-charging-use-specification-code.git"
+    },
+    "author": "David Herron <david@davidherron.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/clean-energy-tools/ev-charging-use-specification-code/issues"
+    },
+    "homepage": "https://github.com/clean-energy-tools/ev-charging-use-specification-code",
+    "dependencies": {
+        "@akashacms/plugins-base": "akashacms/akashacms-base#0.9",
+        "@akashacms/plugins-blog-podcast": "akashacms/akashacms-blog-podcast#0.9",
+        "@akashacms/plugins-booknav": "akashacms/akashacms-booknav#0.9",
+        "@akashacms/plugins-breadcrumbs": "akashacms/akashacms-breadcrumbs",
+        "@akashacms/plugins-external-links": "akashacms/akashacms-external-links",
+        "@akashacms/plugins-footnotes": "akashacms/akashacms-footnotes",
+        "@akashacms/theme-bootstrap": "akashacms/akashacms-theme-bootstrap",
+        "@compodoc/live-server": "^1.2.x",
+        "@fortawesome/fontawesome-free": "^5.7.2",
+        "akasharender": "akashacms/akasharender#0.9",
+        "bootstrap": "^4.6.x",
+        "epub-website": "akashacms/epub-website",
+        "jquery": "^3.6.x",
+        "json-schema-md-doc": "^1.0.0",
+        "json-schema-static-docs": "^0.25.0",
+        "npm-run-all": "^4.1.5",
+        "popper.js": "^1.16.x",
+        "swagger-ui": "^5.11.10"
+    }
+}
