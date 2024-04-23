@@ -46,6 +46,10 @@ config
     })
     .addLayoutsDir('layouts')
     .addDocumentsDir('documents')
+    // .addAssetsDir({
+    //     src: 'tsdocs',
+    //     desc: 'tsdocs'
+    // })
     .addPartialsDir('partials');
 
 config
