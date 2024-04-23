@@ -1,7 +1,7 @@
 {
   "$id": "./station.schema.json",
   "title": "Station",
-  "description": "A product in the catalog",
+  "description": "Describes a location where charging stations are installed.  It records the street address, the operating organization, the site host contact, and characteristics of the site.  A station is a collection of charging ports at a given location.\n",
   "type": "object",
   "required": [
     "station_id",
