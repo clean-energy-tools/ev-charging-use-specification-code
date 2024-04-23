@@ -65,4 +65,4 @@ _
 	 - Type: `number`
 	 - <i id="./operating-costs.schema.json/properties/network_costs">path: #./operating-costs.schema.json/properties/network_costs</i>
 	 - Range:  &ge; 0
- _Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)_
+ _Mon Apr 22 2024 17:56:52 GMT+0300 (Eastern European Summer Time)_

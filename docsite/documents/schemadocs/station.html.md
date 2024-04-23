@@ -123,4 +123,4 @@ _
 	 - Type: `number`
 	 - <i id="./station.schema.json/properties/der_energy">path: #./station.schema.json/properties/der_energy</i>
 	 - Range:  &ge; 0
- _Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)_
+ _Mon Apr 22 2024 17:56:52 GMT+0300 (Eastern European Summer Time)_

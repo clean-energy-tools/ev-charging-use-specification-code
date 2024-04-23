@@ -51,4 +51,4 @@ _
 	 - _Is outage exempted under program rules?<br>_
 	 - Type: `boolean`
 	 - <i id="./outage.schema.json/properties/exempted_outage">path: #./outage.schema.json/properties/exempted_outage</i>
- _Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)_
+ _Mon Apr 22 2024 17:56:52 GMT+0300 (Eastern European Summer Time)_

@@ -115,4 +115,4 @@ _
 	 - _Valid Payment Type<br>_
 	 - <i id="./session.schema.json/properties/payment_type">path: #./session.schema.json/properties/payment_type</i>
 	 - &#36;ref: [./common.json#/definitions/validPaymentType](#.common.jsondefinitionsvalidpaymenttype)
- _Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)_
+ _Mon Apr 22 2024 17:56:52 GMT+0300 (Eastern European Summer Time)_
