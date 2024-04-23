@@ -2,7 +2,8 @@
 # $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "./port.schema.json"
 title: "Port"
-description: "A product in the catalog"
+description: |
+    The system that can supply power to a single vehicle.  Typically this is a single charging cord on a single EVSE.  But specific charging station configurations may involve two or more cords.
 type: "object"
 required:
     - port_id
