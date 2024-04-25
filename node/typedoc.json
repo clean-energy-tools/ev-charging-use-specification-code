@@ -1,0 +1,8 @@
+{
+    "customTitle": "EV Charging Use Data code",
+    "titleLink": "https://clean-energy-tools.github.io/ev-charging-use-specification-code/",
+    "name": "Schemas, type declarations, data validation, serialization/deserialization, for the EV Charging Use Data specification",
+    "includeVersion": true,
+    "hideGenerator": true,
+    "out": "../docsite/typedoc"
+}
