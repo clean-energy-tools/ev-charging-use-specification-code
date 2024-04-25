@@ -1,5 +1,7 @@
 $id: "./common.json"
-description: "A product in the catalog"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
+title: "Common"
+description: "Common schema definitions used by multiple types."
 definitions:
     year:
         $id: 'common.json#/definitions/year'
