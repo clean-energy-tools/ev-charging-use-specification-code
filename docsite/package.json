@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Simple project website for the EV Charging Use Data Schema's and Types website",
     "scripts": {
-        "build": "npm-run-all build:schema build:copy build:render",
+        "build": "npm-run-all build:copy build:render",
         "build:schema": "node genschema.mjs",
         "build:copy": "npx akasharender copy-assets config.js",
         "build:render": "npx akasharender render config.js",
@@ -36,7 +36,6 @@
         "bootstrap": "^4.6.x",
         "epub-website": "akashacms/epub-website",
         "jquery": "^3.6.x",
-        "json-schema-md-doc": "^1.0.0",
         "json-schema-static-docs": "^0.25.0",
         "npm-run-all": "^4.1.5",
         "popper.js": "^1.16.x",
