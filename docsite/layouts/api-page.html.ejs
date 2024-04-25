@@ -40,6 +40,7 @@
 </div>
 <div class="row">
   <article class="col-sm-12">
+    <% if (typeof teaser  !== "undefined") { %><p><strong><ak-teaser></ak-teaser></strong></p> <% } %>
     <%- content %>
   </article>
 </div>
