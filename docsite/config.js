@@ -41,15 +41,15 @@ config
         dest: 'vendor/swagger-ui'
     })
     .addAssetsDir({
-        src: '../node/src/schemas',
-        dest: 'schemas'
+        src: 'typedoc',
+        dest: 'typedoc'
     })
     .addLayoutsDir('layouts')
     .addDocumentsDir('documents')
-    // .addAssetsDir({
-    //     src: 'tsdocs',
-    //     desc: 'tsdocs'
-    // })
+    .addDocumentsDir({
+        src: '../node/src/schemas',
+        dest: 'schemas'
+    })
     .addPartialsDir('partials');
 
 config
