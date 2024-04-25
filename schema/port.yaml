@@ -1,6 +1,7 @@
 
 # $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "./port.schema.json"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
 title: "Port"
 description: |
     The system that can supply power to a single vehicle.  Typically this is a single charging cord on a single EVSE.  But specific charging station configurations may involve two or more cords.
