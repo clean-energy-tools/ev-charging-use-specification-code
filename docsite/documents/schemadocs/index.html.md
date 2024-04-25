@@ -1,16 +1,33 @@
 ---
 title: Schemas
 layout: api-index-page.html.ejs
+publicationDate: April 25, 2024
 ---
 
-Browse the schema documentation
-
 <ul class="list-group">
-  <li class="list-group-item"><a href="./operating-costs.html"/></li>
-  <li class="list-group-item"><a href="./outage.html"></li>
-  <li class="list-group-item"><a href="./port.html"></li>
-  <li class="list-group-item"><a href="./project.html"></li>
-  <li class="list-group-item"><a href="./session.html"></li>
-  <li class="list-group-item"><a href="./station.html"></li>
-  <li class="list-group-item"><a href="./uptime.html"></li>
+  <li class="list-group-item">
+    <show-content href="./common.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  </li>
+  <li class="list-group-item">
+    <show-content href="./operating-costs.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./outage.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./port.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./project.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./session.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./station.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
+  <li class="list-group-item">
+    <show-content href="./uptime.html"
+      template="ak_show-content-teaser.html.njk"></show-content>
 </ul>

@@ -1,5 +1,5 @@
 ---
-title: Schemas and Types for the EV Charging Use Data
+title: Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification
 layout: home.html.ejs
 ---
 
