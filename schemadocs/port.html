@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width">
-<title>Charging port documentation</title>
+<title>Charging port</title>
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-<meta name="pagename" content="Charging port documentation">
+<meta name="pagename" content="Charging port">
 
 
 
@@ -40,9 +40,9 @@
 
 
 
-<meta name="date" content="Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)">
+<meta name="date" content="Thu Apr 25 2024 16:39:35 GMT+0300 (Eastern European Summer Time)">
 
-<meta name="DC.title" content="Charging port documentation">
+<meta name="DC.title" content="Charging port">
 
 
 
@@ -59,7 +59,7 @@
 
 <!-- OpenGraph Meta Tags -->
 
-<meta name="og:title" content="Charging port documentation">
+<meta name="og:title" content="Charging port">
 
 <meta name="og:url" content="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/port.html">
 
@@ -118,6 +118,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Schema</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../typedoc/index.html">Node.js API</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -129,7 +132,7 @@
 <!--  No project local
 <a href="/index.html"><img src="/images/project-logo.jpg" width="150px" align="left"/></a>
 -->
-<h1 align="center">Charging port documentation</h1>
+<h1 align="center">Charging port</h1>
 </span>
 <!-- No search box
 <span class="col-md-4">
@@ -155,243 +158,254 @@
 <section id="breadcrumb" class="col-sm-12">
 <nav aria-label="breadcrumb" id="breadcrumbTrail">
 <ol class="breadcrumb">
- <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="port.html">Charging port documentation</a> </li>
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="port.html">Charging port</a> </li>
 </ol>
 </nav>
 </section>
 <section id="category-tags" class="col-sm-12">
 
-    Date: Mon Apr 22 2024
+    Date: Thu Apr 25 2024
 
 
 </section>
 </div>
 <div class="row">
 <article class="col-sm-12">
-<h1>Port</h1>
-<p><em>A product in the catalog</em></p>
-<p>Type: <code>object</code></p>
-<p><i id="./port.schema.json">path: #./port.schema.json</i></p>
-<p><b id=".port.schema.json">&#x24;id: ./port.schema.json</b></p>
-<p><strong><em>Properties</em></strong></p>
+<p><strong><p><strong>The system that can supply power to a single vehicle.  Typically this is a single charging cord on a single EVSE.  But specific charging station configurations may involve two or more cords.</strong></p>
+</strong></p> 
+<p>RAW files:</p>
 <ul>
-<li><b id="#./port.schema.json/properties/port_id">port_id</b> <code>required</code>
-<ul>
-<li>_Unique identifier for specified port. (For NEVI or other Part 680 project, <br>port_id must be same as the permanent station identifier provided
-to third parties pursuant to CFR 23 &#xa7; 680.116(c)(8)(iii).)
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/port_id">path: #./port.schema.json/properties/port_id</i></li>
+<li>JSON: <a href="../schemas/port.json">/schemas/port.json</a></li>
+<li>YAML: <a href="../schemas/port.yaml">/schemas/port.yaml</a></li>
 </ul>
-</li>
-<li><b id="#./port.schema.json/properties/project_id">project_id</b> <code>required</code>
-<ul>
-<li>_Unique identification code specific to individual funding application or contract.<br>Project ID is supplied by administrator upon approval of funding.
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/project_id">path: #./port.schema.json/properties/project_id</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/station_id">station_id</b> <code>required</code>
-<ul>
-<li>_Unique identifier for the station where specific port is located.<br>(For NEVI or other Part 680 project, station_id must be same as
-the permanent station identifier provided to third parties pursuant
-to CFR 23 &#xa7; 680.116(c)(1)).
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/station_id">path: #./port.schema.json/properties/station_id</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/data_provider_org">data_provider_org</b> <code>required</code>
-<ul>
-<li><em>Data provider organization name.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/data_provider_org">path: #./port.schema.json/properties/data_provider_org</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/data_provider_poc_email">data_provider_poc_email</b> <code>required</code>
-<ul>
-<li><em>Email address for data provider point of contact.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/data_provider_poc_email">path: #./port.schema.json/properties/data_provider_poc_email</i></li>
-<li>String format must be a &quot;email&quot;</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/is_active">is_active</b> <code>required</code>
-<ul>
-<li><em>Port operational status.<br></em></li>
-<li>Type: <code>boolean</code></li>
-<li><i id="./port.schema.json/properties/is_active">path: #./port.schema.json/properties/is_active</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/power_level_kw">power_level_kw</b> <code>required</code>
-<ul>
-<li><em>Maximum charging power level of the port (in kW)<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/power_level_kw">path: #./port.schema.json/properties/power_level_kw</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/port_latitude">port_latitude</b> <code>required</code>
-<ul>
-<li>_Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.<br>Valid longitudes are between -180 and 180
-_</li>
-<li><i id="./port.schema.json/properties/port_latitude">path: #./port.schema.json/properties/port_latitude</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionslatitude">./common.json#/definitions/latitude</a></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/port_longitude">port_longitude</b> <code>required</code>
-<ul>
-<li>_Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.<br>Valid latitudes are between -90 and 90.
-_</li>
-<li><i id="./port.schema.json/properties/port_longitude">path: #./port.schema.json/properties/port_longitude</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionslongitude">./common.json#/definitions/longitude</a></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/station_activation_date">station_activation_date</b> <code>required</code>
-<ul>
-<li>_The first (full or partial) day where the station is fully operable<br>and accessible for its intended purpose
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/station_activation_date">path: #./port.schema.json/properties/station_activation_date</i></li>
-<li>String format must be a &quot;date-time&quot;</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/charger_type">charger_type</b> <code>required</code>
-<ul>
-<li><em>Charging station type (level)<br></em></li>
-<li><i id="./port.schema.json/properties/charger_type">path: #./port.schema.json/properties/charger_type</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionschargertype">./common.json#/definitions/chargerType</a></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/connector_type">connector_type</b> <code>required</code>
-<ul>
-<li><em>Valid Connector Type. Multiple connector types should be separated by commas.<br></em></li>
-<li><i id="./port.schema.json/properties/connector_type">path: #./port.schema.json/properties/connector_type</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionsconnectortype">./common.json#/definitions/connectorType</a></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/energy_fee">energy_fee</b> <code>required</code>
-<ul>
-<li><em>Fee charged to user per kWh (in USD).<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/energy_fee">path: #./port.schema.json/properties/energy_fee</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/session_fee">session_fee</b> <code>required</code>
-<ul>
-<li><em>Fee charged to user per session (in USD).<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/session_fee">path: #./port.schema.json/properties/session_fee</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/time_fee">time_fee</b> <code>required</code>
-<ul>
-<li><em>Fee charged to users per minute (in USD).<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/time_fee">path: #./port.schema.json/properties/time_fee</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/parking_fee">parking_fee</b> <code>required</code>
-<ul>
-<li><em>Fee charged for parking if separate from time_fee (in USD).<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/parking_fee">path: #./port.schema.json/properties/parking_fee</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/idle_fee">idle_fee</b> <code>required</code>
-<ul>
-<li><em>Fee charged for minutes not charging if separate from time fee (in USD).<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/idle_fee">path: #./port.schema.json/properties/idle_fee</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/operating_hours">operating_hours</b> <code>required</code>
-<ul>
-<li>_Number of hours station is open per day&#x2014;e.g., a station that is always open<br>has a value of 24 whereas a station that is open from 6 am to 6 pm has a value of 12.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./port.schema.json/properties/operating_hours">path: #./port.schema.json/properties/operating_hours</i></li>
-<li>Range: between 0 and 24</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/equipment_manufacturer">equipment_manufacturer</b> <code>required</code>
-<ul>
-<li><em>Charging equipment or system manufacturer name.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/equipment_manufacturer">path: #./port.schema.json/properties/equipment_manufacturer</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/model_number">model_number</b> <code>required</code>
-<ul>
-<li><em>Charging equipment or system model number.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/model_number">path: #./port.schema.json/properties/model_number</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/equipment_serial">equipment_serial</b> <code>required</code>
-<ul>
-<li><em>serial number of charging equipment or system.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/equipment_serial">path: #./port.schema.json/properties/equipment_serial</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/data_provider_poc_last">data_provider_poc_last</b> <code>required</code>
-<ul>
-<li><em>Last name of the data provider point of contact.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/data_provider_poc_last">path: #./port.schema.json/properties/data_provider_poc_last</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/data_provider_poc_first">data_provider_poc_first</b> <code>required</code>
-<ul>
-<li><em>First name of the data provider point of contact.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/data_provider_poc_first">path: #./port.schema.json/properties/data_provider_poc_first</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/network">network</b> <code>required</code>
-<ul>
-<li><em>Name of network service provider.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/network">path: #./port.schema.json/properties/network</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/network_contact">network_contact</b> <code>required</code>
-<ul>
-<li><em>Email address for network service provider.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/network_contact">path: #./port.schema.json/properties/network_contact</i></li>
-<li>String format must be a &quot;email&quot;</li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/evse_manufacturer">evse_manufacturer</b> <code>required</code>
-<ul>
-<li><em>Charging equipment manufacturer name.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./port.schema.json/properties/evse_manufacturer">path: #./port.schema.json/properties/evse_manufacturer</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/trailer_accessible">trailer_accessible</b> <code>required</code>
-<ul>
-<li><em>Port located on pull through stall that can accommodate a vehicle and trailer<br></em></li>
-<li>Type: <code>boolean</code></li>
-<li><i id="./port.schema.json/properties/trailer_accessible">path: #./port.schema.json/properties/trailer_accessible</i></li>
-</ul>
-</li>
-<li><b id="#./port.schema.json/properties/payments_accepted">payments_accepted</b> <code>required</code>
-<ul>
-<li><em>Valid Payment Type.<br></em></li>
-<li><i id="./port.schema.json/properties/payments_accepted">path: #./port.schema.json/properties/payments_accepted</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionsvalidpaymenttype">./common.json#/definitions/validPaymentType</a>
-<em>Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)</em></li>
-</ul>
-</li>
-</ul>
+<p><pre><code class="yaml hljs">
+<span class="hljs-comment"># &#x24;schema: &quot;https://json-schema.org/draft/2020-12/schema&quot;</span>
+<span class="hljs-string">&#x24;id:</span> <span class="hljs-string">&quot;./port.schema.json&quot;</span>
+<span class="hljs-string">&#x24;comment:</span> <span class="hljs-string">&quot;Copyright (c) 2024, David Herron, under the BSD 3-Clause License&quot;</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">&quot;Port&quot;</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">|
+    The system that can supply power to a single vehicle.  Typically this is a single charging cord on a single EVSE.  But specific charging station configurations may involve two or more cords.
+</span><span class="hljs-attr">type:</span> <span class="hljs-string">&quot;object&quot;</span>
+<span class="hljs-attr">required:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">port_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">project_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">data_provider_org</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">data_provider_poc_email</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">is_active</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">power_level_kw</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">port_latitude</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">port_longitude</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_activation_date</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">charger_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">connector_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">energy_fee</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">session_fee</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">time_fee</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">parking_fee</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">idle_fee</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operating_hours</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">equipment_manufacturer</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">model_number</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">equipment_serial</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">data_provider_poc_last</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">data_provider_poc_first</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">network</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">network_contact</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">evse_manufacturer</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">trailer_accessible</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">payments_accepted</span>
+<span class="hljs-attr">properties:</span>
+
+    <span class="hljs-attr">port_id:</span>
+        <span class="hljs-comment"># default=yes  part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Unique identifier for specified port. (For NEVI or other Part 680 project, 
+            port_id must be same as the permanent station identifier provided
+            to third parties pursuant to CFR 23 &#xa7; 680.116(c)(8)(iii).)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">project_id:</span>
+        <span class="hljs-comment"># default=yes       part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Unique identification code specific to individual funding application or contract.
+            Project ID is supplied by administrator upon approval of funding.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_id:</span>
+        <span class="hljs-comment"># default=yes       part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Unique identifier for the station where specific port is located.
+            (For NEVI or other Part 680 project, station_id must be same as
+            the permanent station identifier provided to third parties pursuant
+            to CFR 23 &#xa7; 680.116(c)(1)).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">data_provider_org:</span>
+        <span class="hljs-comment"># default=yes        part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Data provider organization name.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">data_provider_poc_email:</span>
+        <span class="hljs-comment"># default=yes  part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Email address for data provider point of contact.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">email</span>
+
+    <span class="hljs-attr">is_active:</span>
+        <span class="hljs-comment"># default=yes       part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Port operational status.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">boolean</span>
+
+    <span class="hljs-attr">power_level_kw:</span>
+        <span class="hljs-comment"># float  default=yes    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Maximum charging power level of the port (in kW)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+
+    <span class="hljs-attr">port_latitude:</span>
+        <span class="hljs-comment"># float(&gt;3)  default=yes part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.
+            Valid longitudes are between -180 and 180
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/latitude&apos;</span>
+
+    <span class="hljs-attr">port_longitude:</span>
+        <span class="hljs-comment"># float(&gt;3)  default=yes        part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.
+            Valid latitudes are between -90 and 90.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/longitude&apos;</span>
+
+    <span class="hljs-attr">station_activation_date:</span>
+        <span class="hljs-comment"># date  default=yes   part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            The first (full or partial) day where the station is fully operable
+            and accessible for its intended purpose
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">date-time</span>
+
+    <span class="hljs-attr">charger_type:</span>
+        <span class="hljs-comment">#  default=yes        part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Charging station type (level)
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&quot;./common.json#/definitions/chargerType&quot;</span>
+
+    <span class="hljs-attr">connector_type:</span>
+        <span class="hljs-comment"># default=yes    part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid Connector Type. Multiple connector types should be separated by commas.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&quot;./common.json#/definitions/connectorType&quot;</span>
+
+    <span class="hljs-attr">energy_fee:</span>
+        <span class="hljs-comment"># cost;   // float(2)      default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Fee charged to user per kWh (in USD).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">session_fee:</span>
+        <span class="hljs-comment"># cost;   // float(2)     default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Fee charged to user per session (in USD).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">time_fee:</span>
+        <span class="hljs-comment"># cost;   // float(2)        default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Fee charged to users per minute (in USD).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">parking_fee:</span>
+        <span class="hljs-comment"># cost;   // float(2)     default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Fee charged for parking if separate from time_fee (in USD).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">idle_fee:</span>
+        <span class="hljs-comment"># cost;   // float(2)        default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Fee charged for minutes not charging if separate from time fee (in USD).
+</span>        <span class="hljs-attr">type:</span>  <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">operating_hours:</span>
+        <span class="hljs-comment"># float          default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Number of hours station is open per day&#x2014;e.g., a station that is always open
+            has a value of 24 whereas a station that is open from 6 am to 6 pm has a value of 12.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+        <span class="hljs-attr">maximum:</span> <span class="hljs-number">24</span>
+
+    <span class="hljs-attr">equipment_manufacturer:</span>
+        <span class="hljs-comment"># default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Charging equipment or system manufacturer name.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">model_number:</span>
+        <span class="hljs-comment">#  default=no      part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Charging equipment or system model number.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">equipment_serial:</span>
+        <span class="hljs-comment"># default=no  part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            serial number of charging equipment or system.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">data_provider_poc_last:</span>
+        <span class="hljs-comment"># default=no    part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Last name of the data provider point of contact.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">data_provider_poc_first:</span>
+        <span class="hljs-comment"># default=no   part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            First name of the data provider point of contact.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">network:</span>
+        <span class="hljs-comment"># default=no   part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Name of network service provider.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>   
+
+    <span class="hljs-attr">network_contact:</span>
+        <span class="hljs-comment"># default=no   part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Email address for network service provider.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">email</span>
+
+    <span class="hljs-attr">evse_manufacturer:</span>
+        <span class="hljs-comment"># default=no part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Charging equipment manufacturer name.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">trailer_accessible:</span>
+        <span class="hljs-comment"># default=no      part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Port located on pull through stall that can accommodate a vehicle and trailer
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">boolean</span>   
+
+    <span class="hljs-attr">payments_accepted:</span>
+        <span class="hljs-comment"># default=no part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid Payment Type.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/validPaymentType&apos;</span>
+
+</code></pre></p>
 
 </article>
 </div>

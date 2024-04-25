@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width">
-<title>Station Documentation</title>
+<title>Station</title>
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-<meta name="pagename" content="Station Documentation">
+<meta name="pagename" content="Station">
 
 
 
@@ -40,9 +40,9 @@
 
 
 
-<meta name="date" content="Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)">
+<meta name="date" content="Thu Apr 25 2024 16:39:23 GMT+0300 (Eastern European Summer Time)">
 
-<meta name="DC.title" content="Station Documentation">
+<meta name="DC.title" content="Station">
 
 
 
@@ -59,7 +59,7 @@
 
 <!-- OpenGraph Meta Tags -->
 
-<meta name="og:title" content="Station Documentation">
+<meta name="og:title" content="Station">
 
 <meta name="og:url" content="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/station.html">
 
@@ -118,6 +118,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Schema</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../typedoc/index.html">Node.js API</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -129,7 +132,7 @@
 <!--  No project local
 <a href="/index.html"><img src="/images/project-logo.jpg" width="150px" align="left"/></a>
 -->
-<h1 align="center">Station Documentation</h1>
+<h1 align="center">Station</h1>
 </span>
 <!-- No search box
 <span class="col-md-4">
@@ -155,212 +158,240 @@
 <section id="breadcrumb" class="col-sm-12">
 <nav aria-label="breadcrumb" id="breadcrumbTrail">
 <ol class="breadcrumb">
- <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="station.html">Station Documentation</a> </li>
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="station.html">Station</a> </li>
 </ol>
 </nav>
 </section>
 <section id="category-tags" class="col-sm-12">
 
-    Date: Mon Apr 22 2024
+    Date: Thu Apr 25 2024
 
 
 </section>
 </div>
 <div class="row">
 <article class="col-sm-12">
-<h1>Station</h1>
-<p><em>A product in the catalog</em></p>
-<p>Type: <code>object</code></p>
-<p><i id="./station.schema.json">path: #./station.schema.json</i></p>
-<p><b id=".station.schema.json">&#x24;id: ./station.schema.json</b></p>
-<p><strong><em>Properties</em></strong></p>
+<p><strong><p><strong>Describes a location where charging stations are installed.  It records the street address, the operating organization, the site host contact, and characteristics of the site.  A station is a collection of charging ports at a given location.</strong></p>
+</strong></p> 
+<p>RAW files:</p>
 <ul>
-<li><b id="#./station.schema.json/properties/station_id">station_id</b> <code>required</code>
-<ul>
-<li>_Unique identity specific to the physical location of the station (site) funded by the project.<br>(For NEVI/Part 680 programs, Station ID must be same as the permanent station identifier
-provided to third parties pursuant to CFR 23 &#xa7; 680.116(c)(1).
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_id">path: #./station.schema.json/properties/station_id</i></li>
+<li>JSON: <a href="../schemas/station.json">/schemas/station.json</a></li>
+<li>YAML: <a href="../schemas/station.yaml">/schemas/station.yaml</a></li>
 </ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_name">station_name</b> <code>required</code>
-<ul>
-<li><em>Descriptive name of charging site (e.g., Mercy Hospital)<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_name">path: #./station.schema.json/properties/station_name</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_address">station_address</b> <code>required</code>
-<ul>
-<li><em>Street address of charging station.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_address">path: #./station.schema.json/properties/station_address</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_city">station_city</b> <code>required</code>
-<ul>
-<li><em>City where charging station is located.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_city">path: #./station.schema.json/properties/station_city</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_state">station_state</b> <code>required</code>
-<ul>
-<li><em>Valid state code of state where station or territory where the station is located.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_state">path: #./station.schema.json/properties/station_state</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_zip">station_zip</b> <code>required</code>
-<ul>
-<li><em>Valid ZIP code of where station is located.<br></em></li>
-<li><i id="./station.schema.json/properties/station_zip">path: #./station.schema.json/properties/station_zip</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionszipcode">./common.json#/definitions/zipCode</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_county">station_county</b> <code>required</code>
-<ul>
-<li><em>Station county (or county analogue)<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/station_county">path: #./station.schema.json/properties/station_county</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_lon">station_lon</b> <code>required</code>
-<ul>
-<li>_Station center WSG84-encoded longitude in decimal degrees to at least 4 decimal places.<br>Valid longitudes are between -180 and 180
-_</li>
-<li><i id="./station.schema.json/properties/station_lon">path: #./station.schema.json/properties/station_lon</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionslongitude">./common.json#/definitions/longitude</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/station_lat">station_lat</b> <code>required</code>
-<ul>
-<li>_Station center WSG84 encoded latitude in decimal degrees to at least 4 decimal places.<br>Valid latitudes are between -90 and 90.
-_</li>
-<li><i id="./station.schema.json/properties/station_lat">path: #./station.schema.json/properties/station_lat</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionslatitude">./common.json#/definitions/latitude</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operator_name">operator_name</b> <code>required</code>
-<ul>
-<li><em>Name of entity responsible for operation and maintenance of the funded charging station.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/operator_name">path: #./station.schema.json/properties/operator_name</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operator_address">operator_address</b> <code>required</code>
-<ul>
-<li><em>Street address of entity responsible for operation and maintenance of the funded charging station.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/operator_address">path: #./station.schema.json/properties/operator_address</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operator_city">operator_city</b> <code>required</code>
-<ul>
-<li><em>City of entity responsible for operation and maintenance of the funded charging station.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/operator_city">path: #./station.schema.json/properties/operator_city</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operator_state">operator_state</b> <code>required</code>
-<ul>
-<li><em>Valid state code of entity responsible for operation and maintenance of the funded charging station.<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/operator_state">path: #./station.schema.json/properties/operator_state</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operator_zip">operator_zip</b>
-<ul>
-<li>_Valid ZIP Code of entity responsible for operation and maintenance<br>of the of the funded charging station.
-_</li>
-<li><i id="./station.schema.json/properties/operator_zip">path: #./station.schema.json/properties/operator_zip</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionszipcode">./common.json#/definitions/zipCode</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/operating_status">operating_status</b> <code>required</code>
-<ul>
-<li><em>Valid Operating Status.<br></em></li>
-<li><i id="./station.schema.json/properties/operating_status">path: #./station.schema.json/properties/operating_status</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionsoperatingstatus">./common.json#/definitions/operatingStatus</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/access_type">access_type</b> <code>required</code>
-<ul>
-<li><em>Valid Access Type.<br></em></li>
-<li><i id="./station.schema.json/properties/access_type">path: #./station.schema.json/properties/access_type</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionsaccesstype">./common.json#/definitions/accessType</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/site_host_type">site_host_type</b> <code>required</code>
-<ul>
-<li><em>Type of site host for the charging station. (e.g. public, workplace, MUD)<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/site_host_type">path: #./station.schema.json/properties/site_host_type</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/site_host_type_detail">site_host_type_detail</b> <code>required</code>
-<ul>
-<li><em>Additional detail on site host land use. (e.g. hospital, hotel, parking garage, etc.)<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/site_host_type_detail">path: #./station.schema.json/properties/site_host_type_detail</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/host_first_name">host_first_name</b> <code>required</code>
-<ul>
-<li><em>Station host point of contact first name<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/host_first_name">path: #./station.schema.json/properties/host_first_name</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/host_last_name">host_last_name</b> <code>required</code>
-<ul>
-<li><em>Station host point of contact last name<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/host_last_name">path: #./station.schema.json/properties/host_last_name</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/host_email">host_email</b> <code>required</code>
-<ul>
-<li><em>Station host point of contact email address<br></em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./station.schema.json/properties/host_email">path: #./station.schema.json/properties/host_email</i></li>
-<li>String format must be a &quot;email&quot;</li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/onsite_der">onsite_der</b> <code>required</code>
-<ul>
-<li><em>Station has distributed energy resource.<br></em></li>
-<li>Type: <code>boolean</code></li>
-<li><i id="./station.schema.json/properties/onsite_der">path: #./station.schema.json/properties/onsite_der</i></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/onsite_der_type">onsite_der_type</b> <code>required</code>
-<ul>
-<li><em>Valid Distributed Energy Resource Type<br></em></li>
-<li><i id="./station.schema.json/properties/onsite_der_type">path: #./station.schema.json/properties/onsite_der_type</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionsonsitedertype">./common.json#/definitions/onsiteDERType</a></li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/der_power">der_power</b> <code>required</code>
-<ul>
-<li><em>Nameplate capacity of onsite energy generation in kW<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./station.schema.json/properties/der_power">path: #./station.schema.json/properties/der_power</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./station.schema.json/properties/der_energy">der_energy</b> <code>required</code>
-<ul>
-<li>_Combined nameplate capacity of onsite energy generation and/or<br>maximum battery discharge capacity in kilowatts (kW).
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./station.schema.json/properties/der_energy">path: #./station.schema.json/properties/der_energy</i></li>
-<li>Range:  &#x2265; 0
-<em>Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)</em></li>
-</ul>
-</li>
-</ul>
+<p><pre><code class="yaml hljs">
+<span class="hljs-comment">#### From an e-mail sent by AtlasPublicPolicy</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># As mentioned in replies to your other comment, we have adopted</span>
+<span class="hljs-comment"># the federally preferred nomenclature of station (which is</span>
+<span class="hljs-comment"># a collection of ports at a single location and is synonymous</span>
+<span class="hljs-comment"># with &apos;site&apos; in your proposed hierarchy rather than EVSE)</span>
+<span class="hljs-comment"># and port (which is not explicitly a cord but the system</span>
+<span class="hljs-comment"># that can supply power to a single vehicle. I.e, a port may</span>
+<span class="hljs-comment"># have more than one cord if it supplies power to two different</span>
+<span class="hljs-comment"># connectors through the same power supply, and both cords are</span>
+<span class="hljs-comment"># not usable at the same time.)</span>
+
+<span class="hljs-comment"># Also, as noted in another response, because EVSE configurations</span>
+<span class="hljs-comment"># vary, we do not include EVSE as a distinct reporting unit.</span>
+<span class="hljs-comment"># We recognize this has limitations, especially as it pertains</span>
+<span class="hljs-comment"># to ports that share a single power supply. Those limitations</span>
+<span class="hljs-comment"># will be addressed in an update, though likely through the</span>
+<span class="hljs-comment"># same port-based reporting structure.</span>
+
+
+<span class="hljs-comment"># schema: &quot;http://json-schema.org/draft-06/schema#&quot;</span>
+<span class="hljs-string">&#x24;id:</span> <span class="hljs-string">&quot;./station.schema.json&quot;</span>
+<span class="hljs-string">&#x24;comment:</span> <span class="hljs-string">&quot;Copyright (c) 2024, David Herron, under the BSD 3-Clause License&quot;</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">&quot;Station&quot;</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">|
+    Describes a location where charging stations are installed.  It records the street address, the operating organization, the site host contact, and characteristics of the site.  A station is a collection of charging ports at a given location.
+</span><span class="hljs-attr">type:</span> <span class="hljs-string">&quot;object&quot;</span>
+<span class="hljs-attr">required:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_address</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_city</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_state</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_zip</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_county</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_lon</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_lat</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operator_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operator_address</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operator_city</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operator_state</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">operating_status</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">access_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">site_host_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">site_host_type_detail</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">host_first_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">host_last_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">host_email</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">onsite_der</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">onsite_der_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">der_power</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">der_energy</span>
+<span class="hljs-attr">properties:</span>
+
+    <span class="hljs-attr">station_id:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Unique identity specific to the physical location of the station (site) funded by the project.
+            (For NEVI/Part 680 programs, Station ID must be same as the permanent station identifier
+            provided to third parties pursuant to CFR 23 &#xa7; 680.116(c)(1).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_name:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Descriptive name of charging site (e.g., Mercy Hospital)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_address:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Street address of charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_city:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            City where charging station is located.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_state:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid state code of state where station or territory where the station is located.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_zip:</span>
+        <span class="hljs-comment"># string(5) default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid ZIP code of where station is located.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/zipCode&apos;</span>
+
+    <span class="hljs-attr">station_county:</span>
+        <span class="hljs-comment"># default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station county (or county analogue)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">station_lon:</span>
+        <span class="hljs-comment"># float(&gt;3) default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station center WSG84-encoded longitude in decimal degrees to at least 4 decimal places.
+            Valid longitudes are between -180 and 180
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/longitude&apos;</span>
+
+    <span class="hljs-attr">station_lat:</span>
+        <span class="hljs-comment"># float(&gt;3) default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station center WSG84 encoded latitude in decimal degrees to at least 4 decimal places.
+            Valid latitudes are between -90 and 90.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/latitude&apos;</span>
+
+    <span class="hljs-attr">operator_name:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Name of entity responsible for operation and maintenance of the funded charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">operator_address:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Street address of entity responsible for operation and maintenance of the funded charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">operator_city:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            City of entity responsible for operation and maintenance of the funded charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">operator_state:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid state code of entity responsible for operation and maintenance of the funded charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">operator_zip:</span>
+        <span class="hljs-comment"># string(5) default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid ZIP Code of entity responsible for operation and maintenance
+            of the of the funded charging station.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/zipCode&apos;</span>
+
+    <span class="hljs-attr">operating_status:</span>
+        <span class="hljs-comment">#  default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid Operating Status.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/operatingStatus&apos;</span>
+
+    <span class="hljs-attr">access_type:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid Access Type.
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/accessType&apos;</span>
+
+    <span class="hljs-attr">site_host_type:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Type of site host for the charging station. (e.g. public, workplace, MUD)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">site_host_type_detail:</span>
+        <span class="hljs-comment"># default=no	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Additional detail on site host land use. (e.g. hospital, hotel, parking garage, etc.)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">host_first_name:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station host point of contact first name
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">host_last_name:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station host point of contact last name
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">host_email:</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station host point of contact email address
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">email</span>
+
+    <span class="hljs-attr">onsite_der:</span>
+        <span class="hljs-comment"># default=yes	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Station has distributed energy resource.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">boolean</span>
+
+    <span class="hljs-attr">onsite_der_type:</span>
+        <span class="hljs-comment"># default=?? not given ?? 	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid Distributed Energy Resource Type
+</span>        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/onsiteDERType&apos;</span>
+
+    <span class="hljs-attr">der_power:</span>
+        <span class="hljs-comment"># float(2) default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Nameplate capacity of onsite energy generation in kW
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">der_energy:</span>
+        <span class="hljs-comment"># float(2) default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Combined nameplate capacity of onsite energy generation and/or
+            maximum battery discharge capacity in kilowatts (kW).
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+</code></pre></p>
 
 </article>
 </div>

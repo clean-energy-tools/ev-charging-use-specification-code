@@ -1,7 +1,30 @@
+
+#### From an e-mail sent by AtlasPublicPolicy
+#
+# As mentioned in replies to your other comment, we have adopted
+# the federally preferred nomenclature of station (which is
+# a collection of ports at a single location and is synonymous
+# with 'site' in your proposed hierarchy rather than EVSE)
+# and port (which is not explicitly a cord but the system
+# that can supply power to a single vehicle. I.e, a port may
+# have more than one cord if it supplies power to two different
+# connectors through the same power supply, and both cords are
+# not usable at the same time.)
+
+# Also, as noted in another response, because EVSE configurations
+# vary, we do not include EVSE as a distinct reporting unit.
+# We recognize this has limitations, especially as it pertains
+# to ports that share a single power supply. Those limitations
+# will be addressed in an update, though likely through the
+# same port-based reporting structure.
+
+
 # schema: "http://json-schema.org/draft-06/schema#"
 $id: "./station.schema.json"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
 title: "Station"
-description: "A product in the catalog"
+description: |
+    Describes a location where charging stations are installed.  It records the street address, the operating organization, the site host contact, and characteristics of the site.  A station is a collection of charging ports at a given location.
 type: "object"
 required:
     - station_id

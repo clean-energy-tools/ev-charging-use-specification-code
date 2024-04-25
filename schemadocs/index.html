@@ -40,7 +40,7 @@
 
 
 
-<meta name="date" content="Mon Apr 22 2024 13:39:02 GMT+0300 (Eastern European Summer Time)">
+<meta name="date" content="Thu Apr 25 2024 16:39:47 GMT+0300 (Eastern European Summer Time)">
 
 <meta name="DC.title" content="Schemas">
 
@@ -117,6 +117,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Schema</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../typedoc/index.html">Node.js API</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -152,19 +155,84 @@
 <article class="col-md-10 col-sm-10">
 <nav aria-label="breadcrumb" id="breadcrumbTrail">
 <ol class="breadcrumb">
- <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li>
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li>
 </ol>
 </nav>
-<p>Browse the schema documentation</p>
 <ul class="list-group">
-  <li class="list-group-item"><a href="./operating-costs.html" title="Operating Costs Documentation">Operating Costs Documentation</a></li>
-  <li class="list-group-item"><a href="./outage.html" title="Outage Documentation">Outage Documentation</a></li>
-  <li class="list-group-item"><a href="./port.html" title="Charging port documentation">Charging port documentation</a></li>
-  <li class="list-group-item"><a href="./project.html" title="Project Documentation">Project Documentation</a></li>
-  <li class="list-group-item"><a href="./session.html" title="Session Documentation">Session Documentation</a></li>
-  <li class="list-group-item"><a href="./station.html" title="Station Documentation">Station Documentation</a></li>
-  <li class="list-group-item"><a href="./uptime.html" title="Uptime Documentation">Uptime Documentation</a></li>
-</ul>
+  <li class="list-group-item">
+    <span>
+    <a href="./common.html">
+        <strong>
+            Common definitions
+        </strong></a>:
+           Common schema definitions used by multiple types.
+        
+</span>
+  </li>
+  <li class="list-group-item">
+    <span>
+    <a href="./operating-costs.html">
+        <strong>
+            Operating Costs
+        </strong></a>:
+           Reporting for operating costs for a Station over a defined period of time.  The costs include maintenance, repair, electricity, and network communications.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./outage.html">
+        <strong>
+            Outage
+        </strong></a>:
+           Supports reporting data about service outages for a Port on a Station.  The reported data includes the start/end time of an outage, and its cause.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./port.html">
+        <strong>
+            Charging port
+        </strong></a>:
+           The system that can supply power to a single vehicle.  Typically this is a single charging cord on a single EVSE.  But specific charging station configurations may involve two or more cords.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./project.html">
+        <strong>
+            Project
+        </strong></a>:
+           Project registration is tied to a single obligated party and records project-level information such as funding source and amounts. Projects are limited to a single physical address but may cover many individual charging port deployments. Station registration (based on address) is recorded in parallel with project onboarding. While a project is limited to a single station, a station may receive funding from multiple projects over time. If a second project is applied to a station that is already in the system, then it should be linked to the existing station rather than generating a new station entry.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./session.html">
+        <strong>
+            Session
+        </strong></a>:
+           Supports reporting data for each charging 	session on a port at a station.  The reported data covers the start/end of the session, energy consumption, fees charged, and whether the session reached a successful conclusion.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./station.html">
+        <strong>
+            Station
+        </strong></a>:
+           Describes a location where charging stations are installed.  It records the street address, the operating organization, the site host contact, and characteristics of the site.  A station is a collection of charging ports at a given location.
+        
+</span>
+  </li><li class="list-group-item">
+    <span>
+    <a href="./uptime.html">
+        <strong>
+            Uptime
+        </strong></a>:
+           Supports reporting the amount of uptime for a port on a station over a defined period of time.
+        
+</span>
+</li></ul>
 
 </article>
 <section id="right" class="col-md-2 col-sm-2">

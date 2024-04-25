@@ -1,7 +1,8 @@
 # $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "./session.schema.json"
-title: "Operating Data"
-description: "A product in the catalog"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
+title: "Sessions"
+description: "Supports reporting data for each charging session on a port at a station.  The reported data covers the start/end of the session, energy consumption, fees charged, and whether the session reached a successful conclusion."
 type: "object"
 required:
     - session_id

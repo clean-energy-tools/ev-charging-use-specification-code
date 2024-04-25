@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width">
-<title>Project Documentation</title>
+<title>Project</title>
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-<meta name="pagename" content="Project Documentation">
+<meta name="pagename" content="Project">
 
 
 
@@ -40,9 +40,9 @@
 
 
 
-<meta name="date" content="Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)">
+<meta name="date" content="Thu Apr 25 2024 16:39:31 GMT+0300 (Eastern European Summer Time)">
 
-<meta name="DC.title" content="Project Documentation">
+<meta name="DC.title" content="Project">
 
 
 
@@ -59,7 +59,7 @@
 
 <!-- OpenGraph Meta Tags -->
 
-<meta name="og:title" content="Project Documentation">
+<meta name="og:title" content="Project">
 
 <meta name="og:url" content="https://clean-energy-tools.github.io/ev-charging-use-specification-code/schemadocs/project.html">
 
@@ -118,6 +118,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Schema</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../typedoc/index.html">Node.js API</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -129,7 +132,7 @@
 <!--  No project local
 <a href="/index.html"><img src="/images/project-logo.jpg" width="150px" align="left"/></a>
 -->
-<h1 align="center">Project Documentation</h1>
+<h1 align="center">Project</h1>
 </span>
 <!-- No search box
 <span class="col-md-4">
@@ -155,265 +158,259 @@
 <section id="breadcrumb" class="col-sm-12">
 <nav aria-label="breadcrumb" id="breadcrumbTrail">
 <ol class="breadcrumb">
- <li class="breadcrumb-item "> <a href="../index.html">Schemas and Types for the EV Charging Use Data</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="project.html">Project Documentation</a> </li>
+ <li class="breadcrumb-item "> <a href="../index.html">Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification</a> </li> <li class="breadcrumb-item "> <a href="index.html">Schemas</a> </li> <li class="breadcrumb-item "> <a href="project.html">Project</a> </li>
 </ol>
 </nav>
 </section>
 <section id="category-tags" class="col-sm-12">
 
-    Date: Mon Apr 22 2024
+    Date: Thu Apr 25 2024
 
 
 </section>
 </div>
 <div class="row">
 <article class="col-sm-12">
-<h1>Project</h1>
-<p><em>A product in the catalog</em></p>
-<p>Type: <code>object</code></p>
-<p><i id="./project.schema.json">path: #./project.schema.json</i></p>
-<p><b id=".project.schema.json">&#x24;id: ./project.schema.json</b></p>
-<p><strong><em>Properties</em></strong></p>
+<p><strong><p><strong>Project registration is tied to a single obligated party and records project-level information such as funding source and amounts. Projects are limited to a single physical address but may cover many individual charging port deployments. Station registration (based on address) is recorded in parallel with project onboarding. While a project is limited to a single station, a station may receive funding from multiple projects over time. If a second project is applied to a station that is already in the system, then it should be linked to the existing station rather than generating a new station entry.</strong></p>
+</strong></p> 
+<p>RAW files:</p>
 <ul>
-<li><b id="#./project.schema.json/properties/project_id">project_id</b> <code>required</code>
-<ul>
-<li><em>Unique identification code specific to individual funding application or contract. Project ID is supplied by [Department] upon approval of funding.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/project_id">path: #./project.schema.json/properties/project_id</i></li>
+<li>JSON: <a href="../schemas/project.json">/schemas/project.json</a></li>
+<li>YAML: <a href="../schemas/project.yaml">/schemas/project.yaml</a></li>
 </ul>
-</li>
-<li><b id="#./project.schema.json/properties/station_id">station_id</b> <code>required</code>
-<ul>
-<li><em>Unique identity specific to the physical location of the station (site) funded by the project. Station ID must be same as the permanent station identifier provided to third parties pursuant to CFR 23 &#xa7; 680.116(c)(1).</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/station_id">path: #./project.schema.json/properties/station_id</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/org_name">org_name</b> <code>required</code>
-<ul>
-<li><em>Organization name of the obligated party.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/org_name">path: #./project.schema.json/properties/org_name</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/org_address">org_address</b> <code>required</code>
-<ul>
-<li><em>Street address of obligated party.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/org_address">path: #./project.schema.json/properties/org_address</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/org_city">org_city</b> <code>required</code>
-<ul>
-<li><em>City of obligated party.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/org_city">path: #./project.schema.json/properties/org_city</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/org_state">org_state</b> <code>required</code>
-<ul>
-<li><em>Valid state code of obligated party.</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/org_state">path: #./project.schema.json/properties/org_state</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/org_zip">org_zip</b> <code>required</code>
-<ul>
-<li>_Valid ZIP Code of entity responsible for operation <br>and maintenance of the of the funded charging station.
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/org_zip">path: #./project.schema.json/properties/org_zip</i></li>
-<li>&#x24;ref: <a href="#.common.jsondefinitionszipcode">./common.json#/definitions/zipCode</a></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/poc_email">poc_email</b> <code>required</code>
-<ul>
-<li><em>Obligated party point of contact valid email address</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/poc_email">path: #./project.schema.json/properties/poc_email</i></li>
-<li>String format must be a &quot;email&quot;</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/poc_first_name">poc_first_name</b> <code>required</code>
-<ul>
-<li><em>Obligated party point of contact first name</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/poc_first_name">path: #./project.schema.json/properties/poc_first_name</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/poc_last_name">poc_last_name</b> <code>required</code>
-<ul>
-<li><em>Obligated party point of contact last name</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/poc_last_name">path: #./project.schema.json/properties/poc_last_name</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/project_award_date">project_award_date</b> <code>required</code>
-<ul>
-<li><em>Date when project funding was awarded</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/project_award_date">path: #./project.schema.json/properties/project_award_date</i></li>
-<li>String format must be a &quot;date-time&quot;</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/primary_funding_source">primary_funding_source</b> <code>required</code>
-<ul>
-<li><em>Primary public funding source for the project/application</em></li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/primary_funding_source">path: #./project.schema.json/properties/primary_funding_source</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/primary_funding">primary_funding</b> <code>required</code>
-<ul>
-<li>_Total funding (in USD) station received from the primary funding source dedicated<br>to station deployment. (should not include any funding for station operation costs)
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/primary_funding">path: #./project.schema.json/properties/primary_funding</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/utility_makeready">utility_makeready</b> <code>required</code>
-<ul>
-<li>_Total funding (in USD) the project received from electric utilities<br>dedicated to infrastructure make-ready
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/utility_makeready">path: #./project.schema.json/properties/utility_makeready</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/utility_funding_other">utility_funding_other</b> <code>required</code>
-<ul>
-<li>_Total funding (in USD) the project received from utility for equipment<br>or other non-make-ready costs (should not include any funding for operational costs)
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/utility_funding_other">path: #./project.schema.json/properties/utility_funding_other</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/other_makeready">other_makeready</b> <code>required</code>
-<ul>
-<li><em>Total funding (in USD) other public funding received dedicated to infrastructure make-ready<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/other_makeready">path: #./project.schema.json/properties/other_makeready</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/other_funding_other">other_funding_other</b> <code>required</code>
-<ul>
-<li>_Amount of other public funding project received for equipment<br>or other non-make-ready costs (should not include any funding for operational costs)
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/other_funding_other">path: #./project.schema.json/properties/other_funding_other</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/cost_share">cost_share</b> <code>required</code>
-<ul>
-<li>_Funding amount project has received from other (private,<br>non-utility) sources when combined with primary_funding
-and utility_funding and other_public_funding equals
-the total cost of the charging installation
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/cost_share">path: #./project.schema.json/properties/cost_share</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/equipment_cost">equipment_cost</b> <code>required</code>
-<ul>
-<li><em>Cost (in USD) to acquire funded charging equipment.</em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/equipment_cost">path: #./project.schema.json/properties/equipment_cost</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/install_cost">install_cost</b> <code>required</code>
-<ul>
-<li>_Cost (in USD) for all labor and materials costs (including electrical equipment)<br>necessary to necessary to install charging equipment.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/install_cost">path: #./project.schema.json/properties/install_cost</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/property_cost">property_cost</b> <code>required</code>
-<ul>
-<li><em>Cost (in USD) to acquire real property on which to install funded chargers.<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/property_cost">path: #./project.schema.json/properties/property_cost</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/der_equipment_cost">der_equipment_cost</b> <code>required</code>
-<ul>
-<li><em>Cost (in USD) to acquire distributed energy resource equipment.<br></em></li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/der_equipment_cost">path: #./project.schema.json/properties/der_equipment_cost</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/der_install_cost">der_install_cost</b> <code>required</code>
-<ul>
-<li>_Cost (in USD) for all labor and materials costs (including electrical equipment)<br>necessary to install distributed energy resources equipment.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/der_install_cost">path: #./project.schema.json/properties/der_install_cost</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/distribution_costs">distribution_costs</b> <code>required</code>
-<ul>
-<li>_Cost (in USD) of contributions in aid of construction for line extensions<br>and upgrades necessary to install chargers.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/distribution_costs">path: #./project.schema.json/properties/distribution_costs</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/service_costs">service_costs</b> <code>required</code>
-<ul>
-<li>_Cost (in USD) of contributions in aid of construction for service upgrade<br>costs for customer transformers, poles, meters, and other utility service
-equipment necessary to install chargers.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/service_costs">path: #./project.schema.json/properties/service_costs</i></li>
-<li>Range:  &#x2265; 0</li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/dac_type">dac_type</b> <code>required</code>
-<ul>
-<li>_Method, model or program definition of disadvantaged community.<br>For example CEJST 1.0.
-_</li>
-<li>Type: <code>string</code></li>
-<li><i id="./project.schema.json/properties/dac_type">path: #./project.schema.json/properties/dac_type</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/in_dac">in_dac</b> <code>required</code>
-<ul>
-<li><em>Project is located inside of disadvantaged community as specified by dac_type.</em></li>
-<li>Type: <code>boolean</code></li>
-<li><i id="./project.schema.json/properties/in_dac">path: #./project.schema.json/properties/in_dac</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/dac_proximate">dac_proximate</b> <code>required</code>
-<ul>
-<li>_Project is located within a program specified distance from disadvantaged community<br>as as specified by dac_type.
-_</li>
-<li>Type: <code>boolean</code></li>
-<li><i id="./project.schema.json/properties/dac_proximate">path: #./project.schema.json/properties/dac_proximate</i></li>
-</ul>
-</li>
-<li><b id="#./project.schema.json/properties/total_power">total_power</b> <code>required</code>
-<ul>
-<li>_The total charger power capacity (in kW) deployed by the project <br>- if charging equipment share power supplies, only the maximum
-simulataneous power output should be reported.
-_</li>
-<li>Type: <code>number</code></li>
-<li><i id="./project.schema.json/properties/total_power">path: #./project.schema.json/properties/total_power</i></li>
-<li>Range:  &#x2265; 0
-<em>Mon Apr 22 2024 15:13:24 GMT+0300 (Eastern European Summer Time)</em></li>
-</ul>
-</li>
-</ul>
+<p><pre><code class="yaml hljs">
+<span class="hljs-comment"># &#x24;schema: &quot;https://json-schema.org/draft/2020-12/schema&quot;</span>
+<span class="hljs-string">&#x24;id:</span> <span class="hljs-string">&quot;./project.schema.json&quot;</span>
+<span class="hljs-string">&#x24;comment:</span> <span class="hljs-string">&quot;Copyright (c) 2024, David Herron, under the BSD 3-Clause License&quot;</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">&quot;Project&quot;</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">|
+    Project registration is tied to a single obligated party and records project-level information such as funding source and amounts. Projects are limited to a single physical address but may cover many individual charging port deployments. Station registration (based on address) is recorded in parallel with project onboarding. While a project is limited to a single station, a station may receive funding from multiple projects over time. If a second project is applied to a station that is already in the system, then it should be linked to the existing station rather than generating a new station entry.
+</span><span class="hljs-attr">type:</span> <span class="hljs-string">&quot;object&quot;</span>
+<span class="hljs-attr">required:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">project_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">station_id</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">org_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">org_address</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">org_city</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">org_state</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">org_zip</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">poc_email</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">poc_first_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">poc_last_name</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">project_award_date</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">primary_funding_source</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">primary_funding</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">utility_makeready</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">utility_funding_other</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">other_makeready</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">other_funding_other</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">cost_share</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">equipment_cost</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">install_cost</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">property_cost</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">der_equipment_cost</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">der_install_cost</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">distribution_costs</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">service_costs</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">dac_type</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">in_dac</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">dac_proximate</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">total_power</span>
+<span class="hljs-attr">properties:</span>
+    <span class="hljs-attr">project_id:</span> 
+        <span class="hljs-attr">description:</span> <span class="hljs-string">&quot;Unique identification code specific to individual funding application or contract. Project ID is supplied by [Department] upon approval of funding.&quot;</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">&quot;string&quot;</span>
+        <span class="hljs-comment"># default=yes part 680=yes</span>
+
+    <span class="hljs-attr">station_id:</span> 
+        <span class="hljs-attr">description:</span> <span class="hljs-string">&quot;Unique identity specific to the physical location of the station (site) funded by the project. Station ID must be same as the permanent station identifier provided to third parties pursuant to CFR 23 &#xa7; 680.116(c)(1).&quot;</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">&quot;string&quot;</span>
+        <span class="hljs-comment"># default=yes part 680=yes</span>
+
+    <span class="hljs-attr">org_name:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">&quot;Organization name of the obligated party.&quot;</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">org_address:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Street</span> <span class="hljs-string">address</span> <span class="hljs-string">of</span> <span class="hljs-string">obligated</span> <span class="hljs-string">party.</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">org_city:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">City</span> <span class="hljs-string">of</span> <span class="hljs-string">obligated</span> <span class="hljs-string">party.</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">org_state:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Valid</span> <span class="hljs-string">state</span> <span class="hljs-string">code</span> <span class="hljs-string">of</span> <span class="hljs-string">obligated</span> <span class="hljs-string">party.</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">org_zip:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Valid ZIP Code of entity responsible for operation 
+            and maintenance of the of the funded charging station.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-string">&#x24;ref:</span> <span class="hljs-string">&apos;./common.json#/definitions/zipCode&apos;</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">poc_email:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Obligated</span> <span class="hljs-string">party</span> <span class="hljs-string">point</span> <span class="hljs-string">of</span> <span class="hljs-string">contact</span> <span class="hljs-string">valid</span> <span class="hljs-string">email</span> <span class="hljs-string">address</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">email</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">poc_first_name:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Obligated</span> <span class="hljs-string">party</span> <span class="hljs-string">point</span> <span class="hljs-string">of</span> <span class="hljs-string">contact</span> <span class="hljs-string">first</span> <span class="hljs-string">name</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">poc_last_name:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Obligated</span> <span class="hljs-string">party</span> <span class="hljs-string">point</span> <span class="hljs-string">of</span> <span class="hljs-string">contact</span> <span class="hljs-string">last</span> <span class="hljs-string">name</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">project_award_date:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Date</span> <span class="hljs-string">when</span> <span class="hljs-string">project</span> <span class="hljs-string">funding</span> <span class="hljs-string">was</span> <span class="hljs-string">awarded</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-attr">format:</span> <span class="hljs-string">date-time</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">primary_funding_source:</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Primary</span> <span class="hljs-string">public</span> <span class="hljs-string">funding</span> <span class="hljs-string">source</span> <span class="hljs-string">for</span> <span class="hljs-string">the</span> <span class="hljs-string">project/application</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+        <span class="hljs-comment"># default=yes	part 680=no</span>
+
+    <span class="hljs-attr">primary_funding:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Total funding (in USD) station received from the primary funding source dedicated
+            to station deployment. (should not include any funding for station operation costs)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">utility_makeready:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Total funding (in USD) the project received from electric utilities
+            dedicated to infrastructure make-ready
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">utility_funding_other:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Total funding (in USD) the project received from utility for equipment
+            or other non-make-ready costs (should not include any funding for operational costs)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">other_makeready:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Total funding (in USD) other public funding received dedicated to infrastructure make-ready
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">other_funding_other:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Amount of other public funding project received for equipment
+            or other non-make-ready costs (should not include any funding for operational costs)
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">cost_share:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=yes	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Funding amount project has received from other (private,
+            non-utility) sources when combined with primary_funding
+            and utility_funding and other_public_funding equals
+            the total cost of the charging installation
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">equipment_cost:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Cost</span> <span class="hljs-string">(in</span> <span class="hljs-string">USD)</span> <span class="hljs-string">to</span> <span class="hljs-string">acquire</span> <span class="hljs-string">funded</span> <span class="hljs-string">charging</span> <span class="hljs-string">equipment.</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">install_cost:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) for all labor and materials costs (including electrical equipment)
+            necessary to necessary to install charging equipment.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">property_cost:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) to acquire real property on which to install funded chargers.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">der_equipment_cost:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) to acquire distributed energy resource equipment.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">der_install_cost:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) for all labor and materials costs (including electrical equipment)
+            necessary to install distributed energy resources equipment.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">distribution_costs:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) of contributions in aid of construction for line extensions
+            and upgrades necessary to install chargers.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">service_costs:</span>
+        <span class="hljs-comment"># cost; /*	float(2) */ // default=no	part 680=yes</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Cost (in USD) of contributions in aid of construction for service upgrade
+            costs for customer transformers, poles, meters, and other utility service
+            equipment necessary to install chargers.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-attr">dac_type:</span>
+        <span class="hljs-comment"># default=no	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Method, model or program definition of disadvantaged community.
+            For example CEJST 1.0.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">string</span>
+
+    <span class="hljs-attr">in_dac:</span>
+        <span class="hljs-comment"># default=no	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">Project</span> <span class="hljs-string">is</span> <span class="hljs-string">located</span> <span class="hljs-string">inside</span> <span class="hljs-string">of</span> <span class="hljs-string">disadvantaged</span> <span class="hljs-string">community</span> <span class="hljs-string">as</span> <span class="hljs-string">specified</span> <span class="hljs-string">by</span> <span class="hljs-string">dac_type.</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">boolean</span>
+
+    <span class="hljs-attr">dac_proximate:</span>
+        <span class="hljs-comment"># default=no	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            Project is located within a program specified distance from disadvantaged community
+            as as specified by dac_type.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">boolean</span>
+
+    <span class="hljs-attr">total_power:</span>
+        <span class="hljs-comment"># float	default=no	part 680=no</span>
+        <span class="hljs-attr">description:</span> <span class="hljs-string">|
+            The total charger power capacity (in kW) deployed by the project 
+            - if charging equipment share power supplies, only the maximum
+            simulataneous power output should be reported.
+</span>        <span class="hljs-attr">type:</span> <span class="hljs-string">number</span>
+        <span class="hljs-attr">minimum:</span> <span class="hljs-number">0</span></code></pre></p>
 
 </article>
 </div>

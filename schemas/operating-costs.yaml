@@ -1,7 +1,8 @@
 # $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "./operating-costs.schema.json"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
 title: "Operating Costs"
-description: "A product in the catalog"
+description: "Reporting for operating costs for a Station over a defined period of time.  The costs include maintenance, repair, electricity, and network communications."
 type: "object"
 required:
     - station_id
