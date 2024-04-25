@@ -40,7 +40,7 @@
 
 
 
-<meta name="date" content="Thu Apr 25 2024 12:38:39 GMT+0300 (Eastern European Summer Time)">
+<meta name="date" content="Thu Apr 25 2024 23:17:45 GMT+0300 (Eastern European Summer Time)">
 
 <meta name="DC.title" content="Schemas, TypeScript Types, and data validation for the EV Charging Use Data Specification">
 
@@ -120,6 +120,9 @@
         <li class="nav-item">
           <a class="nav-link" href="typedoc/index.html">Node.js API</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/clean-energy-tools/ev-charging-use-specification-code">Github</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -167,8 +170,9 @@
 <!-- </div> -->
 <div class="row">
 <article class="col-sm-12">
-<p>The <a href="https://evchargingspec.org/">EV Charging Use Data Specification</a> is a set of data types for &quot;provisioning, collecting, validating and reporting on data related to electric vehicle (EV) charger deployment and use.&quot;  The goal is simplifying those reporting processes by having commonly accepted data types.</p>
-<p>However, the specification website simply documents data types.  It does not provide schema&apos;s from which coders can auto-generate code and other programming assets.  This project aims to fill that hole by providing the following:</p>
+<p>The <a href="https://evchargingspec.org/">EV Charging Use Data Specification</a> is a set of data types for &quot;provisioning, collecting, validating and reporting on data related to electric vehicle (EV) charger deployment and use.&quot;  The goal is simplifying those reporting processes by having commonly accepted data types for reporting usage.</p>
+<p>However, the specification simply documents data types.  It does not provide anything a coder can directly use in code.</p>
+<p>To facilitate coders creating applications with these data types this project creates the following assets:</p>
 <ul>
 <li>JSON Schema&apos;s in both JSON and YAML format corresponding to the types published by the <em>EV Charging Use Data Specification</em> specification</li>
 <li>A Node.js package containing
@@ -180,6 +184,7 @@
 </ul>
 </li>
 </ul>
+<p>The schema&apos;s can be used to generate code for other languages, using corresponding code generation tools.  This project is eager to accept such contributions.</p>
 <table>
 <thead>
 <tr>
@@ -223,6 +228,11 @@
 <td>Uptime</td>
 <td><a href="schemas/uptime.json">JSON</a> <a href="schemas/uptime.yaml">YAML</a></td>
 <td><a href="./schemadocs/uptime.html" title="Uptime">Uptime</a></td>
+</tr>
+<tr>
+<td>Common Definitions</td>
+<td><a href="schemas/common.json">JSON</a> <a href="schemas/common.yaml">YAML</a></td>
+<td><a href="./schemadocs/common.html" title="Common definitions">Common definitions</a></td>
 </tr>
 </tbody>
 </table>
