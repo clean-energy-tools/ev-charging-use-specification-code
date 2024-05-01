@@ -7,16 +7,16 @@ The [EV Charging Use Data Specification](https://evchargingspec.org/) is a set o
 
 However, the specification simply documents data types.  It does not provide anything a coder can directly use in code.
 
-To facilitate coders creating applications with these data types this project creates the following assets:
+To facilitate coders creating applications with these data types this project offers the following assets:
 
 * JSON Schema's in both JSON and YAML format corresponding to the types published by the _EV Charging Use Data Specification_ specification
 * A Node.js package containing
     * TypeScript types corresponding to those schema's
     * Data validation code for each of the data types
-    * Serialization into JSON, YAML or CSV
-    * Deserialization from JSON, YAML or CSV
+    * Serialization into JSON, YAML or CSV of singleton values or arrays
+    * Deserialization from JSON, YAML or CSV of singleton values or arrays
 
-The schema's can be used to generate code for other languages, using corresponding code generation tools.  This project is eager to accept such contributions.
+The schema's can be used to generate code for other languages using corresponding code generation tools.  This project is eager to accept such contributions.
 
 Type name | Schema files | Documentation
 ----------|--------------|--------------
