@@ -1,15 +1,16 @@
-JSON Schema definitions corresponding to the [EV Charging Use Data Specification](https://evchargingspec.org/), as well as scripts for building TypeScript type definitions.
+JSON Schema definitions corresponding to the [EV Charging Use Data Specification](https://evchargingspec.org/), as well as scripts for building code for the Node.js package.
 
 The JSON Schema's were created by reading the specification documents in [the EV Charging Use Data Specification GitHub repository](https://github.com/AtlasPublicPolicy/charging-use-spec).  The Schema's are in YAML format because that is easier to edit.
 
-[Quicktype](https://quicktype.io/) is used for
+[Quicktype](https://quicktype.io/) is used for converting JSON Schema's into TypeScript type definitions, to populate a Node.js module.
 
-* Converting YAML-formatted JSON Schema's into JSON format -- NOT THE CASE SINCE THIS LOSES THE FORMAT/KEYWORD ATTRIBUTES
-* Converting JSON Schema's into TypeScript type definitions, to populate a Node.js module
+Since Quicktype supports other programming languages, code for those other languages can be generated using the same approach.
 
-Since Quicktype supports other programming languages, support for those other languages can be generated using the same approach.
+Any programming language can be targeted by using corresponding code generation tools.
 
-The idea is to use a tool for generating code from JSON schema.  Quicktype seemed at first glance to be an excellent choice.  But, the code it generates does not have the format or keyword attributes, limiting the usefulness of that code.  Perhaps there are other tools which do not have this flaw.
+It is necessary that generated code carry over all attributes defined in the schema's.  The schema declares acceptable string patterns and numerical ranges for each field.  Generated type declarations, and data validation code, must reflect what is defined in the schema.  This is key in selecting a code generation tool.
+
+Unfortunately, while Quicktype seemed to be an excellent choice, the code it generates does not have the format or keyword attributes declared in the schema.  That meant we are limiting its usage to generating type declarations.
 
 # Generating code for a TypeScript package running on Node.js
 
