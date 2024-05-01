@@ -1,10 +1,15 @@
 {
-  "name": "ev-charging-use-specification-code",
+  "name": "@clean-energy-tools/ev-charging-use-data-code",
   "version": "1.0.0",
-  "description": "Data types and validation for the EV Charging Use Specification",
+  "description": "Data types and validation for the EV Charging Use Data Specification",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "homepage": "https://github.com/clean-energy-tools/ev-charging-use-specification-code",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clean-energy-tools/ev-charging-use-specification-code.git"
+  },
   "scripts": {
     "build": "npx tsc",
     "watch": "npx tsc -w",
@@ -13,7 +18,11 @@
   "keywords": [
     "EV charging"
   ],
-  "author": "David Herron <david@davidherron.com>",
+  "author": {
+    "name": "David Herron",
+    "email": "david@davidherron.com",
+    "url": "https://clean-energy-tools.github.io/ev-charging-use-specification-code/"
+  },
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.12.0",
