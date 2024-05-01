@@ -8,8 +8,8 @@
     "jsonSchema": "./generated/schemas",
     "schemaDest":  "../node/src/schemas",
     "schemaDist":  "../node/dist/schemas",
-    "schemaYAMLfiles": "common.yaml project.yaml station.yaml port.yaml operating-costs.yaml session.yaml outage.yaml",
-    "schemaJSONfiles": "common.json project.json station.json port.json operating-costs.json session.json outage.json"
+    "schemaYAMLfiles": "common.yaml project.yaml station.yaml port.yaml operating-costs.yaml session.yaml outage.yaml uptime.yaml",
+    "schemaJSONfiles": "common.json project.json station.json port.json operating-costs.json session.json outage.json uptime.json"
   },
   "scripts": {
     "build": "npx npm-run-all gen schema",
@@ -29,7 +29,7 @@
     "zod:session": "npx quicktype -s schema ./session.yaml --out ${npm_package_config_genNodeZod}/session.ts --lang typescript-zod",
     "zod:outage": "npx quicktype -s schema ./outage.yaml --out ${npm_package_config_genNodeZod}/outage.ts --lang typescript-zod",
     "zod:uptime": "npx quicktype -s schema ./uptime.yaml --out ${npm_package_config_genNodeZod}/uptime.ts --lang typescript-zod",
-    "schema": "npx npm-run-all schema:copyYAML schema:common schema:project schema:station schema:port schema:costs schema:session schema:outage schema:uptime schema:copyJSON",
+    "schema": "npx npm-run-all schema:copyYAML schema:common schema:project schema:station schema:port schema:costs schema:session schema:outage schema:uptime schema:copyJSON schema:copyYAML",
     "schema:copyYAML": "cp ${npm_package_config_schemaYAMLfiles} ${npm_package_config_schemaDest} && cp ${npm_package_config_schemaYAMLfiles} ${npm_package_config_schemaDist}",
     "schema:copyJSON": "cp ${npm_package_config_schemaJSONfiles} ${npm_package_config_schemaDest} && cp ${npm_package_config_schemaJSONfiles} ${npm_package_config_schemaDist}",
     "schema:common": "yq common.yaml -o json >./common.json",

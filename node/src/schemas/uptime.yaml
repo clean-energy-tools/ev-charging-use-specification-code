@@ -1,7 +1,8 @@
 # $schema: "https://json-schema.org/draft/2020-12/schema"
 $id: "./uptime.schema.json"
+$comment: "Copyright (c) 2024, David Herron, under the BSD 3-Clause License"
 title: "Uptime"
-description: "A product in the catalog"
+description: "Supports reporting the amount of uptime for a port on a station over a defined period of time."
 type: "object"
 required:
     - port_id
