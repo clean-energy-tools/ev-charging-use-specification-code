@@ -1,6 +1,6 @@
 {
   "name": "@clean-energy-tools/ev-charging-use-data-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Data types and validation for the EV Charging Use Data Specification",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,6 @@
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.11.17",
     "@types/uuid": "^9.0.8",
-    "ajv-cli": "^5.0.0",
     "typedoc": "^0.25.13",
     "typedoc-plugin-extras": "^3.0.0",
     "typescript": "^5.3.3"
