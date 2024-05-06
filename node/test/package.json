@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "npx npm-run-all test:costs test:outage test:port test:project test:session test:station test:uptime",
+    "test": "npx npm-run-all test:common test:costs test:outage test:port test:project test:session test:station test:uptime",
+    "test:common": "node ./dist/common.js",
     "test:costs": "node ./dist/operating-costs.js",
     "test:outage": "node ./dist/outage.js",
     "test:port": "node ./dist/port.js",
@@ -13,7 +14,7 @@
     "test:session": "node ./dist/session.js",
     "test:station": "node ./dist/station.js",
     "test:uptime": "node ./dist/uptime.js",
-    "monitor": "node --test",
+    "monitor": "npx nodemon -w ../dist -w ./dist --exec 'npm run test'",
     "build": "npx tsc",
     "watch": "npx tsc -w"
   },

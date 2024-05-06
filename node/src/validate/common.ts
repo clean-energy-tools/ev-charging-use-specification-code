@@ -8,7 +8,8 @@ import { generate, transform, stringify } from "csv/sync";
 import { parse } from 'csv-parse';
 
 import addFormats from "ajv-formats";
-import { OperatingStatus } from '../types-evchargingspec/station.js';
+import { AccessType, OnsiteDERType, OperatingStatus } from '../types-evchargingspec/station.js';
+import { ChargerType, ConnectorType, ValidPaymentType } from '../types-evchargingspec/port.js';
 export const ajv = new Ajv.default({
     // strict: true,
     // allowUnionTypes: true,
@@ -26,6 +27,228 @@ const _schemaCommon = await readYAMLSchema(
 // ajv.addSchema(_schemaCommon);
 for (const schemaKey in _schemaCommon.definitions) {
     ajv.addSchema(_schemaCommon.definitions[schemaKey]);
+}
+
+/**
+ * Validate a year string
+ */
+export const validatorYear
+    = ajv.compile(_schemaCommon.definitions.year);
+
+/**
+ * Validate a year+month string
+ */
+export const validatorYearMN
+    = ajv.compile(_schemaCommon.definitions.yearmn);
+
+/**
+ * Validate an ISO8601 duration string
+ */
+export const validatorDuration
+    = ajv.compile(_schemaCommon.definitions.duration);
+
+/**
+ * Validate that a number is a latitude
+ */
+export const validatorLatitude
+    = ajv.compile(_schemaCommon.definitions.latitude);
+
+/**
+ * Validate that a number is a longitude
+ */
+export const validatorLongitude
+    = ajv.compile(_schemaCommon.definitions.longitude);
+
+/**
+ * Validate a zip code string
+ */
+export const validatorZipCode
+    = ajv.compile(_schemaCommon.definitions.zipCode);
+
+/**
+ * Validate a charger type string
+ */
+export const validatorChargerType
+    = ajv.compile<ChargerType>(_schemaCommon.definitions.chargerType);
+
+/**
+ * Validate a connector type string
+ */
+export const validatorConnectorType
+    = ajv.compile<ConnectorType>(_schemaCommon.definitions.connectorType);
+
+/**
+ * Validate a payment type string
+ */
+export const validatorValidPaymentType
+    = ajv.compile<ValidPaymentType>(_schemaCommon.definitions.validPaymentType);
+
+/**
+ * Validate an onsite DER type string
+ */
+export const validatorOnsiteDERType
+    = ajv.compile<OnsiteDERType>(_schemaCommon.definitions.onsiteDERType);
+
+/**
+ * Validate an access type string
+ */
+export const validatorAccessType
+    = ajv.compile<AccessType>(_schemaCommon.definitions.accessType);
+
+/**
+ * Validate an operating status type string
+ */
+export const validatorOperatingStatus
+    = ajv.compile<OperatingStatus>(_schemaCommon.definitions.operatingStatus);
+
+/**
+ * Convert a string to a Latitude, verifying the range
+ * @param data 
+ * @returns 
+ */
+export function parseLatitude(data: string | number): number {
+    let _num: number | undefined
+        = typeof data === 'string'
+            ? Number.parseFloat(data)
+            : (
+                typeof data === 'number'
+                ? data
+                : undefined
+            );
+    if (typeof _num === 'undefined') {
+        throw new Error(`Latitude is undefined`);
+    }
+    if (validatorLatitude(_num)) {
+        return _num;
+    } else {
+        throw new Error(`Latitude ${data} out of range`);
+    }
+}
+
+/**
+ * Convert a string to a Longitude, verifying the range
+ * @param data 
+ * @returns 
+ */
+export function parseLongitude(data: string | number): number {
+    let _num: number | undefined
+        = typeof data === 'string'
+            ? Number.parseFloat(data)
+            : (
+                typeof data === 'number'
+                ? data
+                : undefined
+            );
+    if (typeof _num === 'undefined') {
+        throw new Error(`Longitude is undefined`);
+    }
+    if (validatorLongitude(_num)) {
+        return _num;
+    } else {
+        throw new Error(`Longitude ${data} out of range`);
+    }
+}
+
+/**
+ * Convert a string to the ChargerType enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseChargerType(data: string): ChargerType {
+    if (typeof data !== 'string') {
+        throw new Error(`Charger Type is not a string ${data}`);
+    }
+    if (validatorChargerType(data)) {
+        return data as ChargerType;
+    } else {
+        throw new Error(`Charger Type ${data} not valid`);
+    }
+}
+
+/**
+ * Convert a string to the ConnectorType enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseConnectorType(data: string): ChargerType {
+    if (typeof data !== 'string') {
+        throw new Error(`Connector Type is not a string ${data}`);
+    }
+    if (validatorConnectorType(data)) {
+        return data as ChargerType;
+    } else {
+        throw new Error(`Connector Type ${data} not valid`);
+    }
+}
+
+/**
+ * Convert a string to the ValidPaymentType enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseValidPaymentType(data: string): ValidPaymentType {
+    if (typeof data !== 'string') {
+        throw new Error(`ValidPaymentType is not a string ${data}`);
+    }
+    if (validatorValidPaymentType(data)) {
+        return data as ValidPaymentType;
+    } else {
+        throw new Error(`ValidPaymentType ${data} not valid`);
+    }
+}
+
+/**
+ * Convert a string to the OnSiteDERType enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseOnsiteDERType(data: string): OnsiteDERType {
+    if (typeof data !== 'string') {
+        throw new Error(`OnSiteDERType is not a string ${data}`);
+    }
+    if (validatorOnsiteDERType(data)) {
+        return data as OnsiteDERType;
+    } else {
+        throw new Error(`OnSiteDERType ${data} not valid`);
+    }
+}
+
+/**
+ * Convert a string to the AccessType enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseAccessType(data: string): AccessType {
+    if (typeof data !== 'string') {
+        throw new Error(`AccessType is not a string ${data}`);
+    }
+    if (validatorAccessType(data)) {
+        return data as AccessType;
+    } else {
+        throw new Error(`AccessType ${data} not valid`);
+    }
+}
+
+/**
+ * Convert a string to the OperatingStatus enum, while
+ * validating its value
+ * @param data 
+ * @returns 
+ */
+export function parseOperatingStatus(data: string): OperatingStatus {
+    if (typeof data !== 'string') {
+        throw new Error(`OperatingStatus is not a string ${data}`);
+    }
+    if (validatorOperatingStatus(data)) {
+        return data as OperatingStatus;
+    } else {
+        throw new Error(`OperatingStatus ${data} not valid`);
+    }
 }
 
 type errorResult = {

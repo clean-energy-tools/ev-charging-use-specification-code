@@ -1,6 +1,6 @@
 {
   "name": "@clean-energy-tools/ev-charging-use-data-code",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Data types and validation for the EV Charging Use Data Specification",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

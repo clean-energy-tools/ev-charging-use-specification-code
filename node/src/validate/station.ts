@@ -1,6 +1,6 @@
 
 import { JSONSchemaType, DefinedError } from "ajv";
-import { ajv } from './common.js';
+import { ajv, validatorOperatingStatus } from './common.js';
 import YAML from 'js-yaml';
 
 import {
@@ -17,7 +17,8 @@ import {
     parseCSV,
     readJSONSchema,
     readYAMLSchema,
-    getBoolean
+    getBoolean,
+    validatorAccessType
 } from './common.js';
 
 import * as path from 'path';
@@ -108,6 +109,12 @@ const csvProcessor = (record?: any[] | undefined) =>  {
     }
     if (record.length < 25) {
         throw new Error(`record must have 24 entries`);
+    }
+    if (!validatorOperatingStatus(record[14])) {
+        throw new Error(`Invalid OperatingStatus ${record[14]}`);
+    }
+    if (!validatorAccessType(record[15] as AccessType)) {
+        throw new Error(`Invalid AccessType ${record[15]}`);
     }
     const ret: Station = {
         station_id: record[0],
