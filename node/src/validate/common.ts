@@ -172,12 +172,12 @@ export function parseChargerType(data: string): ChargerType {
  * @param data 
  * @returns 
  */
-export function parseConnectorType(data: string): ChargerType {
+export function parseConnectorType(data: string): ConnectorType {
     if (typeof data !== 'string') {
         throw new Error(`Connector Type is not a string ${data}`);
     }
     if (validatorConnectorType(data)) {
-        return data as ChargerType;
+        return data as ConnectorType;
     } else {
         throw new Error(`Connector Type ${data} not valid`);
     }
