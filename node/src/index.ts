@@ -8,6 +8,7 @@ export * from './types-evchargingspec/session.js';
 export * from './types-evchargingspec/outage.js';
 export * from './types-evchargingspec/uptime.js';
 
+export * from './validate/common.js';
 export * from './validate/project.js';
 export * from './validate/station.js';
 export * from './validate/port.js';
