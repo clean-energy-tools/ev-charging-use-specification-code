@@ -25,10 +25,7 @@
     "host_first_name",
     "host_last_name",
     "host_email",
-    "onsite_der",
-    "onsite_der_type",
-    "der_power",
-    "der_energy"
+    "onsite_der"
   ],
   "properties": {
     "station_id": {

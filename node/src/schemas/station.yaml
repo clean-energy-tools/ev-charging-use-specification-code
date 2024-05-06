@@ -48,9 +48,10 @@ required:
     - host_last_name
     - host_email
     - onsite_der
-    - onsite_der_type
-    - der_power
-    - der_energy
+    # These can be missing if onsite_der===false
+    # - onsite_der_type
+    # - der_power
+    # - der_energy
 properties:
 
     station_id:
