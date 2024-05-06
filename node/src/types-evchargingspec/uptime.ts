@@ -1,5 +1,6 @@
 /**
- * A product in the catalog
+ * Supports reporting the amount of uptime for a port on a station over a defined period of
+ * time.
  */
 export interface Uptime {
     /**

@@ -1,5 +1,6 @@
 /**
- * A product in the catalog
+ * Supports reporting data about service outages for a Port on a Station.  The reported data
+ * includes the start/end time of an outage, and its cause.
  */
 export interface Outage {
     /**

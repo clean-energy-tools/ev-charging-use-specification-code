@@ -1,5 +1,7 @@
 /**
- * A product in the catalog
+ * Describes a location where charging stations are installed.  It records the street
+ * address, the operating organization, the site host contact, and characteristics of the
+ * site.  A station is a collection of charging ports at a given location.
  */
 export interface Station {
     /**
@@ -10,11 +12,11 @@ export interface Station {
      * Combined nameplate capacity of onsite energy generation and/or
      * maximum battery discharge capacity in kilowatts (kW).
      */
-    der_energy: number;
+    der_energy?: number;
     /**
      * Nameplate capacity of onsite energy generation in kW
      */
-    der_power: number;
+    der_power?: number;
     /**
      * Station host point of contact email address
      */
@@ -34,7 +36,7 @@ export interface Station {
     /**
      * Valid Distributed Energy Resource Type
      */
-    onsite_der_type: OnsiteDERType;
+    onsite_der_type?: OnsiteDERType;
     /**
      * Valid Operating Status.
      */

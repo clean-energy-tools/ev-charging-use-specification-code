@@ -1,5 +1,6 @@
 /**
- * A product in the catalog
+ * Reporting for operating costs for a Station over a defined period of time.  The costs
+ * include maintenance, repair, electricity, and network communications.
  */
 export interface OperatingCosts {
     /**

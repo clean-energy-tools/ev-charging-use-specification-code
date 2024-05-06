@@ -1,5 +1,10 @@
+
+import { ValidPaymentType } from './port.js';
+
 /**
- * A product in the catalog
+ * Supports reporting data for each charging session on a port at a station.  The reported
+ * data covers the start/end of the session, energy consumption, fees charged, and whether
+ * the session reached a successful conclusion.
  */
 export interface Session {
     /**
@@ -101,6 +106,3 @@ export interface Session {
  * Valid Payment Type.
  */
 // export type ValidPaymentType = "cash" | "credit_card_terminal" | "membership" | "application" | "phone" | "plug-charge" | "roaming" | "other";
-
-import { ValidPaymentType } from './port.js';
- 

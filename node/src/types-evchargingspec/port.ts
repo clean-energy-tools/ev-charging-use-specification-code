@@ -1,5 +1,7 @@
 /**
- * A product in the catalog
+ * The system that can supply power to a single vehicle.  Typically this is a single
+ * charging cord on a single EVSE.  But specific charging station configurations may involve
+ * two or more cords.
  */
 export interface Port {
     /**
