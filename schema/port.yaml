@@ -86,14 +86,14 @@ properties:
             Maximum charging power level of the port (in kW)
         type: number
 
-    port_latitude:
+    port_longitude:
         # float(>3)  default=yes part 680=no
         description: |
             Port WSG84-encoded longitude in decimal degrees to at least 4 decimal places.
             Valid longitudes are between -180 and 180
         $ref: './common.json#/definitions/latitude'
 
-    port_longitude:
+    port_latitude:
         # float(>3)  default=yes        part 680=no
         description: |
             Port WSG84 encoded latitude in decimal degrees to at least 4 decimal places.
